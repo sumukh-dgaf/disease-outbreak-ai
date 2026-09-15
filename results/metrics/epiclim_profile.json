@@ -1,0 +1,1116 @@
+{
+  "basic": {
+    "row_count": 8985,
+    "column_count": 15,
+    "columns": [
+      "Unnamed: 0",
+      "week_of_outbreak",
+      "state_ut",
+      "district",
+      "Disease",
+      "Cases",
+      "Deaths",
+      "day",
+      "mon",
+      "year",
+      "Latitude",
+      "Longitude",
+      "preci",
+      "LAI",
+      "Temp"
+    ],
+    "dtypes": {
+      "Unnamed: 0": "int64",
+      "week_of_outbreak": "object",
+      "state_ut": "object",
+      "district": "object",
+      "Disease": "object",
+      "Cases": "object",
+      "Deaths": "float64",
+      "day": "int64",
+      "mon": "int64",
+      "year": "int64",
+      "Latitude": "float64",
+      "Longitude": "float64",
+      "preci": "float64",
+      "LAI": "float64",
+      "Temp": "float64"
+    },
+    "date_range": {
+      "min": "2009-05-04T00:00:00",
+      "max": "2022-06-29T00:00:00",
+      "unparseable_date_rows": 0
+    }
+  },
+  "disease_counts": {
+    "rows_per_disease": {
+      "Acute Diarrhoeal Disease": 5126,
+      "Dengue": 1619,
+      "Chikungunya": 731,
+      "Cholera": 666,
+      "Malaria": 544,
+      "Acute Encephalitis Syndrome": 111,
+      "Acute Gastroenteritis": 100,
+      "Dengue And Chikungunya": 53,
+      "Suspected Dengue": 14,
+      "Dengue And Malaria": 3,
+      "Suspected Chikungunya": 3,
+      "Dengue/Chikungunya": 3,
+      "Dengue Fever": 2,
+      "Suspected Cholera": 2,
+      "pyrexia of unknown origin": 1,
+      "Malaria (PV)": 1,
+      "Dengue Chikungunya": 1,
+      "Diarrhea": 1,
+      "Gastroenteritis": 1,
+      "Suspected Dengue And Chikungunya": 1,
+      "Chikungunya/Dengue": 1,
+      "Chikungunya/ Dengue": 1
+    },
+    "rows_per_disease_per_year": {
+      "Acute Diarrhoeal Disease": {
+        "2009": 223,
+        "2010": 470,
+        "2011": 607,
+        "2012": 455,
+        "2013": 577,
+        "2014": 357,
+        "2015": 440,
+        "2016": 635,
+        "2017": 316,
+        "2018": 320,
+        "2019": 336,
+        "2020": 70,
+        "2021": 179,
+        "2022": 141
+      },
+      "Acute Encephalitis Syndrome": {
+        "2009": 2,
+        "2010": 6,
+        "2011": 26,
+        "2012": 5,
+        "2013": 15,
+        "2014": 18,
+        "2015": 0,
+        "2016": 11,
+        "2017": 7,
+        "2018": 5,
+        "2019": 6,
+        "2020": 0,
+        "2021": 9,
+        "2022": 1
+      },
+      "Acute Gastroenteritis": {
+        "2009": 0,
+        "2010": 0,
+        "2011": 0,
+        "2012": 0,
+        "2013": 0,
+        "2014": 0,
+        "2015": 0,
+        "2016": 61,
+        "2017": 35,
+        "2018": 3,
+        "2019": 0,
+        "2020": 0,
+        "2021": 0,
+        "2022": 1
+      },
+      "Chikungunya": {
+        "2009": 47,
+        "2010": 39,
+        "2011": 84,
+        "2012": 57,
+        "2013": 58,
+        "2014": 63,
+        "2015": 48,
+        "2016": 50,
+        "2017": 68,
+        "2018": 80,
+        "2019": 76,
+        "2020": 22,
+        "2021": 33,
+        "2022": 6
+      },
+      "Chikungunya/ Dengue": {
+        "2009": 0,
+        "2010": 1,
+        "2011": 0,
+        "2012": 0,
+        "2013": 0,
+        "2014": 0,
+        "2015": 0,
+        "2016": 0,
+        "2017": 0,
+        "2018": 0,
+        "2019": 0,
+        "2020": 0,
+        "2021": 0,
+        "2022": 0
+      },
+      "Chikungunya/Dengue": {
+        "2009": 0,
+        "2010": 0,
+        "2011": 1,
+        "2012": 0,
+        "2013": 0,
+        "2014": 0,
+        "2015": 0,
+        "2016": 0,
+        "2017": 0,
+        "2018": 0,
+        "2019": 0,
+        "2020": 0,
+        "2021": 0,
+        "2022": 0
+      },
+      "Cholera": {
+        "2009": 24,
+        "2010": 51,
+        "2011": 69,
+        "2012": 89,
+        "2013": 99,
+        "2014": 44,
+        "2015": 45,
+        "2016": 120,
+        "2017": 30,
+        "2018": 31,
+        "2019": 27,
+        "2020": 4,
+        "2021": 27,
+        "2022": 6
+      },
+      "Dengue": {
+        "2009": 16,
+        "2010": 66,
+        "2011": 64,
+        "2012": 178,
+        "2013": 139,
+        "2014": 126,
+        "2015": 214,
+        "2016": 183,
+        "2017": 175,
+        "2018": 115,
+        "2019": 183,
+        "2020": 42,
+        "2021": 95,
+        "2022": 23
+      },
+      "Dengue And Chikungunya": {
+        "2009": 0,
+        "2010": 0,
+        "2011": 2,
+        "2012": 4,
+        "2013": 2,
+        "2014": 10,
+        "2015": 5,
+        "2016": 7,
+        "2017": 12,
+        "2018": 0,
+        "2019": 10,
+        "2020": 1,
+        "2021": 0,
+        "2022": 0
+      },
+      "Dengue And Malaria": {
+        "2009": 0,
+        "2010": 0,
+        "2011": 0,
+        "2012": 1,
+        "2013": 0,
+        "2014": 1,
+        "2015": 0,
+        "2016": 1,
+        "2017": 0,
+        "2018": 0,
+        "2019": 0,
+        "2020": 0,
+        "2021": 0,
+        "2022": 0
+      },
+      "Dengue Chikungunya": {
+        "2009": 0,
+        "2010": 0,
+        "2011": 0,
+        "2012": 0,
+        "2013": 0,
+        "2014": 0,
+        "2015": 0,
+        "2016": 0,
+        "2017": 0,
+        "2018": 0,
+        "2019": 0,
+        "2020": 0,
+        "2021": 1,
+        "2022": 0
+      },
+      "Dengue Fever": {
+        "2009": 0,
+        "2010": 0,
+        "2011": 0,
+        "2012": 0,
+        "2013": 0,
+        "2014": 0,
+        "2015": 0,
+        "2016": 0,
+        "2017": 0,
+        "2018": 0,
+        "2019": 0,
+        "2020": 0,
+        "2021": 2,
+        "2022": 0
+      },
+      "Dengue/Chikungunya": {
+        "2009": 0,
+        "2010": 1,
+        "2011": 0,
+        "2012": 2,
+        "2013": 0,
+        "2014": 0,
+        "2015": 0,
+        "2016": 0,
+        "2017": 0,
+        "2018": 0,
+        "2019": 0,
+        "2020": 0,
+        "2021": 0,
+        "2022": 0
+      },
+      "Diarrhea": {
+        "2009": 0,
+        "2010": 0,
+        "2011": 0,
+        "2012": 0,
+        "2013": 0,
+        "2014": 0,
+        "2015": 0,
+        "2016": 0,
+        "2017": 0,
+        "2018": 1,
+        "2019": 0,
+        "2020": 0,
+        "2021": 0,
+        "2022": 0
+      },
+      "Gastroenteritis": {
+        "2009": 0,
+        "2010": 0,
+        "2011": 0,
+        "2012": 0,
+        "2013": 0,
+        "2014": 0,
+        "2015": 0,
+        "2016": 1,
+        "2017": 0,
+        "2018": 0,
+        "2019": 0,
+        "2020": 0,
+        "2021": 0,
+        "2022": 0
+      },
+      "Malaria": {
+        "2009": 25,
+        "2010": 56,
+        "2011": 101,
+        "2012": 11,
+        "2013": 42,
+        "2014": 63,
+        "2015": 92,
+        "2016": 40,
+        "2017": 33,
+        "2018": 16,
+        "2019": 27,
+        "2020": 11,
+        "2021": 19,
+        "2022": 8
+      },
+      "Malaria (PV)": {
+        "2009": 0,
+        "2010": 0,
+        "2011": 0,
+        "2012": 0,
+        "2013": 0,
+        "2014": 0,
+        "2015": 0,
+        "2016": 0,
+        "2017": 0,
+        "2018": 0,
+        "2019": 0,
+        "2020": 0,
+        "2021": 0,
+        "2022": 1
+      },
+      "Suspected Chikungunya": {
+        "2009": 0,
+        "2010": 0,
+        "2011": 0,
+        "2012": 0,
+        "2013": 0,
+        "2014": 0,
+        "2015": 0,
+        "2016": 0,
+        "2017": 3,
+        "2018": 0,
+        "2019": 0,
+        "2020": 0,
+        "2021": 0,
+        "2022": 0
+      },
+      "Suspected Cholera": {
+        "2009": 0,
+        "2010": 0,
+        "2011": 0,
+        "2012": 0,
+        "2013": 0,
+        "2014": 0,
+        "2015": 0,
+        "2016": 0,
+        "2017": 1,
+        "2018": 0,
+        "2019": 1,
+        "2020": 0,
+        "2021": 0,
+        "2022": 0
+      },
+      "Suspected Dengue": {
+        "2009": 0,
+        "2010": 0,
+        "2011": 0,
+        "2012": 0,
+        "2013": 0,
+        "2014": 0,
+        "2015": 0,
+        "2016": 4,
+        "2017": 4,
+        "2018": 1,
+        "2019": 2,
+        "2020": 1,
+        "2021": 2,
+        "2022": 0
+      },
+      "Suspected Dengue And Chikungunya": {
+        "2009": 0,
+        "2010": 0,
+        "2011": 0,
+        "2012": 0,
+        "2013": 0,
+        "2014": 0,
+        "2015": 0,
+        "2016": 0,
+        "2017": 1,
+        "2018": 0,
+        "2019": 0,
+        "2020": 0,
+        "2021": 0,
+        "2022": 0
+      },
+      "pyrexia of unknown origin": {
+        "2009": 0,
+        "2010": 0,
+        "2011": 0,
+        "2012": 0,
+        "2013": 0,
+        "2014": 0,
+        "2015": 0,
+        "2016": 0,
+        "2017": 0,
+        "2018": 0,
+        "2019": 0,
+        "2020": 0,
+        "2021": 0,
+        "2022": 1
+      }
+    }
+  },
+  "geography": {
+    "unique_districts": 791,
+    "unique_states": 36,
+    "unique_state_district_pairs": 795,
+    "districts_per_disease": {
+      "Acute Diarrhoeal Disease": 684,
+      "Acute Encephalitis Syndrome": 52,
+      "Acute Gastroenteritis": 66,
+      "Chikungunya": 195,
+      "Chikungunya/ Dengue": 1,
+      "Chikungunya/Dengue": 1,
+      "Cholera": 208,
+      "Dengue": 344,
+      "Dengue And Chikungunya": 34,
+      "Dengue And Malaria": 3,
+      "Dengue Chikungunya": 1,
+      "Dengue Fever": 2,
+      "Dengue/Chikungunya": 3,
+      "Diarrhea": 1,
+      "Gastroenteritis": 1,
+      "Malaria": 199,
+      "Malaria (PV)": 1,
+      "Suspected Chikungunya": 3,
+      "Suspected Cholera": 2,
+      "Suspected Dengue": 12,
+      "Suspected Dengue And Chikungunya": 1,
+      "pyrexia of unknown origin": 1
+    }
+  },
+  "focus_diseases": {
+    "Dengue": {
+      "row_count": 1619,
+      "rows_per_year": {
+        "2009": 16,
+        "2010": 66,
+        "2011": 64,
+        "2012": 178,
+        "2013": 139,
+        "2014": 126,
+        "2015": 214,
+        "2016": 183,
+        "2017": 175,
+        "2018": 115,
+        "2019": 183,
+        "2020": 42,
+        "2021": 95,
+        "2022": 23
+      },
+      "top_10_districts": {
+        "Nadia": 36,
+        "Ernakulam": 34,
+        "Satara": 33,
+        "Ahmednagar": 28,
+        "Nashik": 28,
+        "Beed": 28,
+        "Thane": 27,
+        "Pune": 27,
+        "Tumkur": 27,
+        "Chandigarh": 24
+      },
+      "top_district": {
+        "name": "Nadia",
+        "row_count": 36,
+        "unique_year_week_pairs": 29,
+        "year_week_pairs": [
+          [
+            2010,
+            39
+          ],
+          [
+            2010,
+            40
+          ],
+          [
+            2010,
+            41
+          ],
+          [
+            2012,
+            32
+          ],
+          [
+            2012,
+            37
+          ],
+          [
+            2012,
+            39
+          ],
+          [
+            2012,
+            41
+          ],
+          [
+            2012,
+            42
+          ],
+          [
+            2012,
+            44
+          ],
+          [
+            2012,
+            48
+          ],
+          [
+            2013,
+            37
+          ],
+          [
+            2013,
+            38
+          ],
+          [
+            2013,
+            44
+          ],
+          [
+            2015,
+            37
+          ],
+          [
+            2015,
+            38
+          ],
+          [
+            2015,
+            44
+          ],
+          [
+            2016,
+            35
+          ],
+          [
+            2016,
+            36
+          ],
+          [
+            2016,
+            37
+          ],
+          [
+            2017,
+            38
+          ],
+          [
+            2017,
+            39
+          ],
+          [
+            2017,
+            41
+          ],
+          [
+            2017,
+            43
+          ],
+          [
+            2018,
+            35
+          ],
+          [
+            2018,
+            36
+          ],
+          [
+            2018,
+            37
+          ],
+          [
+            2018,
+            40
+          ],
+          [
+            2018,
+            45
+          ],
+          [
+            2019,
+            32
+          ]
+        ]
+      }
+    },
+    "Malaria": {
+      "row_count": 544,
+      "rows_per_year": {
+        "2009": 25,
+        "2010": 56,
+        "2011": 101,
+        "2012": 11,
+        "2013": 42,
+        "2014": 63,
+        "2015": 92,
+        "2016": 40,
+        "2017": 33,
+        "2018": 16,
+        "2019": 27,
+        "2020": 11,
+        "2021": 19,
+        "2022": 8
+      },
+      "top_10_districts": {
+        "Gadchiroli": 39,
+        "Munger": 20,
+        "West Singhbhum": 19,
+        "Thane": 14,
+        "Mandla": 14,
+        "Chandrapur": 12,
+        "Chirang": 12,
+        "Malda": 11,
+        "Morena": 10,
+        "Udupi": 9
+      },
+      "top_district": {
+        "name": "Gadchiroli",
+        "row_count": 39,
+        "unique_year_week_pairs": 35,
+        "year_week_pairs": [
+          [
+            2011,
+            47
+          ],
+          [
+            2013,
+            20
+          ],
+          [
+            2013,
+            38
+          ],
+          [
+            2014,
+            2
+          ],
+          [
+            2014,
+            24
+          ],
+          [
+            2014,
+            26
+          ],
+          [
+            2014,
+            37
+          ],
+          [
+            2014,
+            39
+          ],
+          [
+            2014,
+            45
+          ],
+          [
+            2014,
+            47
+          ],
+          [
+            2015,
+            29
+          ],
+          [
+            2015,
+            30
+          ],
+          [
+            2015,
+            33
+          ],
+          [
+            2015,
+            47
+          ],
+          [
+            2015,
+            50
+          ],
+          [
+            2016,
+            7
+          ],
+          [
+            2016,
+            32
+          ],
+          [
+            2017,
+            1
+          ],
+          [
+            2017,
+            30
+          ],
+          [
+            2017,
+            32
+          ],
+          [
+            2018,
+            29
+          ],
+          [
+            2018,
+            44
+          ],
+          [
+            2019,
+            2
+          ],
+          [
+            2020,
+            16
+          ],
+          [
+            2020,
+            31
+          ],
+          [
+            2020,
+            44
+          ],
+          [
+            2021,
+            3
+          ],
+          [
+            2021,
+            4
+          ],
+          [
+            2021,
+            30
+          ],
+          [
+            2021,
+            31
+          ],
+          [
+            2021,
+            43
+          ],
+          [
+            2021,
+            44
+          ],
+          [
+            2022,
+            2
+          ],
+          [
+            2022,
+            6
+          ],
+          [
+            2022,
+            22
+          ]
+        ]
+      }
+    }
+  },
+  "cases_distribution_per_disease": {
+    "Acute Diarrhoeal Disease": {
+      "n": 5126,
+      "non_numeric_excluded": 0,
+      "min": 1.0,
+      "median": 28.0,
+      "mean": 49.055013655872024,
+      "p90": 99.0,
+      "max": 4485.0
+    },
+    "Acute Encephalitis Syndrome": {
+      "n": 111,
+      "non_numeric_excluded": 0,
+      "min": 1.0,
+      "median": 9.0,
+      "mean": 34.666666666666664,
+      "p90": 121.0,
+      "max": 341.0
+    },
+    "Acute Gastroenteritis": {
+      "n": 100,
+      "non_numeric_excluded": 0,
+      "min": 4.0,
+      "median": 26.5,
+      "mean": 50.15,
+      "p90": 69.10000000000001,
+      "max": 892.0
+    },
+    "Chikungunya": {
+      "n": 731,
+      "non_numeric_excluded": 0,
+      "min": 2.0,
+      "median": 25.0,
+      "mean": 72.89876880984951,
+      "p90": 80.0,
+      "max": 6156.0
+    },
+    "Chikungunya/ Dengue": {
+      "n": 1,
+      "non_numeric_excluded": 0,
+      "min": 301.0,
+      "median": 301.0,
+      "mean": 301.0,
+      "p90": 301.0,
+      "max": 301.0
+    },
+    "Chikungunya/Dengue": {
+      "n": 1,
+      "non_numeric_excluded": 0,
+      "min": 538.0,
+      "median": 538.0,
+      "mean": 538.0,
+      "p90": 538.0,
+      "max": 538.0
+    },
+    "Cholera": {
+      "n": 666,
+      "non_numeric_excluded": 0,
+      "min": 1.0,
+      "median": 35.0,
+      "mean": 189.93243243243242,
+      "p90": 192.5,
+      "max": 51225.0
+    },
+    "Dengue": {
+      "n": 1619,
+      "non_numeric_excluded": 1,
+      "min": 1.0,
+      "median": 23.0,
+      "mean": 147.12422744128554,
+      "p90": 174.0,
+      "max": 15254.0
+    },
+    "Dengue And Chikungunya": {
+      "n": 53,
+      "non_numeric_excluded": 0,
+      "min": 4.0,
+      "median": 25.0,
+      "mean": 86.77358490566037,
+      "p90": 157.40000000000023,
+      "max": 970.0
+    },
+    "Dengue And Malaria": {
+      "n": 3,
+      "non_numeric_excluded": 0,
+      "min": 29.0,
+      "median": 130.0,
+      "mean": 123.66666666666667,
+      "p90": 195.6,
+      "max": 212.0
+    },
+    "Dengue Chikungunya": {
+      "n": 1,
+      "non_numeric_excluded": 0,
+      "min": 19.0,
+      "median": 19.0,
+      "mean": 19.0,
+      "p90": 19.0,
+      "max": 19.0
+    },
+    "Dengue Fever": {
+      "n": 2,
+      "non_numeric_excluded": 0,
+      "min": 7.0,
+      "median": 7.5,
+      "mean": 7.5,
+      "p90": 7.9,
+      "max": 8.0
+    },
+    "Dengue/Chikungunya": {
+      "n": 3,
+      "non_numeric_excluded": 0,
+      "min": 23.0,
+      "median": 24.0,
+      "mean": 24.666666666666668,
+      "p90": 26.4,
+      "max": 27.0
+    },
+    "Diarrhea": {
+      "n": 1,
+      "non_numeric_excluded": 0,
+      "min": 30.0,
+      "median": 30.0,
+      "mean": 30.0,
+      "p90": 30.0,
+      "max": 30.0
+    },
+    "Gastroenteritis": {
+      "n": 1,
+      "non_numeric_excluded": 0,
+      "min": 33.0,
+      "median": 33.0,
+      "mean": 33.0,
+      "p90": 33.0,
+      "max": 33.0
+    },
+    "Malaria": {
+      "n": 544,
+      "non_numeric_excluded": 0,
+      "min": 1.0,
+      "median": 35.0,
+      "mean": 205.62132352941177,
+      "p90": 251.79999999999995,
+      "max": 36904.0
+    },
+    "Malaria (PV)": {
+      "n": 1,
+      "non_numeric_excluded": 0,
+      "min": 5.0,
+      "median": 5.0,
+      "mean": 5.0,
+      "p90": 5.0,
+      "max": 5.0
+    },
+    "Suspected Chikungunya": {
+      "n": 3,
+      "non_numeric_excluded": 0,
+      "min": 10.0,
+      "median": 13.0,
+      "mean": 18.0,
+      "p90": 27.400000000000002,
+      "max": 31.0
+    },
+    "Suspected Cholera": {
+      "n": 2,
+      "non_numeric_excluded": 0,
+      "min": 6.0,
+      "median": 12.5,
+      "mean": 12.5,
+      "p90": 17.7,
+      "max": 19.0
+    },
+    "Suspected Dengue": {
+      "n": 14,
+      "non_numeric_excluded": 0,
+      "min": 5.0,
+      "median": 15.0,
+      "mean": 20.785714285714285,
+      "p90": 42.1,
+      "max": 58.0
+    },
+    "Suspected Dengue And Chikungunya": {
+      "n": 1,
+      "non_numeric_excluded": 0,
+      "min": 49.0,
+      "median": 49.0,
+      "mean": 49.0,
+      "p90": 49.0,
+      "max": 49.0
+    },
+    "pyrexia of unknown origin": {
+      "n": 1,
+      "non_numeric_excluded": 0,
+      "min": 15.0,
+      "median": 15.0,
+      "mean": 15.0,
+      "p90": 15.0,
+      "max": 15.0
+    },
+    "_non_numeric_example_values_overall": [
+      "3/1"
+    ]
+  },
+  "duplicates": {
+    "key_columns": [
+      "year",
+      "week_num",
+      "district",
+      "Disease"
+    ],
+    "duplicate_row_count": 1098,
+    "duplicate_group_count": 497,
+    "top_duplicate_groups": [
+      {
+        "year": 2013,
+        "week_num": 36,
+        "district": "Balod",
+        "Disease": "Acute Diarrhoeal Disease",
+        "row_count": 10
+      },
+      {
+        "year": 2012,
+        "week_num": 34,
+        "district": "Mahasamund",
+        "Disease": "Acute Diarrhoeal Disease",
+        "row_count": 6
+      },
+      {
+        "year": 2013,
+        "week_num": 50,
+        "district": "Satara",
+        "Disease": "Acute Diarrhoeal Disease",
+        "row_count": 6
+      },
+      {
+        "year": 2011,
+        "week_num": 37,
+        "district": "Bankura",
+        "Disease": "Acute Diarrhoeal Disease",
+        "row_count": 5
+      },
+      {
+        "year": 2019,
+        "week_num": 42,
+        "district": "Chandauli",
+        "Disease": "Acute Diarrhoeal Disease",
+        "row_count": 5
+      },
+      {
+        "year": 2017,
+        "week_num": 39,
+        "district": "Pune",
+        "Disease": "Dengue",
+        "row_count": 5
+      },
+      {
+        "year": 2011,
+        "week_num": 25,
+        "district": "Hassan",
+        "Disease": "Acute Diarrhoeal Disease",
+        "row_count": 4
+      },
+      {
+        "year": 2011,
+        "week_num": 25,
+        "district": "Bankura",
+        "Disease": "Acute Diarrhoeal Disease",
+        "row_count": 4
+      },
+      {
+        "year": 2011,
+        "week_num": 25,
+        "district": "Surguja",
+        "Disease": "Acute Diarrhoeal Disease",
+        "row_count": 4
+      },
+      {
+        "year": 2017,
+        "week_num": 32,
+        "district": "Chandauli",
+        "Disease": "Acute Diarrhoeal Disease",
+        "row_count": 4
+      }
+    ]
+  },
+  "missing_values_per_column": {
+    "Unnamed: 0": 0,
+    "week_of_outbreak": 0,
+    "state_ut": 0,
+    "district": 0,
+    "Disease": 0,
+    "Cases": 0,
+    "Deaths": 6431,
+    "day": 0,
+    "mon": 0,
+    "year": 0,
+    "Latitude": 0,
+    "Longitude": 0,
+    "preci": 136,
+    "LAI": 2195,
+    "Temp": 938
+  },
+  "climate_columns": {
+    "preci": {
+      "min": 1.74e-06,
+      "max": 5.679999853,
+      "mean": 0.4621250320674176,
+      "missing": 136
+    },
+    "LAI": {
+      "min": 0.0,
+      "max": 62.0,
+      "mean": 10.907142857142857,
+      "missing": 2195
+    },
+    "Temp": {
+      "min": 259.68,
+      "max": 327.728,
+      "mean": 304.519530549969,
+      "missing": 938,
+      "unit_guess": "Kelvin",
+      "median": 303.445,
+      "celsius_equivalent_range": [
+        -13.46999999999997,
+        54.57800000000003
+      ]
+    }
+  }
+}
