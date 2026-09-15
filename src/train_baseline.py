@@ -415,6 +415,14 @@ def run_horizon_experiment() -> dict:
             splits["train"], REPORTING_ONLY_FEATURES, target_col=target_col
         )
 
+        logit_horizon_path = Path(f"models/logistic_regression_reporting_only_h{h}.joblib")
+        logit_horizon_path.parent.mkdir(parents=True, exist_ok=True)
+        joblib.dump(
+            {"model": logit_model, "columns": list(logit_columns), "scaler": logit_scaler},
+            logit_horizon_path,
+        )
+        print(f"  saved trained model to {logit_horizon_path}")
+
         def logistic_fn(df):
             return logistic_predict(logit_model, df, REPORTING_ONLY_FEATURES, logit_columns, logit_scaler)
 
@@ -424,6 +432,11 @@ def run_horizon_experiment() -> dict:
         )
 
         xgb_model = fit_xgboost(splits["train"], splits["validation"], REPORTING_ONLY_FEATURES, target_col=target_col)
+
+        xgb_horizon_path = Path(f"models/xgboost_reporting_only_h{h}.joblib")
+        xgb_horizon_path.parent.mkdir(parents=True, exist_ok=True)
+        joblib.dump(xgb_model, xgb_horizon_path)
+        print(f"  saved trained model to {xgb_horizon_path}")
 
         def xgboost_fn(df):
             return xgboost_predict(xgb_model, df, REPORTING_ONLY_FEATURES)

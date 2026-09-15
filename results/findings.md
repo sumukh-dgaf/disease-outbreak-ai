@@ -354,3 +354,76 @@ h=3 as a genuinely better horizon than h=1.
 **Source:** computed directly from `results/metrics/horizon_results.json`
 — `xgboost_reporting_only.test."Maharashtra / Dengue".pr_auc`,
 `.pr_auc_ci_lo`, and `.pr_auc_ci_hi` for `h="1"` and `h="3"`.
+
+---
+
+## F13 — Permutation importance does not corroborate SHAP's feature attributions for the h=1 +climate XGBoost model
+
+**Claim:** For the same trained model and the same test-split rows, mean
+|SHAP| and permutation importance disagree sharply on which features
+matter — including a full sign flip on SHAP's top-ranked feature for one
+of the three combos — so the SHAP ranking reflects how this particular
+model distributes credit internally, not an attribution corroborated by
+an independent importance method.
+
+**Supporting numbers:**
+- `reported_roll_8` is SHAP's #1 feature (by mean |SHAP|) for all three
+  combos. Its permutation-importance rank (out of 29 features) is #1 for
+  Karnataka/ADD (mean +0.1136) and #1 for Maharashtra/Dengue (mean
+  +0.1286) — but **#29 (dead last) for Maharashtra/ADD, with a negative
+  mean (-0.0594)**: shuffling this "most important" feature slightly
+  improved the model's test PR-AUC rather than degrading it.
+- Across all three combos, permutation importance is nearly flat overall:
+  11/29 (Karnataka/ADD), 11/29 (Maharashtra/ADD), and 8/29
+  (Maharashtra/Dengue) features have |mean importance| < 0.001, and 6/29,
+  17/29, and 16/29 features respectively have a *negative* mean
+  importance (removing signal, by chance, helped the score).
+
+**Source:** computed directly from `results/metrics/shap_summary.json`
+(mean |SHAP| rank per feature per combo) and
+`results/metrics/permutation_importance.json` (`importance_mean` and rank
+per feature per combo) — both produced by `src/explainability.py` against
+the same `models/xgboost_with_climate.joblib` model and the same test-split
+rows. Cross-referenced: `reported_roll_8`'s entries in both files for all
+three combo keys.
+
+---
+
+## F14 — XGBoost and logistic regression are not statistically distinguishable at any horizon, for any of the three combos
+
+**Claim:** For every (combo, horizon) cell tested — 3 combos × 4 horizons
+= 12 cells — the test-split bootstrap 95% CI on PR-AUC for XGBoost
+(reporting-only) overlaps the CI for logistic regression (reporting-only).
+No combo/horizon shows one model's CI fully separated from the other's, so
+neither model can be called better than the other with the confidence
+this bootstrap provides.
+
+**Supporting numbers (PR-AUC 95% CI, XGBoost vs. logistic regression,
+test split):**
+
+| State / Disease | h | XGBoost CI | Logistic CI |
+|---|---|---|---|
+| Karnataka / Acute Diarrhoeal Disease | 1 | [0.311, 0.661] | [0.269, 0.634] |
+| Karnataka / Acute Diarrhoeal Disease | 2 | [0.261, 0.617] | [0.229, 0.599] |
+| Karnataka / Acute Diarrhoeal Disease | 3 | [0.245, 0.619] | [0.262, 0.618] |
+| Karnataka / Acute Diarrhoeal Disease | 4 | [0.173, 0.473] | [0.205, 0.586] |
+| Maharashtra / Acute Diarrhoeal Disease | 1 | [0.069, 0.246] | [0.084, 0.291] |
+| Maharashtra / Acute Diarrhoeal Disease | 2 | [0.064, 0.279] | [0.086, 0.385] |
+| Maharashtra / Acute Diarrhoeal Disease | 3 | [0.071, 0.255] | [0.086, 0.367] |
+| Maharashtra / Acute Diarrhoeal Disease | 4 | [0.080, 0.277] | [0.085, 0.307] |
+| Maharashtra / Dengue | 1 | [0.469, 0.857] | [0.461, 0.831] |
+| Maharashtra / Dengue | 2 | [0.513, 0.864] | [0.456, 0.839] |
+| Maharashtra / Dengue | 3 | [0.530, 0.872] | [0.451, 0.831] |
+| Maharashtra / Dengue | 4 | [0.397, 0.786] | [0.449, 0.824] |
+
+Every row overlaps (each pair's intervals share a non-empty range) — e.g.
+Maharashtra/ADD h=2 is the widest apparent gap in point estimates but
+still overlaps: XGBoost's upper bound (0.279) exceeds logistic's lower
+bound (0.086), and logistic's upper bound (0.385) exceeds XGBoost's lower
+bound (0.064).
+
+**Source:** computed directly from `results/metrics/horizon_results.json`
+— for each `h` in `"1".."4"` and each combo,
+`xgboost_reporting_only.test.<combo>.pr_auc_ci_lo` /
+`.pr_auc_ci_hi` and `logistic_regression_reporting_only.test.<combo>.pr_auc_ci_lo`
+/ `.pr_auc_ci_hi`, compared pairwise for interval overlap.
