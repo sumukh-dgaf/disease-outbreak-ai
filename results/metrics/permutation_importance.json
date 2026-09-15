@@ -1,0 +1,530 @@
+{
+  "Karnataka / Acute Diarrhoeal Disease": [
+    {
+      "feature": "reported_roll_8",
+      "importance_mean": 0.11355071834816752,
+      "importance_std": 0.06833487747268006,
+      "rank": 1
+    },
+    {
+      "feature": "temperature_lag_4",
+      "importance_mean": 0.035004432867869764,
+      "importance_std": 0.026807986755748452,
+      "rank": 2
+    },
+    {
+      "feature": "temperature_lag_3",
+      "importance_mean": 0.016304370348773474,
+      "importance_std": 0.015166691264332703,
+      "rank": 3
+    },
+    {
+      "feature": "week_cos_52",
+      "importance_mean": 0.014962032729602897,
+      "importance_std": 0.01649676574896309,
+      "rank": 4
+    },
+    {
+      "feature": "rainfall_lag_1",
+      "importance_mean": 0.010220432999626777,
+      "importance_std": 0.007995319078274747,
+      "rank": 5
+    },
+    {
+      "feature": "week_sin_52",
+      "importance_mean": 0.00803584374861389,
+      "importance_std": 0.005996035206631355,
+      "rank": 6
+    },
+    {
+      "feature": "rainfall_lag_4",
+      "importance_mean": 0.007120367750410689,
+      "importance_std": 0.006339659439782036,
+      "rank": 7
+    },
+    {
+      "feature": "temperature_lag_1",
+      "importance_mean": 0.006629484640749139,
+      "importance_std": 0.007688702960056091,
+      "rank": 8
+    },
+    {
+      "feature": "temperature_lag_0",
+      "importance_mean": 0.006578778327127277,
+      "importance_std": 0.010805071965063048,
+      "rank": 9
+    },
+    {
+      "feature": "week_of_year",
+      "importance_mean": 0.0045680331679459505,
+      "importance_std": 0.007759091271353452,
+      "rank": 10
+    },
+    {
+      "feature": "humidity_lag_4",
+      "importance_mean": 0.00326669655500651,
+      "importance_std": 0.004023667622655376,
+      "rank": 11
+    },
+    {
+      "feature": "reported_roll_4",
+      "importance_mean": 0.002463999339014572,
+      "importance_std": 0.004121685888203454,
+      "rank": 12
+    },
+    {
+      "feature": "humidity_lag_0",
+      "importance_mean": 0.0022062468123451363,
+      "importance_std": 0.0034352809445928256,
+      "rank": 13
+    },
+    {
+      "feature": "week_cos_26",
+      "importance_mean": 0.0019398960833226786,
+      "importance_std": 0.0053400001921846615,
+      "rank": 14
+    },
+    {
+      "feature": "rainfall_lag_0",
+      "importance_mean": 0.0006416364458954494,
+      "importance_std": 0.009789556392921955,
+      "rank": 15
+    },
+    {
+      "feature": "humidity_lag_2",
+      "importance_mean": 0.0003744267601959839,
+      "importance_std": 0.004852759727530845,
+      "rank": 16
+    },
+    {
+      "feature": "temperature_lag_2",
+      "importance_mean": 0.00023942478592842154,
+      "importance_std": 0.0019737563080947456,
+      "rank": 17
+    },
+    {
+      "feature": "reported_lag_1",
+      "importance_mean": 0.00015912912544528425,
+      "importance_std": 0.01056365408792958,
+      "rank": 18
+    },
+    {
+      "feature": "state",
+      "importance_mean": 0.0,
+      "importance_std": 0.0,
+      "rank": 19
+    },
+    {
+      "feature": "disease",
+      "importance_mean": 0.0,
+      "importance_std": 0.0,
+      "rank": 20
+    },
+    {
+      "feature": "reported_lag_2",
+      "importance_mean": 0.0,
+      "importance_std": 0.0,
+      "rank": 21
+    },
+    {
+      "feature": "reported_lag_3",
+      "importance_mean": 0.0,
+      "importance_std": 0.0,
+      "rank": 22
+    },
+    {
+      "feature": "is_covid_period",
+      "importance_mean": 0.0,
+      "importance_std": 0.0,
+      "rank": 23
+    },
+    {
+      "feature": "rainfall_lag_3",
+      "importance_mean": -0.0002601858549731162,
+      "importance_std": 0.0025333132076393967,
+      "rank": 24
+    },
+    {
+      "feature": "humidity_lag_1",
+      "importance_mean": -0.0007571948669650274,
+      "importance_std": 0.005492704437707523,
+      "rank": 25
+    },
+    {
+      "feature": "reported_lag_4",
+      "importance_mean": -0.0015843493100466178,
+      "importance_std": 0.0016669425029457044,
+      "rank": 26
+    },
+    {
+      "feature": "week_sin_26",
+      "importance_mean": -0.0017873519367030133,
+      "importance_std": 0.009389906890490029,
+      "rank": 27
+    },
+    {
+      "feature": "humidity_lag_3",
+      "importance_mean": -0.002350736069704551,
+      "importance_std": 0.007182613734121719,
+      "rank": 28
+    },
+    {
+      "feature": "rainfall_lag_2",
+      "importance_mean": -0.0029883441862620765,
+      "importance_std": 0.007315107577341399,
+      "rank": 29
+    }
+  ],
+  "Maharashtra / Acute Diarrhoeal Disease": [
+    {
+      "feature": "temperature_lag_4",
+      "importance_mean": 0.012194180681863962,
+      "importance_std": 0.00444598489896499,
+      "rank": 1
+    },
+    {
+      "feature": "temperature_lag_3",
+      "importance_mean": 0.009477540464645235,
+      "importance_std": 0.004658597072958525,
+      "rank": 2
+    },
+    {
+      "feature": "reported_lag_1",
+      "importance_mean": 0.0025319893593518513,
+      "importance_std": 0.0024875691367027327,
+      "rank": 3
+    },
+    {
+      "feature": "week_sin_26",
+      "importance_mean": 0.001467983684979615,
+      "importance_std": 0.0031092031316018952,
+      "rank": 4
+    },
+    {
+      "feature": "humidity_lag_0",
+      "importance_mean": 0.00045375855728381763,
+      "importance_std": 0.001300957673066028,
+      "rank": 5
+    },
+    {
+      "feature": "week_cos_52",
+      "importance_mean": 0.00025969655457219466,
+      "importance_std": 0.001406270404824005,
+      "rank": 6
+    },
+    {
+      "feature": "rainfall_lag_3",
+      "importance_mean": 9.162218816830686e-05,
+      "importance_std": 0.000508031777273443,
+      "rank": 7
+    },
+    {
+      "feature": "state",
+      "importance_mean": 0.0,
+      "importance_std": 0.0,
+      "rank": 8
+    },
+    {
+      "feature": "disease",
+      "importance_mean": 0.0,
+      "importance_std": 0.0,
+      "rank": 9
+    },
+    {
+      "feature": "reported_lag_2",
+      "importance_mean": 0.0,
+      "importance_std": 0.0,
+      "rank": 10
+    },
+    {
+      "feature": "reported_lag_3",
+      "importance_mean": 0.0,
+      "importance_std": 0.0,
+      "rank": 11
+    },
+    {
+      "feature": "is_covid_period",
+      "importance_mean": 0.0,
+      "importance_std": 0.0,
+      "rank": 12
+    },
+    {
+      "feature": "rainfall_lag_2",
+      "importance_mean": -8.879279406028423e-05,
+      "importance_std": 0.0008325267300204324,
+      "rank": 13
+    },
+    {
+      "feature": "humidity_lag_2",
+      "importance_mean": -0.0007196279403660494,
+      "importance_std": 0.002305744948534059,
+      "rank": 14
+    },
+    {
+      "feature": "rainfall_lag_0",
+      "importance_mean": -0.0007860485882771287,
+      "importance_std": 0.0014906413977272793,
+      "rank": 15
+    },
+    {
+      "feature": "reported_lag_4",
+      "importance_mean": -0.0011336790933427932,
+      "importance_std": 0.001069064041244796,
+      "rank": 16
+    },
+    {
+      "feature": "humidity_lag_4",
+      "importance_mean": -0.0012398976317233787,
+      "importance_std": 0.0015162567835557833,
+      "rank": 17
+    },
+    {
+      "feature": "reported_roll_4",
+      "importance_mean": -0.0013811881579647773,
+      "importance_std": 0.0013085293975247927,
+      "rank": 18
+    },
+    {
+      "feature": "humidity_lag_1",
+      "importance_mean": -0.0014294618491530284,
+      "importance_std": 0.001653013378090638,
+      "rank": 19
+    },
+    {
+      "feature": "week_sin_52",
+      "importance_mean": -0.0014659361802733402,
+      "importance_std": 0.001857984803531576,
+      "rank": 20
+    },
+    {
+      "feature": "temperature_lag_0",
+      "importance_mean": -0.0015393782944072426,
+      "importance_std": 0.005062073207417812,
+      "rank": 21
+    },
+    {
+      "feature": "week_cos_26",
+      "importance_mean": -0.0018697010358145096,
+      "importance_std": 0.0011790250883746518,
+      "rank": 22
+    },
+    {
+      "feature": "temperature_lag_1",
+      "importance_mean": -0.0018858296571236319,
+      "importance_std": 0.0021194888222697793,
+      "rank": 23
+    },
+    {
+      "feature": "rainfall_lag_4",
+      "importance_mean": -0.002015096973512559,
+      "importance_std": 0.001458282489129014,
+      "rank": 24
+    },
+    {
+      "feature": "humidity_lag_3",
+      "importance_mean": -0.0020688584819608473,
+      "importance_std": 0.0024726059469604186,
+      "rank": 25
+    },
+    {
+      "feature": "week_of_year",
+      "importance_mean": -0.002774324023959722,
+      "importance_std": 0.0009300320698622748,
+      "rank": 26
+    },
+    {
+      "feature": "temperature_lag_2",
+      "importance_mean": -0.003831022075730252,
+      "importance_std": 0.0019453246764897867,
+      "rank": 27
+    },
+    {
+      "feature": "rainfall_lag_1",
+      "importance_mean": -0.00522435812913825,
+      "importance_std": 0.005855329229239629,
+      "rank": 28
+    },
+    {
+      "feature": "reported_roll_8",
+      "importance_mean": -0.059438111683649195,
+      "importance_std": 0.058193951948395384,
+      "rank": 29
+    }
+  ],
+  "Maharashtra / Dengue": [
+    {
+      "feature": "reported_roll_8",
+      "importance_mean": 0.12864894215694017,
+      "importance_std": 0.05691184616758608,
+      "rank": 1
+    },
+    {
+      "feature": "temperature_lag_3",
+      "importance_mean": 0.012591734904028585,
+      "importance_std": 0.025079559863568336,
+      "rank": 2
+    },
+    {
+      "feature": "week_cos_52",
+      "importance_mean": 0.011646272917856582,
+      "importance_std": 0.020741804121262763,
+      "rank": 3
+    },
+    {
+      "feature": "temperature_lag_4",
+      "importance_mean": 0.009444873693050382,
+      "importance_std": 0.03634935942463963,
+      "rank": 4
+    },
+    {
+      "feature": "reported_lag_4",
+      "importance_mean": 0.0015250642779474743,
+      "importance_std": 0.0026034735014091896,
+      "rank": 5
+    },
+    {
+      "feature": "rainfall_lag_4",
+      "importance_mean": 0.0009995646282855374,
+      "importance_std": 0.001517038284170434,
+      "rank": 6
+    },
+    {
+      "feature": "temperature_lag_0",
+      "importance_mean": 0.00016124560611802675,
+      "importance_std": 0.0175280059283548,
+      "rank": 7
+    },
+    {
+      "feature": "week_cos_26",
+      "importance_mean": 0.00015355093804440001,
+      "importance_std": 0.0017313791088098853,
+      "rank": 8
+    },
+    {
+      "feature": "state",
+      "importance_mean": 0.0,
+      "importance_std": 0.0,
+      "rank": 9
+    },
+    {
+      "feature": "disease",
+      "importance_mean": 0.0,
+      "importance_std": 0.0,
+      "rank": 10
+    },
+    {
+      "feature": "reported_lag_2",
+      "importance_mean": 0.0,
+      "importance_std": 0.0,
+      "rank": 11
+    },
+    {
+      "feature": "reported_lag_3",
+      "importance_mean": 0.0,
+      "importance_std": 0.0,
+      "rank": 12
+    },
+    {
+      "feature": "is_covid_period",
+      "importance_mean": 0.0,
+      "importance_std": 0.0,
+      "rank": 13
+    },
+    {
+      "feature": "humidity_lag_2",
+      "importance_mean": -0.0015788794292454834,
+      "importance_std": 0.0023860107018966285,
+      "rank": 14
+    },
+    {
+      "feature": "humidity_lag_0",
+      "importance_mean": -0.002388366771957717,
+      "importance_std": 0.0036540731200239477,
+      "rank": 15
+    },
+    {
+      "feature": "week_sin_52",
+      "importance_mean": -0.0035384083813553456,
+      "importance_std": 0.005186439428970705,
+      "rank": 16
+    },
+    {
+      "feature": "humidity_lag_1",
+      "importance_mean": -0.0037517703279004834,
+      "importance_std": 0.009099796724297584,
+      "rank": 17
+    },
+    {
+      "feature": "temperature_lag_1",
+      "importance_mean": -0.003784692506311654,
+      "importance_std": 0.004751006052547328,
+      "rank": 18
+    },
+    {
+      "feature": "temperature_lag_2",
+      "importance_mean": -0.004056104110086484,
+      "importance_std": 0.00360169272449677,
+      "rank": 19
+    },
+    {
+      "feature": "rainfall_lag_2",
+      "importance_mean": -0.004609131493691593,
+      "importance_std": 0.004406540373739532,
+      "rank": 20
+    },
+    {
+      "feature": "rainfall_lag_0",
+      "importance_mean": -0.005597533175522873,
+      "importance_std": 0.01569317006058373,
+      "rank": 21
+    },
+    {
+      "feature": "rainfall_lag_3",
+      "importance_mean": -0.005679785664125131,
+      "importance_std": 0.002511335572600081,
+      "rank": 22
+    },
+    {
+      "feature": "humidity_lag_4",
+      "importance_mean": -0.0057648763852014675,
+      "importance_std": 0.004290282351037433,
+      "rank": 23
+    },
+    {
+      "feature": "week_of_year",
+      "importance_mean": -0.006369443613695058,
+      "importance_std": 0.008981614568384068,
+      "rank": 24
+    },
+    {
+      "feature": "week_sin_26",
+      "importance_mean": -0.008056301934961957,
+      "importance_std": 0.007763898285729601,
+      "rank": 25
+    },
+    {
+      "feature": "reported_lag_1",
+      "importance_mean": -0.009392857625766743,
+      "importance_std": 0.009858404032716485,
+      "rank": 26
+    },
+    {
+      "feature": "humidity_lag_3",
+      "importance_mean": -0.00961692686769548,
+      "importance_std": 0.006568915512651292,
+      "rank": 27
+    },
+    {
+      "feature": "reported_roll_4",
+      "importance_mean": -0.00977249879888833,
+      "importance_std": 0.008722486606047821,
+      "rank": 28
+    },
+    {
+      "feature": "rainfall_lag_1",
+      "importance_mean": -0.03434086027781272,
+      "importance_std": 0.013520167280783991,
+      "rank": 29
+    }
+  ]
+}

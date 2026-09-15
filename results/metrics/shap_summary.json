@@ -1,0 +1,356 @@
+{
+  "Karnataka / Acute Diarrhoeal Disease": [
+    {
+      "feature": "reported_roll_8",
+      "mean_abs_shap": 0.41441774368286133
+    },
+    {
+      "feature": "temperature_lag_3",
+      "mean_abs_shap": 0.07547839730978012
+    },
+    {
+      "feature": "temperature_lag_4",
+      "mean_abs_shap": 0.06390231847763062
+    },
+    {
+      "feature": "reported_lag_1",
+      "mean_abs_shap": 0.048964664340019226
+    },
+    {
+      "feature": "state",
+      "mean_abs_shap": 0.04752960801124573
+    },
+    {
+      "feature": "rainfall_lag_1",
+      "mean_abs_shap": 0.04340710863471031
+    },
+    {
+      "feature": "week_cos_52",
+      "mean_abs_shap": 0.04339831694960594
+    },
+    {
+      "feature": "disease",
+      "mean_abs_shap": 0.04042918607592583
+    },
+    {
+      "feature": "humidity_lag_3",
+      "mean_abs_shap": 0.03903486207127571
+    },
+    {
+      "feature": "week_sin_26",
+      "mean_abs_shap": 0.0327814556658268
+    },
+    {
+      "feature": "humidity_lag_1",
+      "mean_abs_shap": 0.030860768631100655
+    },
+    {
+      "feature": "rainfall_lag_0",
+      "mean_abs_shap": 0.030827779322862625
+    },
+    {
+      "feature": "reported_roll_4",
+      "mean_abs_shap": 0.02460455894470215
+    },
+    {
+      "feature": "temperature_lag_0",
+      "mean_abs_shap": 0.023806056007742882
+    },
+    {
+      "feature": "week_of_year",
+      "mean_abs_shap": 0.0168338343501091
+    },
+    {
+      "feature": "humidity_lag_2",
+      "mean_abs_shap": 0.01635308563709259
+    },
+    {
+      "feature": "humidity_lag_0",
+      "mean_abs_shap": 0.013821880333125591
+    },
+    {
+      "feature": "temperature_lag_1",
+      "mean_abs_shap": 0.013173094019293785
+    },
+    {
+      "feature": "humidity_lag_4",
+      "mean_abs_shap": 0.012618889100849628
+    },
+    {
+      "feature": "week_sin_52",
+      "mean_abs_shap": 0.01246050838381052
+    },
+    {
+      "feature": "rainfall_lag_2",
+      "mean_abs_shap": 0.012066907249391079
+    },
+    {
+      "feature": "reported_lag_4",
+      "mean_abs_shap": 0.011096188798546791
+    },
+    {
+      "feature": "week_cos_26",
+      "mean_abs_shap": 0.010525722987949848
+    },
+    {
+      "feature": "rainfall_lag_4",
+      "mean_abs_shap": 0.009183208458125591
+    },
+    {
+      "feature": "temperature_lag_2",
+      "mean_abs_shap": 0.009005330502986908
+    },
+    {
+      "feature": "rainfall_lag_3",
+      "mean_abs_shap": 0.006089684087783098
+    },
+    {
+      "feature": "reported_lag_2",
+      "mean_abs_shap": 0.00032439755159430206
+    },
+    {
+      "feature": "reported_lag_3",
+      "mean_abs_shap": 0.0
+    },
+    {
+      "feature": "is_covid_period",
+      "mean_abs_shap": 0.0
+    }
+  ],
+  "Maharashtra / Acute Diarrhoeal Disease": [
+    {
+      "feature": "reported_roll_8",
+      "mean_abs_shap": 0.5610261559486389
+    },
+    {
+      "feature": "temperature_lag_4",
+      "mean_abs_shap": 0.13692641258239746
+    },
+    {
+      "feature": "temperature_lag_3",
+      "mean_abs_shap": 0.10653286427259445
+    },
+    {
+      "feature": "disease",
+      "mean_abs_shap": 0.04785934090614319
+    },
+    {
+      "feature": "temperature_lag_0",
+      "mean_abs_shap": 0.045787591487169266
+    },
+    {
+      "feature": "week_cos_52",
+      "mean_abs_shap": 0.04266176000237465
+    },
+    {
+      "feature": "rainfall_lag_1",
+      "mean_abs_shap": 0.03958507999777794
+    },
+    {
+      "feature": "humidity_lag_3",
+      "mean_abs_shap": 0.03908863291144371
+    },
+    {
+      "feature": "week_sin_26",
+      "mean_abs_shap": 0.038134343922138214
+    },
+    {
+      "feature": "reported_lag_1",
+      "mean_abs_shap": 0.03753738850355148
+    },
+    {
+      "feature": "rainfall_lag_0",
+      "mean_abs_shap": 0.024364886805415154
+    },
+    {
+      "feature": "temperature_lag_2",
+      "mean_abs_shap": 0.02345099486410618
+    },
+    {
+      "feature": "reported_roll_4",
+      "mean_abs_shap": 0.021789265796542168
+    },
+    {
+      "feature": "humidity_lag_1",
+      "mean_abs_shap": 0.021695813164114952
+    },
+    {
+      "feature": "week_sin_52",
+      "mean_abs_shap": 0.018607918173074722
+    },
+    {
+      "feature": "temperature_lag_1",
+      "mean_abs_shap": 0.016086462885141373
+    },
+    {
+      "feature": "humidity_lag_0",
+      "mean_abs_shap": 0.015830330550670624
+    },
+    {
+      "feature": "week_of_year",
+      "mean_abs_shap": 0.013552673161029816
+    },
+    {
+      "feature": "week_cos_26",
+      "mean_abs_shap": 0.012265189550817013
+    },
+    {
+      "feature": "humidity_lag_2",
+      "mean_abs_shap": 0.01205890066921711
+    },
+    {
+      "feature": "rainfall_lag_4",
+      "mean_abs_shap": 0.011965524405241013
+    },
+    {
+      "feature": "state",
+      "mean_abs_shap": 0.01187768392264843
+    },
+    {
+      "feature": "humidity_lag_4",
+      "mean_abs_shap": 0.010921810753643513
+    },
+    {
+      "feature": "rainfall_lag_2",
+      "mean_abs_shap": 0.009563403204083443
+    },
+    {
+      "feature": "reported_lag_4",
+      "mean_abs_shap": 0.008892971090972424
+    },
+    {
+      "feature": "rainfall_lag_3",
+      "mean_abs_shap": 0.0038649719208478928
+    },
+    {
+      "feature": "reported_lag_2",
+      "mean_abs_shap": 0.0002763788215816021
+    },
+    {
+      "feature": "reported_lag_3",
+      "mean_abs_shap": 0.0
+    },
+    {
+      "feature": "is_covid_period",
+      "mean_abs_shap": 0.0
+    }
+  ],
+  "Maharashtra / Dengue": [
+    {
+      "feature": "reported_roll_8",
+      "mean_abs_shap": 0.4348996877670288
+    },
+    {
+      "feature": "temperature_lag_4",
+      "mean_abs_shap": 0.1426151543855667
+    },
+    {
+      "feature": "temperature_lag_3",
+      "mean_abs_shap": 0.1085420772433281
+    },
+    {
+      "feature": "disease",
+      "mean_abs_shap": 0.07701616734266281
+    },
+    {
+      "feature": "week_cos_52",
+      "mean_abs_shap": 0.05463065952062607
+    },
+    {
+      "feature": "reported_lag_1",
+      "mean_abs_shap": 0.04946091026067734
+    },
+    {
+      "feature": "humidity_lag_3",
+      "mean_abs_shap": 0.04126334190368652
+    },
+    {
+      "feature": "temperature_lag_0",
+      "mean_abs_shap": 0.03834903985261917
+    },
+    {
+      "feature": "week_sin_26",
+      "mean_abs_shap": 0.03531099110841751
+    },
+    {
+      "feature": "rainfall_lag_0",
+      "mean_abs_shap": 0.030733393505215645
+    },
+    {
+      "feature": "rainfall_lag_1",
+      "mean_abs_shap": 0.030645547434687614
+    },
+    {
+      "feature": "reported_roll_4",
+      "mean_abs_shap": 0.028059950098395348
+    },
+    {
+      "feature": "humidity_lag_1",
+      "mean_abs_shap": 0.022757381200790405
+    },
+    {
+      "feature": "temperature_lag_2",
+      "mean_abs_shap": 0.018473612144589424
+    },
+    {
+      "feature": "week_sin_52",
+      "mean_abs_shap": 0.01773635484278202
+    },
+    {
+      "feature": "humidity_lag_0",
+      "mean_abs_shap": 0.016383491456508636
+    },
+    {
+      "feature": "week_of_year",
+      "mean_abs_shap": 0.015227232128381729
+    },
+    {
+      "feature": "temperature_lag_1",
+      "mean_abs_shap": 0.012032563798129559
+    },
+    {
+      "feature": "rainfall_lag_2",
+      "mean_abs_shap": 0.011492447927594185
+    },
+    {
+      "feature": "week_cos_26",
+      "mean_abs_shap": 0.010475710034370422
+    },
+    {
+      "feature": "rainfall_lag_4",
+      "mean_abs_shap": 0.010132275521755219
+    },
+    {
+      "feature": "reported_lag_4",
+      "mean_abs_shap": 0.009407329373061657
+    },
+    {
+      "feature": "humidity_lag_4",
+      "mean_abs_shap": 0.008937781676650047
+    },
+    {
+      "feature": "state",
+      "mean_abs_shap": 0.008328758180141449
+    },
+    {
+      "feature": "humidity_lag_2",
+      "mean_abs_shap": 0.008226620964705944
+    },
+    {
+      "feature": "rainfall_lag_3",
+      "mean_abs_shap": 0.005217188969254494
+    },
+    {
+      "feature": "reported_lag_2",
+      "mean_abs_shap": 0.0005370370927266777
+    },
+    {
+      "feature": "reported_lag_3",
+      "mean_abs_shap": 0.0
+    },
+    {
+      "feature": "is_covid_period",
+      "mean_abs_shap": 0.0
+    }
+  ]
+}
