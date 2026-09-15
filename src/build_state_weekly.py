@@ -11,8 +11,9 @@ Decisions applied (previously surfaced for review, now resolved):
   converted to 1.76C; Assam/Karbi Anglong, Sep 2015, to -11.85C) that are
   not credible for those districts/seasons. Rather than silently trust or
   patch a broken column, it is excluded until the source data is verified.
-- Scope is narrowed to Dengue and Malaria (after alias merging) in five
-  states: Maharashtra, Tamil Nadu, Karnataka, Kerala, West Bengal.
+- Scope is narrowed to Dengue (after alias merging) and Acute Diarrhoeal
+  Disease, in three states: Karnataka, West Bengal, Maharashtra. Malaria
+  and Cholera were dropped from an earlier iteration of this script.
 - Weeks are real ISO calendar weeks (Mon-start, 52 or 53 per year depending
   on the year), not a fixed 50-week epidemiological year. `week_start_date`
   is the actual Monday date for each (year, week).
@@ -30,12 +31,10 @@ RAW_PATH = Path("data/raw/Final_data.csv")
 OUT_PATH = Path("data/processed/state_weekly.parquet")
 
 DENGUE_ALIASES = ["Dengue", "Dengue Fever", "Suspected Dengue"]
-MALARIA_ALIASES = ["Malaria", "Malaria (PV)"]
 DISEASE_MAPPING = {alias: "Dengue" for alias in DENGUE_ALIASES}
-DISEASE_MAPPING.update({alias: "Malaria" for alias in MALARIA_ALIASES})
 
-FOCUS_DISEASES = ["Dengue", "Malaria"]
-FOCUS_STATES = ["Maharashtra", "Tamil Nadu", "Karnataka", "Kerala", "West Bengal"]
+FOCUS_DISEASES = ["Dengue", "Acute Diarrhoeal Disease"]
+FOCUS_STATES = ["Karnataka", "West Bengal", "Maharashtra"]
 GRID_YEARS = range(2009, 2023)  # 2009-2022 inclusive
 
 

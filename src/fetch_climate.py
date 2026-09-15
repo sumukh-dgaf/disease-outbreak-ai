@@ -1,4 +1,12 @@
-"""Fetch daily climate data from NASA POWER and aggregate to weekly (ISO, Mon-start)."""
+"""Fetch daily climate data from NASA POWER and aggregate to weekly (ISO, Mon-start).
+
+Limitation: fetch_states() represents each state by a single centroid
+coordinate. A state's climate is not uniform (e.g. Karnataka spans coastal,
+plateau, and Western Ghats climates), so this is a crude proxy, not a
+spatial average. Documented here rather than silently treated as accurate;
+district-level fetches (see DISTRICTS) are the more defensible unit once
+district-level modeling is in place.
+"""
 import logging
 from datetime import datetime, timedelta
 from pathlib import Path
@@ -25,6 +33,15 @@ DISTRICTS = {
     "Goa/South Goa": (15.20, 74.05),
     "Karnataka/Bengaluru Urban": (12.97, 77.59),
     "Delhi/Delhi": (28.61, 77.21),
+}
+
+# State centroids for the disease-forecasting study states (see build_state_weekly.py).
+STATE_CENTROIDS = {
+    "Maharashtra": (19.75, 75.71),
+    "Tamil Nadu": (11.13, 78.66),
+    "Karnataka": (14.52, 75.72),
+    "Kerala": (10.85, 76.27),
+    "West Bengal": (22.99, 87.85),
 }
 
 PROCESSED_DIR = Path("data/processed")
@@ -142,7 +159,40 @@ def save_weekly_climate(weekly_df: pd.DataFrame, lat: float, lon: float) -> Path
     return out_path
 
 
+def fetch_states(
+    start_date: str = "2009-01-01",
+    end_date: str = "2022-12-31",
+    out_path: Path = None,
+) -> pd.DataFrame:
+    """Fetch and aggregate NASA POWER weekly climate for each state centroid.
+
+    Reuses aggregate_to_weekly() so week_start_date lines up exactly with the
+    ISO-week grid in state_weekly.parquet (see build_state_weekly.py). See
+    the module docstring for the single-centroid-per-state caveat.
+    """
+    if out_path is None:
+        out_path = PROCESSED_DIR / "state_climate.parquet"
+
+    frames = []
+    for state, (lat, lon) in STATE_CENTROIDS.items():
+        logger.info("Fetching climate for state=%s centroid=(%s, %s)", state, lat, lon)
+        weekly = fetch_and_aggregate(lat, lon, start_date, end_date)
+        weekly = weekly.rename(columns={"week_start": "week_start_date", "week_of_year": "week"})
+        weekly.insert(0, "state", state)
+        frames.append(weekly)
+
+    combined = pd.concat(frames, ignore_index=True)
+    combined = combined.sort_values(["state", "year", "week"]).reset_index(drop=True)
+
+    PROCESSED_DIR.mkdir(parents=True, exist_ok=True)
+    combined.to_parquet(out_path, index=False)
+    logger.info("Saved %d rows across %d states to %s", len(combined), len(STATE_CENTROIDS), out_path)
+    return combined
+
+
 if __name__ == "__main__":
     PANAJI_LAT, PANAJI_LON = 15.49, 73.83
     weekly = fetch_and_aggregate(PANAJI_LAT, PANAJI_LON, "2015-01-01", "2023-12-31")
     save_weekly_climate(weekly, PANAJI_LAT, PANAJI_LON)
+
+    fetch_states()
