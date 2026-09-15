@@ -1,0 +1,46 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(python *)",
+      "Bash(pip install *)",
+      "Bash(pytest *)",
+      "Bash(jupyter *)",
+      "Bash(streamlit run *)",
+      "Bash(git add *)",
+      "Bash(git commit *)",
+      "Bash(git status *)",
+      "Bash(git diff *)",
+      "Bash(mkdir *)",
+      "Edit(/src/**)",
+      "Edit(/notebooks/**)",
+      "Edit(/dashboard/**)",
+      "Edit(/data/processed/**)",
+      "Edit(/results/**)",
+      "Read(/data/**)",
+      "WebFetch(domain:power.larc.nasa.gov)",
+      "WebFetch(domain:archive-api.open-meteo.com)",
+      "WebSearch"
+    ],
+    "deny": [
+      "Read(**/.env)",
+      "Read(~/.ssh/**)",
+      "Edit(/data/raw/**)",
+      "Bash(git push *)",
+      "Bash(rm -rf *)",
+      "Bash(Remove-Item *)"
+    ]
+  },
+  "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "Edit|Write|Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python .claude/hooks/protect_raw.py"
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,22 @@
+# Virtual environment
+.venv/
+
+# Python
+__pycache__/
+*.pyc
+
+# Environment variables / secrets
+.env
+
+# Data (read-only raw sources + derived data) — keep directory structure
+data/*
+!data/**/.gitkeep
+
+# Model binaries
+*.h5
+*.pkl
+*.joblib
+*.pt
+*.pth
+*.onnx
+models/
