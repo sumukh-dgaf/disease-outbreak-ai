@@ -1,0 +1,779 @@
+{
+  "1": {
+    "target_col": "target_reported_h1",
+    "base_rate": {
+      "train": {
+        "overall": 0.38961038961038963,
+        "Karnataka / Acute Diarrhoeal Disease": 0.44155844155844154,
+        "Maharashtra / Acute Diarrhoeal Disease": 0.42857142857142855,
+        "Maharashtra / Dengue": 0.2987012987012987
+      },
+      "validation": {
+        "overall": 0.3814102564102564,
+        "Karnataka / Acute Diarrhoeal Disease": 0.3557692307692308,
+        "Maharashtra / Acute Diarrhoeal Disease": 0.36538461538461536,
+        "Maharashtra / Dengue": 0.4230769230769231
+      },
+      "test": {
+        "overall": 0.2564102564102564,
+        "Karnataka / Acute Diarrhoeal Disease": 0.2948717948717949,
+        "Maharashtra / Acute Diarrhoeal Disease": 0.14102564102564102,
+        "Maharashtra / Dengue": 0.3333333333333333
+      }
+    },
+    "sgb_reporting_only": {
+      "train": {
+        "overall": {
+          "accuracy": 0.7373737373737373,
+          "precision": 0.6321321321321322,
+          "recall": 0.7796296296296297,
+          "f1": 0.6981757877280266,
+          "n": 1386,
+          "n_positive": 540,
+          "roc_auc": 0.8285931617196393,
+          "pr_auc": 0.76122467777979
+        },
+        "Karnataka / Acute Diarrhoeal Disease": {
+          "accuracy": 0.7077922077922078,
+          "precision": 0.6273062730627307,
+          "recall": 0.8333333333333334,
+          "f1": 0.7157894736842105,
+          "n": 462,
+          "n_positive": 204,
+          "roc_auc": 0.7926166590667274,
+          "pr_auc": 0.7395254667002771
+        },
+        "Maharashtra / Acute Diarrhoeal Disease": {
+          "accuracy": 0.7034632034632035,
+          "precision": 0.6177606177606177,
+          "recall": 0.8080808080808081,
+          "f1": 0.700218818380744,
+          "n": 462,
+          "n_positive": 198,
+          "roc_auc": 0.824313207835935,
+          "pr_auc": 0.7961008657585528
+        },
+        "Maharashtra / Dengue": {
+          "accuracy": 0.8008658008658008,
+          "precision": 0.6691176470588235,
+          "recall": 0.6594202898550725,
+          "f1": 0.6642335766423357,
+          "n": 462,
+          "n_positive": 138,
+          "roc_auc": 0.8548040794417606,
+          "pr_auc": 0.7382049037351144
+        }
+      },
+      "validation": {
+        "overall": {
+          "accuracy": 0.5608974358974359,
+          "precision": 0.44,
+          "recall": 0.5546218487394958,
+          "f1": 0.49070631970260226,
+          "n": 312,
+          "n_positive": 119,
+          "roc_auc": 0.630056167544738,
+          "pr_auc": 0.537090227476582
+        },
+        "Karnataka / Acute Diarrhoeal Disease": {
+          "accuracy": 0.46153846153846156,
+          "precision": 0.3137254901960784,
+          "recall": 0.43243243243243246,
+          "f1": 0.36363636363636365,
+          "n": 104,
+          "n_positive": 37,
+          "roc_auc": 0.4977813634530053,
+          "pr_auc": 0.3849689099898753
+        },
+        "Maharashtra / Acute Diarrhoeal Disease": {
+          "accuracy": 0.6153846153846154,
+          "precision": 0.4807692307692308,
+          "recall": 0.6578947368421053,
+          "f1": 0.5555555555555556,
+          "n": 104,
+          "n_positive": 38,
+          "roc_auc": 0.7063397129186604,
+          "pr_auc": 0.6135439519570147
+        },
+        "Maharashtra / Dengue": {
+          "accuracy": 0.6057692307692307,
+          "precision": 0.5319148936170213,
+          "recall": 0.5681818181818182,
+          "f1": 0.5494505494505495,
+          "n": 104,
+          "n_positive": 44,
+          "roc_auc": 0.6746212121212122,
+          "pr_auc": 0.6438546268870678
+        }
+      },
+      "test": {
+        "overall": {
+          "accuracy": 0.6623931623931624,
+          "precision": 0.3698630136986301,
+          "recall": 0.45,
+          "f1": 0.40601503759398494,
+          "n": 234,
+          "n_positive": 60,
+          "roc_auc": 0.6571360153256705,
+          "pr_auc": 0.43134397932641794
+        },
+        "Karnataka / Acute Diarrhoeal Disease": {
+          "accuracy": 0.5512820512820513,
+          "precision": 0.3125,
+          "recall": 0.43478260869565216,
+          "f1": 0.36363636363636365,
+          "n": 78,
+          "n_positive": 23,
+          "roc_auc": 0.5533596837944664,
+          "pr_auc": 0.45222167418709736,
+          "pr_auc_ci_lo": 0.2819420950554406,
+          "pr_auc_ci_hi": 0.632839439761038,
+          "pr_auc_ci_n_valid_resamples": 1000
+        },
+        "Maharashtra / Acute Diarrhoeal Disease": {
+          "accuracy": 0.6666666666666666,
+          "precision": 0.058823529411764705,
+          "recall": 0.09090909090909091,
+          "f1": 0.07142857142857142,
+          "n": 78,
+          "n_positive": 11,
+          "roc_auc": 0.3629579375848032,
+          "pr_auc": 0.11725379351400306,
+          "pr_auc_ci_lo": 0.06208226121257845,
+          "pr_auc_ci_hi": 0.21607641117175624,
+          "pr_auc_ci_n_valid_resamples": 1000
+        },
+        "Maharashtra / Dengue": {
+          "accuracy": 0.7692307692307693,
+          "precision": 0.6666666666666666,
+          "recall": 0.6153846153846154,
+          "f1": 0.64,
+          "n": 78,
+          "n_positive": 26,
+          "roc_auc": 0.8165680473372781,
+          "pr_auc": 0.6244315348584648,
+          "pr_auc_ci_lo": 0.4586014088520213,
+          "pr_auc_ci_hi": 0.8188493460767449,
+          "pr_auc_ci_n_valid_resamples": 1000
+        }
+      }
+    },
+    "sgb_with_climate": {
+      "train": {
+        "overall": {
+          "accuracy": 0.8015873015873016,
+          "precision": 0.7047913446676971,
+          "recall": 0.8444444444444444,
+          "f1": 0.7683235046335299,
+          "n": 1386,
+          "n_positive": 540,
+          "roc_auc": 0.9028390683828036,
+          "pr_auc": 0.8558930797455692
+        },
+        "Karnataka / Acute Diarrhoeal Disease": {
+          "accuracy": 0.7705627705627706,
+          "precision": 0.69140625,
+          "recall": 0.8676470588235294,
+          "f1": 0.7695652173913043,
+          "n": 462,
+          "n_positive": 204,
+          "roc_auc": 0.8857159142726858,
+          "pr_auc": 0.8695496158761504
+        },
+        "Maharashtra / Acute Diarrhoeal Disease": {
+          "accuracy": 0.7770562770562771,
+          "precision": 0.6938775510204082,
+          "recall": 0.8585858585858586,
+          "f1": 0.7674943566591422,
+          "n": 462,
+          "n_positive": 198,
+          "roc_auc": 0.8889080195898378,
+          "pr_auc": 0.8465239797184915
+        },
+        "Maharashtra / Dengue": {
+          "accuracy": 0.8571428571428571,
+          "precision": 0.7465753424657534,
+          "recall": 0.7898550724637681,
+          "f1": 0.7676056338028169,
+          "n": 462,
+          "n_positive": 138,
+          "roc_auc": 0.9263061370549293,
+          "pr_auc": 0.8578814839611942
+        }
+      },
+      "validation": {
+        "overall": {
+          "accuracy": 0.5993589743589743,
+          "precision": 0.4785714285714286,
+          "recall": 0.5630252100840336,
+          "f1": 0.5173745173745173,
+          "n": 312,
+          "n_positive": 119,
+          "roc_auc": 0.6439674315321984,
+          "pr_auc": 0.5696180802739523
+        },
+        "Karnataka / Acute Diarrhoeal Disease": {
+          "accuracy": 0.5192307692307693,
+          "precision": 0.37735849056603776,
+          "recall": 0.5405405405405406,
+          "f1": 0.4444444444444444,
+          "n": 104,
+          "n_positive": 37,
+          "roc_auc": 0.5078660750302542,
+          "pr_auc": 0.4066469555672691
+        },
+        "Maharashtra / Acute Diarrhoeal Disease": {
+          "accuracy": 0.6634615384615384,
+          "precision": 0.5333333333333333,
+          "recall": 0.631578947368421,
+          "f1": 0.5783132530120482,
+          "n": 104,
+          "n_positive": 38,
+          "roc_auc": 0.7432216905901117,
+          "pr_auc": 0.6561501738043396
+        },
+        "Maharashtra / Dengue": {
+          "accuracy": 0.6153846153846154,
+          "precision": 0.5476190476190477,
+          "recall": 0.5227272727272727,
+          "f1": 0.5348837209302325,
+          "n": 104,
+          "n_positive": 44,
+          "roc_auc": 0.668939393939394,
+          "pr_auc": 0.6541234159028324
+        }
+      },
+      "test": {
+        "overall": {
+          "accuracy": 0.7008547008547008,
+          "precision": 0.4264705882352941,
+          "recall": 0.48333333333333334,
+          "f1": 0.453125,
+          "n": 234,
+          "n_positive": 60,
+          "roc_auc": 0.6689655172413793,
+          "pr_auc": 0.49652989659141844
+        },
+        "Karnataka / Acute Diarrhoeal Disease": {
+          "accuracy": 0.6410256410256411,
+          "precision": 0.41935483870967744,
+          "recall": 0.5652173913043478,
+          "f1": 0.48148148148148145,
+          "n": 78,
+          "n_positive": 23,
+          "roc_auc": 0.6569169960474308,
+          "pr_auc": 0.5801976101484991,
+          "pr_auc_ci_lo": 0.3805474542639254,
+          "pr_auc_ci_hi": 0.7514705739584053,
+          "pr_auc_ci_n_valid_resamples": 1000
+        },
+        "Maharashtra / Acute Diarrhoeal Disease": {
+          "accuracy": 0.7051282051282052,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "n": 78,
+          "n_positive": 11,
+          "roc_auc": 0.36635006784260515,
+          "pr_auc": 0.11908117711137692,
+          "pr_auc_ci_lo": 0.06490520938406656,
+          "pr_auc_ci_hi": 0.21849967858029798,
+          "pr_auc_ci_n_valid_resamples": 1000
+        },
+        "Maharashtra / Dengue": {
+          "accuracy": 0.7564102564102564,
+          "precision": 0.64,
+          "recall": 0.6153846153846154,
+          "f1": 0.6274509803921569,
+          "n": 78,
+          "n_positive": 26,
+          "roc_auc": 0.7810650887573963,
+          "pr_auc": 0.6371570213388597,
+          "pr_auc_ci_lo": 0.47606154566887976,
+          "pr_auc_ci_hi": 0.8334628338182327,
+          "pr_auc_ci_n_valid_resamples": 1000
+        }
+      }
+    }
+  },
+  "2": {
+    "target_col": "target_reported_h2",
+    "base_rate": {
+      "train": {
+        "overall": 0.3903318903318903,
+        "Karnataka / Acute Diarrhoeal Disease": 0.44155844155844154,
+        "Maharashtra / Acute Diarrhoeal Disease": 0.42857142857142855,
+        "Maharashtra / Dengue": 0.3008658008658009
+      },
+      "validation": {
+        "overall": 0.3782051282051282,
+        "Karnataka / Acute Diarrhoeal Disease": 0.3557692307692308,
+        "Maharashtra / Acute Diarrhoeal Disease": 0.36538461538461536,
+        "Maharashtra / Dengue": 0.41346153846153844
+      },
+      "test": {
+        "overall": 0.2564102564102564,
+        "Karnataka / Acute Diarrhoeal Disease": 0.2948717948717949,
+        "Maharashtra / Acute Diarrhoeal Disease": 0.14102564102564102,
+        "Maharashtra / Dengue": 0.3333333333333333
+      }
+    },
+    "sgb_reporting_only": {
+      "train": {
+        "overall": {
+          "accuracy": 0.7359307359307359,
+          "precision": 0.6255380200860832,
+          "recall": 0.8059149722735675,
+          "f1": 0.7043618739903069,
+          "n": 1386,
+          "n_positive": 541,
+          "roc_auc": 0.8285084601165932,
+          "pr_auc": 0.7458609066548388
+        },
+        "Karnataka / Acute Diarrhoeal Disease": {
+          "accuracy": 0.683982683982684,
+          "precision": 0.6013986013986014,
+          "recall": 0.8431372549019608,
+          "f1": 0.7020408163265306,
+          "n": 462,
+          "n_positive": 204,
+          "roc_auc": 0.784874221006232,
+          "pr_auc": 0.7282431166222263
+        },
+        "Maharashtra / Acute Diarrhoeal Disease": {
+          "accuracy": 0.7164502164502164,
+          "precision": 0.6283524904214559,
+          "recall": 0.8282828282828283,
+          "f1": 0.7145969498910676,
+          "n": 462,
+          "n_positive": 198,
+          "roc_auc": 0.8217114325068872,
+          "pr_auc": 0.7727228162156465
+        },
+        "Maharashtra / Dengue": {
+          "accuracy": 0.8073593073593074,
+          "precision": 0.6666666666666666,
+          "recall": 0.7194244604316546,
+          "f1": 0.6920415224913494,
+          "n": 462,
+          "n_positive": 139,
+          "roc_auc": 0.8640555048221484,
+          "pr_auc": 0.7361917675932702
+        }
+      },
+      "validation": {
+        "overall": {
+          "accuracy": 0.5833333333333334,
+          "precision": 0.46,
+          "recall": 0.5847457627118644,
+          "f1": 0.5149253731343284,
+          "n": 312,
+          "n_positive": 118,
+          "roc_auc": 0.6212432290756597,
+          "pr_auc": 0.524948799896975
+        },
+        "Karnataka / Acute Diarrhoeal Disease": {
+          "accuracy": 0.5,
+          "precision": 0.3584905660377358,
+          "recall": 0.5135135135135135,
+          "f1": 0.4222222222222222,
+          "n": 104,
+          "n_positive": 37,
+          "roc_auc": 0.5151270673658734,
+          "pr_auc": 0.3881645454572902
+        },
+        "Maharashtra / Acute Diarrhoeal Disease": {
+          "accuracy": 0.6153846153846154,
+          "precision": 0.48,
+          "recall": 0.631578947368421,
+          "f1": 0.5454545454545454,
+          "n": 104,
+          "n_positive": 38,
+          "roc_auc": 0.6696570972886763,
+          "pr_auc": 0.5710774215679036
+        },
+        "Maharashtra / Dengue": {
+          "accuracy": 0.6346153846153846,
+          "precision": 0.5531914893617021,
+          "recall": 0.6046511627906976,
+          "f1": 0.5777777777777777,
+          "n": 104,
+          "n_positive": 43,
+          "roc_auc": 0.6679374761723217,
+          "pr_auc": 0.6308576016988753
+        }
+      },
+      "test": {
+        "overall": {
+          "accuracy": 0.6538461538461539,
+          "precision": 0.37349397590361444,
+          "recall": 0.5166666666666667,
+          "f1": 0.43356643356643354,
+          "n": 234,
+          "n_positive": 60,
+          "roc_auc": 0.6418582375478926,
+          "pr_auc": 0.4723239851286259
+        },
+        "Karnataka / Acute Diarrhoeal Disease": {
+          "accuracy": 0.5384615384615384,
+          "precision": 0.3142857142857143,
+          "recall": 0.4782608695652174,
+          "f1": 0.3793103448275862,
+          "n": 78,
+          "n_positive": 23,
+          "roc_auc": 0.5138339920948617,
+          "pr_auc": 0.46132728841244786,
+          "pr_auc_ci_lo": 0.2792934927696875,
+          "pr_auc_ci_hi": 0.6367861956093408,
+          "pr_auc_ci_n_valid_resamples": 1000
+        },
+        "Maharashtra / Acute Diarrhoeal Disease": {
+          "accuracy": 0.6538461538461539,
+          "precision": 0.1,
+          "recall": 0.18181818181818182,
+          "f1": 0.12903225806451613,
+          "n": 78,
+          "n_positive": 11,
+          "roc_auc": 0.41655359565807326,
+          "pr_auc": 0.1325519051535512,
+          "pr_auc_ci_lo": 0.0656218118278327,
+          "pr_auc_ci_hi": 0.25674433432019156,
+          "pr_auc_ci_n_valid_resamples": 1000
+        },
+        "Maharashtra / Dengue": {
+          "accuracy": 0.7692307692307693,
+          "precision": 0.6428571428571429,
+          "recall": 0.6923076923076923,
+          "f1": 0.6666666666666666,
+          "n": 78,
+          "n_positive": 26,
+          "roc_auc": 0.8069526627218934,
+          "pr_auc": 0.68319735816616,
+          "pr_auc_ci_lo": 0.5083529887075836,
+          "pr_auc_ci_hi": 0.8490450601264597,
+          "pr_auc_ci_n_valid_resamples": 1000
+        }
+      }
+    }
+  },
+  "3": {
+    "target_col": "target_reported_h3",
+    "base_rate": {
+      "train": {
+        "overall": 0.39105339105339104,
+        "Karnataka / Acute Diarrhoeal Disease": 0.44372294372294374,
+        "Maharashtra / Acute Diarrhoeal Disease": 0.42857142857142855,
+        "Maharashtra / Dengue": 0.3008658008658009
+      },
+      "validation": {
+        "overall": 0.375,
+        "Karnataka / Acute Diarrhoeal Disease": 0.34615384615384615,
+        "Maharashtra / Acute Diarrhoeal Disease": 0.36538461538461536,
+        "Maharashtra / Dengue": 0.41346153846153844
+      },
+      "test": {
+        "overall": 0.25213675213675213,
+        "Karnataka / Acute Diarrhoeal Disease": 0.28205128205128205,
+        "Maharashtra / Acute Diarrhoeal Disease": 0.14102564102564102,
+        "Maharashtra / Dengue": 0.3333333333333333
+      }
+    },
+    "sgb_reporting_only": {
+      "train": {
+        "overall": {
+          "accuracy": 0.7431457431457431,
+          "precision": 0.6359649122807017,
+          "recall": 0.8025830258302583,
+          "f1": 0.7096247960848288,
+          "n": 1386,
+          "n_positive": 542,
+          "roc_auc": 0.8318989262167503,
+          "pr_auc": 0.7606836209281952
+        },
+        "Karnataka / Acute Diarrhoeal Disease": {
+          "accuracy": 0.696969696969697,
+          "precision": 0.6181818181818182,
+          "recall": 0.8292682926829268,
+          "f1": 0.7083333333333334,
+          "n": 462,
+          "n_positive": 205,
+          "roc_auc": 0.792986618582139,
+          "pr_auc": 0.7461221909051421
+        },
+        "Maharashtra / Acute Diarrhoeal Disease": {
+          "accuracy": 0.7164502164502164,
+          "precision": 0.6303501945525292,
+          "recall": 0.8181818181818182,
+          "f1": 0.7120879120879121,
+          "n": 462,
+          "n_positive": 198,
+          "roc_auc": 0.8166609274563821,
+          "pr_auc": 0.7875546777689675
+        },
+        "Maharashtra / Dengue": {
+          "accuracy": 0.816017316017316,
+          "precision": 0.6776315789473685,
+          "recall": 0.7410071942446043,
+          "f1": 0.7079037800687286,
+          "n": 462,
+          "n_positive": 139,
+          "roc_auc": 0.8724747755974787,
+          "pr_auc": 0.7465769088764181
+        }
+      },
+      "validation": {
+        "overall": {
+          "accuracy": 0.5737179487179487,
+          "precision": 0.4444444444444444,
+          "recall": 0.5470085470085471,
+          "f1": 0.4904214559386973,
+          "n": 312,
+          "n_positive": 117,
+          "roc_auc": 0.5837168529476222,
+          "pr_auc": 0.4809127110784692
+        },
+        "Karnataka / Acute Diarrhoeal Disease": {
+          "accuracy": 0.5192307692307693,
+          "precision": 0.36538461538461536,
+          "recall": 0.5277777777777778,
+          "f1": 0.4318181818181818,
+          "n": 104,
+          "n_positive": 36,
+          "roc_auc": 0.5,
+          "pr_auc": 0.3605517428654242
+        },
+        "Maharashtra / Acute Diarrhoeal Disease": {
+          "accuracy": 0.5865384615384616,
+          "precision": 0.44680851063829785,
+          "recall": 0.5526315789473685,
+          "f1": 0.49411764705882355,
+          "n": 104,
+          "n_positive": 38,
+          "roc_auc": 0.6162280701754386,
+          "pr_auc": 0.5129978997816689
+        },
+        "Maharashtra / Dengue": {
+          "accuracy": 0.6153846153846154,
+          "precision": 0.5333333333333333,
+          "recall": 0.5581395348837209,
+          "f1": 0.5454545454545454,
+          "n": 104,
+          "n_positive": 43,
+          "roc_auc": 0.6267632481890965,
+          "pr_auc": 0.5746334203329333
+        }
+      },
+      "test": {
+        "overall": {
+          "accuracy": 0.6495726495726496,
+          "precision": 0.3614457831325301,
+          "recall": 0.5084745762711864,
+          "f1": 0.4225352112676056,
+          "n": 234,
+          "n_positive": 59,
+          "roc_auc": 0.644503631961259,
+          "pr_auc": 0.41785277148135763
+        },
+        "Karnataka / Acute Diarrhoeal Disease": {
+          "accuracy": 0.5384615384615384,
+          "precision": 0.29411764705882354,
+          "recall": 0.45454545454545453,
+          "f1": 0.35714285714285715,
+          "n": 78,
+          "n_positive": 22,
+          "roc_auc": 0.5227272727272727,
+          "pr_auc": 0.4071508488284782,
+          "pr_auc_ci_lo": 0.23259833142476896,
+          "pr_auc_ci_hi": 0.5929003799882608,
+          "pr_auc_ci_n_valid_resamples": 1000
+        },
+        "Maharashtra / Acute Diarrhoeal Disease": {
+          "accuracy": 0.6282051282051282,
+          "precision": 0.125,
+          "recall": 0.2727272727272727,
+          "f1": 0.17142857142857143,
+          "n": 78,
+          "n_positive": 11,
+          "roc_auc": 0.4599728629579376,
+          "pr_auc": 0.14231282683483265,
+          "pr_auc_ci_lo": 0.07526070871516402,
+          "pr_auc_ci_hi": 0.2880169288708217,
+          "pr_auc_ci_n_valid_resamples": 1000
+        },
+        "Maharashtra / Dengue": {
+          "accuracy": 0.782051282051282,
+          "precision": 0.68,
+          "recall": 0.6538461538461539,
+          "f1": 0.6666666666666666,
+          "n": 78,
+          "n_positive": 26,
+          "roc_auc": 0.8058431952662722,
+          "pr_auc": 0.6436353665177711,
+          "pr_auc_ci_lo": 0.4724838128068799,
+          "pr_auc_ci_hi": 0.8454282914695647,
+          "pr_auc_ci_n_valid_resamples": 1000
+        }
+      }
+    }
+  },
+  "4": {
+    "target_col": "target_reported_h4",
+    "base_rate": {
+      "train": {
+        "overall": 0.3924963924963925,
+        "Karnataka / Acute Diarrhoeal Disease": 0.4458874458874459,
+        "Maharashtra / Acute Diarrhoeal Disease": 0.42857142857142855,
+        "Maharashtra / Dengue": 0.30303030303030304
+      },
+      "validation": {
+        "overall": 0.375,
+        "Karnataka / Acute Diarrhoeal Disease": 0.34615384615384615,
+        "Maharashtra / Acute Diarrhoeal Disease": 0.36538461538461536,
+        "Maharashtra / Dengue": 0.41346153846153844
+      },
+      "test": {
+        "overall": 0.24786324786324787,
+        "Karnataka / Acute Diarrhoeal Disease": 0.2692307692307692,
+        "Maharashtra / Acute Diarrhoeal Disease": 0.14102564102564102,
+        "Maharashtra / Dengue": 0.3333333333333333
+      }
+    },
+    "sgb_reporting_only": {
+      "train": {
+        "overall": {
+          "accuracy": 0.7272727272727273,
+          "precision": 0.6182336182336182,
+          "recall": 0.7977941176470589,
+          "f1": 0.6966292134831461,
+          "n": 1386,
+          "n_positive": 544,
+          "roc_auc": 0.8193126047925108,
+          "pr_auc": 0.7525377098973258
+        },
+        "Karnataka / Acute Diarrhoeal Disease": {
+          "accuracy": 0.6948051948051948,
+          "precision": 0.6190476190476191,
+          "recall": 0.8203883495145631,
+          "f1": 0.7056367432150313,
+          "n": 462,
+          "n_positive": 206,
+          "roc_auc": 0.7868059769417475,
+          "pr_auc": 0.7515705427003883
+        },
+        "Maharashtra / Acute Diarrhoeal Disease": {
+          "accuracy": 0.6861471861471862,
+          "precision": 0.5985130111524164,
+          "recall": 0.8131313131313131,
+          "f1": 0.6895074946466809,
+          "n": 462,
+          "n_positive": 198,
+          "roc_auc": 0.8017485460667277,
+          "pr_auc": 0.7777488234404674
+        },
+        "Maharashtra / Dengue": {
+          "accuracy": 0.8008658008658008,
+          "precision": 0.65,
+          "recall": 0.7428571428571429,
+          "f1": 0.6933333333333334,
+          "n": 462,
+          "n_positive": 140,
+          "roc_auc": 0.8603039041703637,
+          "pr_auc": 0.728378174589247
+        }
+      },
+      "validation": {
+        "overall": {
+          "accuracy": 0.5769230769230769,
+          "precision": 0.4503311258278146,
+          "recall": 0.5811965811965812,
+          "f1": 0.5074626865671642,
+          "n": 312,
+          "n_positive": 117,
+          "roc_auc": 0.5836730221345606,
+          "pr_auc": 0.49150450633724907
+        },
+        "Karnataka / Acute Diarrhoeal Disease": {
+          "accuracy": 0.5288461538461539,
+          "precision": 0.38596491228070173,
+          "recall": 0.6111111111111112,
+          "f1": 0.4731182795698925,
+          "n": 104,
+          "n_positive": 36,
+          "roc_auc": 0.5253267973856209,
+          "pr_auc": 0.4238447890665894
+        },
+        "Maharashtra / Acute Diarrhoeal Disease": {
+          "accuracy": 0.625,
+          "precision": 0.48936170212765956,
+          "recall": 0.6052631578947368,
+          "f1": 0.5411764705882353,
+          "n": 104,
+          "n_positive": 38,
+          "roc_auc": 0.6345693779904306,
+          "pr_auc": 0.5034250334707394
+        },
+        "Maharashtra / Dengue": {
+          "accuracy": 0.5769230769230769,
+          "precision": 0.48936170212765956,
+          "recall": 0.5348837209302325,
+          "f1": 0.5111111111111111,
+          "n": 104,
+          "n_positive": 43,
+          "roc_auc": 0.6008387342737324,
+          "pr_auc": 0.5790900209931396
+        }
+      },
+      "test": {
+        "overall": {
+          "accuracy": 0.6068376068376068,
+          "precision": 0.3023255813953488,
+          "recall": 0.4482758620689655,
+          "f1": 0.3611111111111111,
+          "n": 234,
+          "n_positive": 58,
+          "roc_auc": 0.5791046238244514,
+          "pr_auc": 0.3567349753907969
+        },
+        "Karnataka / Acute Diarrhoeal Disease": {
+          "accuracy": 0.48717948717948717,
+          "precision": 0.22857142857142856,
+          "recall": 0.38095238095238093,
+          "f1": 0.2857142857142857,
+          "n": 78,
+          "n_positive": 21,
+          "roc_auc": 0.4327485380116959,
+          "pr_auc": 0.3207891156000075,
+          "pr_auc_ci_lo": 0.16569909053718787,
+          "pr_auc_ci_hi": 0.5179799824904848,
+          "pr_auc_ci_n_valid_resamples": 1000
+        },
+        "Maharashtra / Acute Diarrhoeal Disease": {
+          "accuracy": 0.6282051282051282,
+          "precision": 0.09090909090909091,
+          "recall": 0.18181818181818182,
+          "f1": 0.12121212121212122,
+          "n": 78,
+          "n_positive": 11,
+          "roc_auc": 0.44233378561736775,
+          "pr_auc": 0.12867975116797117,
+          "pr_auc_ci_lo": 0.07329488199657029,
+          "pr_auc_ci_hi": 0.23380359968566805,
+          "pr_auc_ci_n_valid_resamples": 1000
+        },
+        "Maharashtra / Dengue": {
+          "accuracy": 0.7051282051282052,
+          "precision": 0.5517241379310345,
+          "recall": 0.6153846153846154,
+          "f1": 0.5818181818181818,
+          "n": 78,
+          "n_positive": 26,
+          "roc_auc": 0.7585059171597632,
+          "pr_auc": 0.6250764606283263,
+          "pr_auc_ci_lo": 0.4269902092063986,
+          "pr_auc_ci_hi": 0.8042583694182499,
+          "pr_auc_ci_n_valid_resamples": 1000
+        }
+      }
+    }
+  }
+}

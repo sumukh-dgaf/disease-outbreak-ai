@@ -17,3 +17,5 @@ jupyter
 pdfplumber
 openpyxl
 rapidfuzz
+fastapi
+uvicorn[standard]

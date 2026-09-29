@@ -20,3 +20,5 @@ data/*
 *.pth
 *.onnx
 models/
+
+.vercel

@@ -427,3 +427,106 @@ bound (0.064).
 `xgboost_reporting_only.test.<combo>.pr_auc_ci_lo` /
 `.pr_auc_ci_hi` and `logistic_regression_reporting_only.test.<combo>.pr_auc_ci_lo`
 / `.pr_auc_ci_hi`, compared pairwise for interval overlap.
+
+---
+
+## F15 — SARIMA (Fourier-seasonal) clears chance only for Maharashtra/Dengue, at every horizon; never for the two Acute Diarrhoeal Disease combos
+
+**Claim:** A SARIMAX model per combo (order selected by train-only AIC grid
+search over p,q in 0-2, d in 0-1, with a sin/cos Fourier pair at period 52
+as exogenous seasonality, since a literal seasonal order of 52 is unstable
+on weekly data) has its test-split bootstrap 95% CI lower bound on PR-AUC
+exceed the test-split base rate only for Maharashtra/Dengue, at all four
+horizons tested. It never clears the base rate for Karnataka/ADD or
+Maharashtra/ADD, at any horizon.
+
+**Orders selected (train-only AIC):** Karnataka/ADD (0,1,1), Maharashtra/
+Dengue (1,1,1), Maharashtra/ADD (0,1,1).
+
+**Supporting numbers (test PR-AUC [95% CI] vs. base rate, by horizon):**
+
+| State / Disease | h=1 | h=2 | h=3 | h=4 | Base rate |
+|---|---|---|---|---|---|
+| Karnataka / Acute Diarrhoeal Disease | 0.341 [0.221, 0.557] | 0.374 [0.209, 0.558] | 0.296 [0.188, 0.483] | 0.314 [0.173, 0.502] | 0.295 (h1-2) / 0.282 (h3) / 0.269 (h4) |
+| Maharashtra / Dengue | 0.575 [0.412, 0.798] | 0.555 [0.408, 0.783] | 0.591 [0.418, 0.780] | 0.596 [0.398, 0.775] | 0.333 |
+| Maharashtra / Acute Diarrhoeal Disease | 0.209 [0.098, 0.410] | 0.186 [0.094, 0.358] | 0.185 [0.093, 0.371] | 0.179 [0.090, 0.352] | 0.141 |
+
+Only Maharashtra/Dengue's lower CI bound (0.398-0.412 across horizons)
+exceeds its base rate (0.333) at every horizon; Karnataka/ADD's lower
+bounds (0.173-0.221) sit below its base rate (0.269-0.295) at every
+horizon — notably, this means SARIMA does *not* clear chance for
+Karnataka/ADD even at h=1, unlike XGBoost (reporting-only), which clears
+it marginally at h=1 per F10.
+
+**Comparison to XGBoost/logistic (reporting-only):** SARIMA's test PR-AUC
+CI overlaps both XGBoost's and logistic's CI for every combo at every
+horizon (12/12 cells each) — the same "not statistically distinguishable"
+pattern F14 found between XGBoost and logistic themselves. SARIMA is not
+shown to be worse or better than either learned model by this bootstrap.
+
+**Source:** `src/train_sarima.py` (model fitting, walk-forward forecasting,
+order selection), output at `results/metrics/sarima_results.json` —
+`order_selected.<combo>`, and for each `h` in `"1".."4"`,
+`<h>.sarima.test.<combo>.pr_auc` / `.pr_auc_ci_lo` / `.pr_auc_ci_hi`,
+`<h>.base_rate.test.<combo>`. Compared against
+`results/metrics/horizon_results.json` — `<h>.xgboost_reporting_only.test.<combo>`
+and `<h>.logistic_regression_reporting_only.test.<combo>`
+`.pr_auc_ci_lo` / `.pr_auc_ci_hi`, for interval overlap.
+
+---
+
+## F16 — Stochastic Gradient Boosting clears chance only for Maharashtra/Dengue too; climate adds little at h=1, matching F9's pattern for the other models
+
+**Claim:** sklearn's `GradientBoostingClassifier` (reporting-only features,
+balanced sample weights) shows the same combo pattern as XGBoost, logistic
+regression, and SARIMA: its test-split bootstrap 95% CI lower bound on
+PR-AUC clears the base rate only for Maharashtra/Dengue, at every horizon,
+and never for Karnataka/ADD or Maharashtra/ADD.
+
+**Supporting numbers (test PR-AUC [95% CI] vs. base rate, by horizon,
+reporting-only feature set):**
+
+| State / Disease | h=1 | h=2 | h=3 | h=4 | Base rate |
+|---|---|---|---|---|---|
+| Karnataka / Acute Diarrhoeal Disease | 0.452 [0.282, 0.633] | 0.461 [0.279, 0.637] | 0.407 [0.233, 0.593] | 0.321 [0.166, 0.518] | 0.295 (h1-2) / 0.282 (h3) / 0.269 (h4) |
+| Maharashtra / Dengue | 0.624 [0.459, 0.819] | 0.683 [0.508, 0.849] | 0.644 [0.472, 0.845] | 0.625 [0.427, 0.804] | 0.333 |
+| Maharashtra / Acute Diarrhoeal Disease | 0.117 [0.062, 0.216] | 0.133 [0.066, 0.257] | 0.142 [0.075, 0.288] | 0.129 [0.073, 0.234] | 0.141 |
+
+Karnataka/ADD's lower CI bounds (0.166-0.282) never quite clear its base
+rate (0.269-0.295) at any horizon — closer than SARIMA got, but still not
+clearing, including at h=1 where XGBoost marginally does (F10).
+
+**Climate ablation at h=1 (reporting-only vs. +climate, matching
+train_baseline.py's Experiment 1):**
+
+| State / Disease | Reporting-only | + Climate | Difference |
+|---|---|---|---|
+| Karnataka / Acute Diarrhoeal Disease | 0.452 | 0.580 | +0.128 |
+| Maharashtra / Dengue | 0.624 | 0.637 | +0.013 |
+| Maharashtra / Acute Diarrhoeal Disease | 0.117 | 0.119 | +0.002 |
+
+For Maharashtra/Dengue and Maharashtra/ADD, climate adds about as little
+as it did for XGBoost and logistic regression in F9 (+0.001 to +0.014
+there). Karnataka/ADD is the exception — SGB gains +0.128 PR-AUC from
+climate features, a larger jump than either XGBoost or logistic saw for
+any combo in F9. **INTERPRETATION:** this could mean SGB's particular
+boosting/regularization combination is better able to extract signal from
+the climate lag features for this specific combo, or it could be noise
+from a single train/test split — F9's own climate-ablation comparison
+covers only XGBoost and logistic, so there is no other model's result to
+corroborate this size of a jump against.
+
+**Comparison to XGBoost/logistic (reporting-only):** SGB's test PR-AUC CI
+overlaps both XGBoost's and logistic's CI for every combo at every horizon
+(12/12 cells each), the same pattern as SARIMA in F15 — not statistically
+distinguishable from either by this bootstrap.
+
+**Source:** `src/train_sgb.py` (model fitting, feature reuse from
+`train_baseline.py`), output at `results/metrics/sgb_results.json` — for
+each `h` in `"1".."4"`, `<h>.sgb_reporting_only.test.<combo>.pr_auc` /
+`.pr_auc_ci_lo` / `.pr_auc_ci_hi`, `<h>.base_rate.test.<combo>`; climate
+ablation from `1.sgb_with_climate.test.<combo>.pr_auc`. Compared against
+`results/metrics/horizon_results.json` (XGBoost/logistic CIs, as in F15)
+and `results/metrics/baseline_results.json` →
+`experiment_1_climate_ablation.{xgboost,logistic_regression}.*.test.overall.pr_auc`
+(for the F9 climate-gain comparison).

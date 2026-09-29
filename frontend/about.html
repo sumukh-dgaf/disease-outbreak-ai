@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<script>(function(){try{document.documentElement.dataset.theme=localStorage.getItem('theme')||'dark';}catch(e){}})();</script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" href="data:,">
+<link rel="stylesheet" href="styles.css">
+<title>About — Dengue Outbreak Forecast</title>
+<script src="data/history.js"></script>
+<script src="data/shap.js"></script>
+<script src="data/predictions.js"></script>
+</head>
+<body>
+  <div class="blob b1"></div>
+  <div class="blob b2"></div>
+  <div class="blob b3"></div>
+
+  <div class="wrap" id="app">
+    <nav class="navbar">
+      <a href="index.html">Forecast</a>
+      <a href="about.html" class="active">About</a>
+      <a href="comparison.html">Comparison</a>
+      <button id="theme-toggle" class="theme-toggle" aria-label="Toggle light/dark theme" title="Toggle theme"></button>
+    </nav>
+
+    <header class="card" style="animation-delay:0s">
+      <h1>How this works, and what we found</h1>
+    </header>
+
+    <div class="card prose" style="animation-delay:0.05s">
+      <h2>What this predicts</h2>
+      <p>This model predicts whether a dengue case will get <strong>reported to IDSP</strong>
+        (India's Integrated Disease Surveillance Programme) in the coming week(s) —
+        not whether an outbreak actually occurs. That distinction exists because
+        the underlying surveillance data only records what got reported, not
+        ground-truth case counts: reporting itself is gappy and inconsistent
+        (see Limitations below), so "will this get reported" is the honest
+        question the data can answer, while "is an outbreak happening" is not.</p>
+    </div>
+
+    <div class="card prose" style="animation-delay:0.1s">
+      <h2>Why only Maharashtra / Dengue</h2>
+      <p>This was one of three state-disease combinations tested end-to-end
+        (the other two: Karnataka / Acute Diarrhoeal Disease and Maharashtra /
+        Acute Diarrhoeal Disease). Maharashtra/Dengue is the only one that
+        reliably clears the base rate with statistical confidence — see the
+        <a href="comparison.html">full comparison</a> for all three.</p>
+    </div>
+
+    <div class="card" style="animation-delay:0.15s">
+      <p class="panel-caption">Each week from 2009-2022, showing whether dengue was reported, against the train/validation/test split (2020 excluded).</p>
+      <div class="hero-label" style="margin-bottom:14px">Historical reporting timeline</div>
+      <canvas id="history-canvas" height="140"></canvas>
+    </div>
+
+    <div class="card" style="animation-delay:0.2s">
+      <p class="panel-caption">Which features the model relied on most, and whether that reliance held up under an independent permutation-importance check.</p>
+      <div class="hero-label" style="margin-bottom:14px">SHAP feature importance (top 8)</div>
+      <div id="shap-list">Loading…</div>
+      <div class="shap-caption">SHAP attribution was not corroborated by permutation testing — this shows how the model distributes credit, not evidence of causal drivers (F9, F13).</div>
+    </div>
+
+    <div class="card" style="animation-delay:0.25s">
+      <div class="hero-label" style="margin-bottom:14px">Full metrics, all horizons</div>
+      <table class="metrics-table" id="metrics-table">
+        <thead>
+          <tr><th>Horizon</th><th>Model</th><th>PR-AUC</th><th>95% CI</th><th>Base rate</th><th>Test positives</th></tr>
+        </thead>
+        <tbody><tr><td colspan="6">Loading…</td></tr></tbody>
+      </table>
+    </div>
+
+    <div class="card prose" style="animation-delay:0.3s">
+      <h2>Limitations</h2>
+      <p>In plain language: reporting is sparse everywhere, it collapsed hard
+        around 2020, two of the three tested combinations don't reliably
+        beat chance, and the one that does (Maharashtra/Dengue) likely works
+        because it's tracking a slow seasonal pattern rather than real
+        outbreak dynamics. Quoted directly from
+        <code>results/findings.md</code>:</p>
+
+      <div class="finding">
+        <p class="claim">F4 — No state-disease combination in the modeled data has a report in even 40% of the 731 possible ISO weeks (2009-2022); coverage ranges from 13.3% to 36.9%.</p>
+        <p class="cite">Reporting coverage per state-disease is low everywhere, and varies roughly 3x across combos.</p>
+      </div>
+
+      <div class="finding">
+        <p class="claim">F5 — Every one of the six state-disease combinations loses at least 42% of its 2019 reporting rate by 2020, with three combos losing more than 70%.</p>
+        <p class="cite">A near-universal reporting collapse occurs between 2019 and 2020 — most plausibly COVID-19-era disruption to routine surveillance infrastructure (interpretation, not a measured cause).</p>
+      </div>
+
+      <div class="finding">
+        <p class="claim">F6 — Karnataka/Dengue, West Bengal/Acute Diarrhoeal Disease, and West Bengal/Dengue were dropped from the modeling scope; West Bengal/Dengue in particular has as few as 3-4 positive weeks in some splits.</p>
+        <p class="cite">Three combos were excluded from modeling for insufficient positive density.</p>
+      </div>
+
+      <div class="finding">
+        <p class="claim">F11 — As horizon increases from 1 to 4 weeks, Maharashtra/Dengue's test PR-AUC (logistic regression) stays within a narrow band, while Karnataka/ADD's test PR-AUC (XGBoost) decreases at every step.</p>
+        <p class="cite">Interpretation: Dengue's reporting pattern is likely dominated by a slow-moving seasonal regime (so knowing the current reporting-history/seasonal state still carries information 4 weeks out), while Acute Diarrhoeal Disease reporting is driven more by short, localized outbreak dynamics whose signal decays faster than 4 weeks — a proposed explanation, not something measured directly.</p>
+      </div>
+    </div>
+  </div>
+
+<script src="theme.js"></script>
+<script>
+function showError(msg) {
+  const el = document.getElementById('app');
+  const div = document.createElement('div');
+  div.className = 'card error-card';
+  div.textContent = msg;
+  el.prepend(div);
+}
+
+function drawHistory(series, boundaries) {
+  const canvas = document.getElementById('history-canvas');
+  const dpr = window.devicePixelRatio || 1;
+  const w = canvas.clientWidth || 860, h = 140;
+  canvas.width = w * dpr; canvas.height = h * dpr;
+  const ctx = canvas.getContext('2d');
+  ctx.scale(dpr, dpr);
+
+  const dates = series.map(r => new Date(r.week_start_date));
+  const t0 = dates[0].getTime(), t1 = dates[dates.length - 1].getTime();
+  const x = t => ((t - t0) / (t1 - t0)) * w;
+
+  const regions = [
+    [boundaries.train_start, boundaries.train_end, 'rgba(45,212,191,0.10)'],
+    [boundaries.val_start, boundaries.val_end, 'rgba(167,139,250,0.10)'],
+    [boundaries.excluded_start, boundaries.excluded_end, 'rgba(255,255,255,0.06)'],
+    [boundaries.test_start, boundaries.test_end, 'rgba(79,124,255,0.12)'],
+  ];
+  regions.forEach(([s, e, color]) => {
+    const xs = x(new Date(s).getTime()), xe = x(new Date(e).getTime());
+    ctx.fillStyle = color;
+    ctx.fillRect(xs, 0, xe - xs, h);
+  });
+
+  series.forEach(r => {
+    const px = x(new Date(r.week_start_date).getTime());
+    ctx.fillStyle = r.reported ? '#2dd4bf' : 'rgba(255,255,255,0.15)';
+    ctx.fillRect(px, r.reported ? 20 : h - 30, 1.4, r.reported ? h - 40 : 10);
+  });
+}
+
+function drawShap(rows) {
+  const el = document.getElementById('shap-list');
+  const maxShap = Math.max(...rows.map(r => r.mean_abs_shap));
+  const maxPerm = Math.max(...rows.map(r => Math.abs(r.permutation_importance_mean ?? 0))) || 1;
+  el.innerHTML = rows.map(r => {
+    const shapPct = (r.mean_abs_shap / maxShap) * 100;
+    const pv = r.permutation_importance_mean;
+    const permPct = pv == null ? 0 : (Math.abs(pv) / maxPerm) * 100;
+    const permColor = pv != null && pv < 0 ? 'background:var(--status-bad)' : '';
+    const negClass = pv != null && pv < 0 ? 'neg' : '';
+    return `<div class="shap-row">
+      <div class="shap-label">${r.feature}</div>
+      <div class="shap-bars">
+        <div class="shap-bar" style="width:${shapPct}%"></div>
+        <div class="shap-bar perm" style="width:${permPct}%;${permColor}"></div>
+      </div>
+      <div class="shap-perm-val ${negClass}">${pv == null ? 'n/a' : pv.toFixed(3)}</div>
+    </div>`;
+  }).join('');
+}
+
+const MODEL_LABELS = { xgboost: 'XGBoost', logistic: 'Logistic', sarima: 'SARIMA', sgb: 'Stochastic GB' };
+
+function renderMetricsTable(predictions) {
+  const tbody = document.querySelector('#metrics-table tbody');
+  const rows = [];
+  for (const horizon of ['1', '2', '3', '4']) {
+    for (const model of ['xgboost', 'logistic', 'sarima', 'sgb']) {
+      const d = predictions[horizon][model];
+      rows.push(`<tr>
+        <td>${horizon} wk</td>
+        <td>${MODEL_LABELS[model]}</td>
+        <td>${d.pr_auc.toFixed(3)}</td>
+        <td>[${d.pr_auc_ci_lo.toFixed(3)}, ${d.pr_auc_ci_hi.toFixed(3)}]</td>
+        <td>${d.base_rate.toFixed(3)}</td>
+        <td>${d.test_positives}</td>
+      </tr>`);
+    }
+  }
+  tbody.innerHTML = rows.join('');
+}
+
+function init() {
+  const data = window.__DATA__;
+  if (!data || !data.history || !data.shap || !data.predictions) {
+    showError("Couldn't load data — data/*.js didn't load. Run python scripts/precompute.py to (re)generate frontend/data/.");
+    return;
+  }
+  drawHistory(data.history.series, data.history.boundaries);
+  drawShap(data.shap);
+  renderMetricsTable(data.predictions);
+}
+init();
+</script>
+</body>
+</html>

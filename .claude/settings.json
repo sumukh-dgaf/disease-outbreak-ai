@@ -19,6 +19,7 @@
       "Read(/data/**)",
       "WebFetch(domain:power.larc.nasa.gov)",
       "WebFetch(domain:archive-api.open-meteo.com)",
+      "WebFetch(domain:dhs.kerala.gov.in)",
       "WebSearch"
     ],
     "deny": [
@@ -37,7 +38,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "python .claude/hooks/protect_raw.py"
+            "command": "python C:/Users/gupta/Desktop/disease-outbreak-ai/.claude/hooks/protect_raw.py"
           }
         ]
       }

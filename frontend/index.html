@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<script>(function(){try{document.documentElement.dataset.theme=localStorage.getItem('theme')||'dark';}catch(e){}})();</script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" href="data:,">
+<link rel="stylesheet" href="styles.css">
+<title>Forecast — Dengue Outbreak, Maharashtra</title>
+<script src="data/predictions.js"></script>
+<script src="data/history.js"></script>
+</head>
+<body>
+  <div class="blob b1"></div>
+  <div class="blob b2"></div>
+  <div class="blob b3"></div>
+
+  <div class="wrap" id="app">
+    <nav class="navbar">
+      <a href="index.html" class="active">Forecast</a>
+      <a href="about.html">About</a>
+      <a href="comparison.html">Comparison</a>
+      <button id="theme-toggle" class="theme-toggle" aria-label="Toggle light/dark theme" title="Toggle theme"></button>
+    </nav>
+
+    <header class="card" style="animation-delay:0s">
+      <h1>Dengue Outbreak Forecast — Maharashtra</h1>
+      <p class="panel-caption below">Predicts whether a dengue outbreak will be reported in Maharashtra in the coming weeks, based on historical reporting patterns.</p>
+    </header>
+
+    <div class="card" style="animation-delay:0.05s">
+      <div class="selector-block">
+        <div class="section-title">Forecast horizon</div>
+        <div class="selector-desc">How many weeks ahead to predict</div>
+        <div class="pill-group" id="horizon-group">
+          <span class="segment-highlight"></span>
+          <button class="pill" data-horizon="1">1 week</button>
+          <button class="pill" data-horizon="2">2 week</button>
+          <button class="pill" data-horizon="3">3 week</button>
+          <button class="pill" data-horizon="4">4 week</button>
+        </div>
+      </div>
+      <div class="selector-block">
+        <div class="section-title">Prediction model</div>
+        <div class="selector-desc">Which trained model generates the prediction</div>
+        <div class="pill-group" id="model-group">
+          <span class="segment-highlight"></span>
+          <button class="pill" data-model="xgboost">XGBoost</button>
+          <button class="pill" data-model="logistic">Logistic</button>
+          <button class="pill" data-model="sarima">SARIMA</button>
+          <button class="pill" data-model="sgb">Stochastic GB</button>
+        </div>
+        <p class="panel-caption below" id="shap-note" style="display:none">SHAP feature importance (on the About page) was computed for XGBoost only — not available for this model.</p>
+      </div>
+    </div>
+
+    <div class="panel-grid">
+      <div class="card" id="hero-card" style="animation-delay:0.1s">
+        <p class="panel-caption">The model's predicted chance that a dengue report will be filed for the selected horizon and model.</p>
+        <div class="hero-label">Predicted probability of a report</div>
+        <div class="hero-number count-up" id="hero-prob">—</div>
+        <div class="ci-track" id="ci-track">
+          <div class="ci-band" id="ci-band"></div>
+          <div class="ci-marker" id="ci-marker" data-label="base rate"></div>
+        </div>
+      </div>
+
+      <div class="card" id="status-card" style="animation-delay:0.15s">
+        <p class="panel-caption">Whether this model/horizon combination actually beats guessing the base rate, with statistical confidence.</p>
+        <div class="status-line" id="status-line">Loading…</div>
+      </div>
+    </div>
+
+    <div class="panel-grid">
+      <div class="card" id="week-context-card" style="animation-delay:0.16s">
+        <p class="panel-caption">Descriptive context only — not a prediction — so it isn't confused with the model's output above.</p>
+        <div class="section-title">This week's context</div>
+        <dl class="fact-grid">
+          <div><dt>Latest known week</dt><dd id="ctx-week-date">—</dd></div>
+          <div><dt>Actual reporting status</dt><dd id="ctx-reported">—</dd></div>
+          <div><dt>Seasonal position</dt><dd id="ctx-season">—</dd></div>
+        </dl>
+      </div>
+
+      <div class="card" id="reliability-card" style="animation-delay:0.19s">
+        <p class="panel-caption">The evidence behind the status line above — for anyone who wants the numbers, not just the color.</p>
+        <div class="section-title">Model reliability at a glance</div>
+        <div class="reliability-row">
+          <div class="reliability-label">PR-AUC</div>
+          <div class="reliability-track"><div class="reliability-fill pr-auc" id="rel-prauc-bar"></div></div>
+          <div class="reliability-value" id="rel-prauc-value">—</div>
+        </div>
+        <div class="reliability-row">
+          <div class="reliability-label">Base rate</div>
+          <div class="reliability-track"><div class="reliability-fill base-rate" id="rel-base-bar"></div></div>
+          <div class="reliability-value" id="rel-base-value">—</div>
+        </div>
+        <p class="panel-caption below" id="rel-positives">—</p>
+      </div>
+    </div>
+
+    <div class="card" id="context-card" style="animation-delay:0.18s">
+      <p class="panel-caption">Recent actual weekly reporting for Maharashtra/Dengue, with the current prediction shown alongside for context.</p>
+      <div class="hero-label" style="margin-bottom:14px">Recent history vs. current prediction</div>
+      <canvas id="context-canvas" height="140"></canvas>
+      <p class="panel-caption below">🟢 reported that week &nbsp; · &nbsp; 🟪 current prediction</p>
+    </div>
+
+    <div class="more-link-wrap" style="animation-delay:0.2s">
+      <a class="more-link" href="about.html">See how this works and what it actually means →</a>
+    </div>
+  </div>
+
+<script src="theme.js"></script>
+<script>
+let DATA = null;
+let HISTORY = null;
+let horizon = 1, model = 'xgboost';
+
+// Historical seasonal peak for Maharashtra/Dengue reporting: the ISO week-of-year
+// with the highest historical reporting rate, from results/metrics/eda_summary.json's
+// peak_reporting_week.Dengue.Maharashtra (peak_week=20, reporting_rate=0.571).
+// Not in results/findings.md — findings.md has no week-of-year seasonality figures.
+const PEAK_WEEK = 20;
+const PEAK_WINDOW = 3; // +/- weeks counted as "near" the peak — a proximity band derived
+                        // from that single real peak-week value, not a separately measured window.
+
+function isoWeek(dateStr) {
+  const d = new Date(dateStr + 'T00:00:00Z');
+  d.setUTCDate(d.getUTCDate() + 4 - (d.getUTCDay() || 7));
+  const yearStart = new Date(Date.UTC(d.getUTCFullYear(), 0, 1));
+  return Math.ceil((((d - yearStart) / 86400000) + 1) / 7);
+}
+
+function positionHighlight(groupId) {
+  const group = document.getElementById(groupId);
+  const active = group.querySelector('.pill.active');
+  const highlight = group.querySelector('.segment-highlight');
+  if (!active || !highlight) return;
+  highlight.style.left = active.offsetLeft + 'px';
+  highlight.style.width = active.offsetWidth + 'px';
+}
+
+function setActive(groupId, attr, value) {
+  document.querySelectorAll(`#${groupId} .pill`).forEach(b => {
+    b.classList.toggle('active', b.dataset[attr] === String(value));
+  });
+  positionHighlight(groupId);
+}
+
+function showError(msg) {
+  const el = document.getElementById('app');
+  const div = document.createElement('div');
+  div.className = 'card error-card';
+  div.textContent = msg;
+  el.prepend(div);
+}
+
+function countUp(el, target, suffix = '%', ms = 700) {
+  const start = performance.now();
+  function step(t) {
+    const p = Math.min(1, (t - start) / ms);
+    el.textContent = (target * p).toFixed(1) + suffix;
+    if (p < 1) requestAnimationFrame(step);
+  }
+  requestAnimationFrame(step);
+}
+
+function drawContextChart(probability) {
+  if (!HISTORY) return;
+  const canvas = document.getElementById('context-canvas');
+  const dpr = window.devicePixelRatio || 1;
+  const w = canvas.clientWidth || 860, h = 140;
+  canvas.width = w * dpr; canvas.height = h * dpr;
+  const ctx = canvas.getContext('2d');
+  ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+  ctx.clearRect(0, 0, w, h);
+
+  const cutoff = HISTORY.boundaries.test_end;
+  const recent = HISTORY.series.filter(r => r.week_start_date <= cutoff).slice(-16);
+  const n = recent.length + 1; // +1 slot for the predicted bar
+  const gap = 6;
+  const barW = (w - gap * (n - 1)) / n;
+  const style = getComputedStyle(document.documentElement);
+  const teal = style.getPropertyValue('--teal').trim();
+  const violet = style.getPropertyValue('--violet').trim();
+  const muted = style.getPropertyValue('--muted').trim();
+
+  recent.forEach((r, i) => {
+    const x = i * (barW + gap);
+    ctx.globalAlpha = r.reported ? 1 : 0.35;
+    ctx.fillStyle = r.reported ? teal : muted;
+    const barH = r.reported ? h - 24 : 8;
+    ctx.fillRect(x, h - 14 - barH, barW, barH);
+  });
+
+  const px = recent.length * (barW + gap);
+  const predH = Math.max(4, probability * (h - 24));
+  ctx.globalAlpha = 1;
+  ctx.fillStyle = violet;
+  ctx.fillRect(px, h - 14 - predH, barW, predH);
+}
+
+function render() {
+  const d = DATA[String(horizon)][model];
+  countUp(document.getElementById('hero-prob'), d.probability * 100);
+
+  const lo = d.pr_auc_ci_lo * 100, hi = d.pr_auc_ci_hi * 100, base = d.base_rate * 100;
+  const band = document.getElementById('ci-band');
+  band.style.left = lo + '%';
+  band.style.width = (hi - lo) + '%';
+  const marker = document.getElementById('ci-marker');
+  marker.style.left = base + '%';
+  marker.dataset.label = `base rate ${base.toFixed(1)}%`;
+
+  const statusLine = document.getElementById('status-line');
+  if (d.lower_ci_above_base_rate) {
+    statusLine.className = 'status-line ok';
+    statusLine.innerHTML = '<span class="dot"></span> Performs above chance for this selection';
+  } else {
+    statusLine.className = 'status-line warn';
+    statusLine.innerHTML = '<span class="dot"></span> Does not perform above chance for this selection — not reliable for decision-making';
+  }
+
+  drawContextChart(d.probability);
+
+  document.getElementById('rel-prauc-bar').style.width = (d.pr_auc * 100) + '%';
+  document.getElementById('rel-prauc-value').textContent = d.pr_auc.toFixed(3);
+  document.getElementById('rel-base-bar').style.width = (d.base_rate * 100) + '%';
+  document.getElementById('rel-base-value').textContent = d.base_rate.toFixed(3);
+  document.getElementById('rel-positives').textContent =
+    `Based on ${d.test_positives} confirmed outbreak weeks in the test period.`;
+
+  document.getElementById('shap-note').style.display = (model === 'sarima' || model === 'sgb') ? '' : 'none';
+}
+
+function renderWeekContext() {
+  if (!HISTORY) return;
+  const latest = HISTORY.series[HISTORY.series.length - 1];
+  const date = new Date(latest.week_start_date + 'T00:00:00Z');
+  document.getElementById('ctx-week-date').textContent =
+    date.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric', timeZone: 'UTC' });
+  document.getElementById('ctx-reported').textContent = latest.reported ? 'Reported' : 'Not reported';
+
+  const w = isoWeek(latest.week_start_date);
+  const distance = Math.min(Math.abs(w - PEAK_WEEK), 52 - Math.abs(w - PEAK_WEEK));
+  const near = distance <= PEAK_WINDOW;
+  document.getElementById('ctx-season').textContent =
+    `Week ${w} of the year — ${near ? 'within' : 'outside'} the historical peak window (peak: week ${PEAK_WEEK})`;
+}
+
+function init() {
+  if (!window.__DATA__ || !window.__DATA__.predictions) {
+    showError("Couldn't load forecast data — data/predictions.js didn't load. Run python scripts/precompute.py to (re)generate frontend/data/.");
+    return;
+  }
+  DATA = window.__DATA__.predictions;
+  HISTORY = window.__DATA__.history || null;
+  renderWeekContext();
+  render();
+}
+
+document.getElementById('horizon-group').addEventListener('click', e => {
+  const b = e.target.closest('.pill'); if (!b) return;
+  horizon = parseInt(b.dataset.horizon, 10);
+  setActive('horizon-group', 'horizon', horizon);
+  render();
+});
+document.getElementById('model-group').addEventListener('click', e => {
+  const b = e.target.closest('.pill'); if (!b) return;
+  model = b.dataset.model;
+  setActive('model-group', 'model', model);
+  render();
+});
+
+setActive('horizon-group', 'horizon', horizon);
+setActive('model-group', 'model', model);
+init();
+</script>
+</body>
+</html>

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<script>(function(){try{document.documentElement.dataset.theme=localStorage.getItem('theme')||'dark';}catch(e){}})();</script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" href="data:,">
+<link rel="stylesheet" href="styles.css">
+<title>Comparison — Dengue Outbreak Forecast</title>
+<script src="data/comparison.js"></script>
+</head>
+<body>
+  <div class="blob b1"></div>
+  <div class="blob b2"></div>
+  <div class="blob b3"></div>
+
+  <div class="wrap" id="app">
+    <nav class="navbar">
+      <a href="index.html">Forecast</a>
+      <a href="about.html">About</a>
+      <a href="comparison.html" class="active">Comparison</a>
+      <button id="theme-toggle" class="theme-toggle" aria-label="Toggle light/dark theme" title="Toggle theme"></button>
+    </nav>
+
+    <header class="card" style="animation-delay:0s">
+      <h1>All three combinations tested</h1>
+      <p>Every state-disease pair this project modeled, and whether the reporting-only
+        model reliably beats guessing the base rate, at a one-week forecast horizon.</p>
+    </header>
+
+    <div class="card" style="animation-delay:0.05s">
+      <div class="combo-grid" id="combo-grid">Loading…</div>
+    </div>
+  </div>
+
+<script src="theme.js"></script>
+<script>
+function showError(msg) {
+  const el = document.getElementById('app');
+  const div = document.createElement('div');
+  div.className = 'card error-card';
+  div.textContent = msg;
+  el.prepend(div);
+}
+
+function render(combos) {
+  const grid = document.getElementById('combo-grid');
+  grid.innerHTML = combos.map(c => `
+    <div class="combo-card">
+      <p class="panel-caption">How this state-disease combination's models performed against random guessing.</p>
+      <h3>${c.combo}</h3>
+      <div class="outcome-tag ${c.outcome}">${c.outcome}</div>
+      <dl>
+        <dt>XGBoost PR-AUC (95% CI)</dt>
+        <dd>${c.xgboost.pr_auc.toFixed(3)} [${c.xgboost.pr_auc_ci_lo.toFixed(3)}, ${c.xgboost.pr_auc_ci_hi.toFixed(3)}]</dd>
+        <dt>Logistic PR-AUC (95% CI)</dt>
+        <dd>${c.logistic.pr_auc.toFixed(3)} [${c.logistic.pr_auc_ci_lo.toFixed(3)}, ${c.logistic.pr_auc_ci_hi.toFixed(3)}]</dd>
+        <dt>SARIMA PR-AUC (95% CI)</dt>
+        <dd>${c.sarima.pr_auc.toFixed(3)} [${c.sarima.pr_auc_ci_lo.toFixed(3)}, ${c.sarima.pr_auc_ci_hi.toFixed(3)}]</dd>
+        <dt>Stochastic GB PR-AUC (95% CI)</dt>
+        <dd>${c.sgb.pr_auc.toFixed(3)} [${c.sgb.pr_auc_ci_lo.toFixed(3)}, ${c.sgb.pr_auc_ci_hi.toFixed(3)}]</dd>
+        <dt>Base rate (test split)</dt>
+        <dd>${c.base_rate.toFixed(3)}</dd>
+        <dt>Clears chance</dt>
+        <dd>XGBoost: ${c.xgboost.cleared ? 'yes' : 'no'} · Logistic: ${c.logistic.cleared ? 'yes' : 'no'} · SARIMA: ${c.sarima.cleared ? 'yes' : 'no'} · SGB: ${c.sgb.cleared ? 'yes' : 'no'}</dd>
+      </dl>
+      <p class="sentence">${c.sentence}</p>
+    </div>
+  `).join('');
+}
+
+function init() {
+  if (!window.__DATA__ || !window.__DATA__.comparison) {
+    showError("Couldn't load comparison data — data/comparison.js didn't load. Run python scripts/precompute.py to (re)generate frontend/data/.");
+    return;
+  }
+  render(window.__DATA__.comparison);
+}
+init();
+</script>
+</body>
+</html>
