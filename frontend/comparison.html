@@ -8,6 +8,7 @@
 <link rel="stylesheet" href="styles.css">
 <title>Comparison — Dengue Outbreak Forecast</title>
 <script src="data/comparison.js"></script>
+<script src="data/not_viable.js"></script>
 </head>
 <body>
   <div class="blob b1"></div>
@@ -18,18 +19,25 @@
     <nav class="navbar">
       <a href="index.html">Forecast</a>
       <a href="about.html">About</a>
+      <a href="models.html">Models</a>
       <a href="comparison.html" class="active">Comparison</a>
       <button id="theme-toggle" class="theme-toggle" aria-label="Toggle light/dark theme" title="Toggle theme"></button>
     </nav>
 
     <header class="card" style="animation-delay:0s">
-      <h1>All three combinations tested</h1>
+      <h1>All combinations tested</h1>
       <p>Every state-disease pair this project modeled, and whether the reporting-only
         model reliably beats guessing the base rate, at a one-week forecast horizon.</p>
     </header>
 
     <div class="card" style="animation-delay:0.05s">
       <div class="combo-grid" id="combo-grid">Loading…</div>
+    </div>
+
+    <div class="card" style="animation-delay:0.08s">
+      <p class="panel-caption">Combos screened but never built or trained — excluded before any model saw them.</p>
+      <div class="section-title" style="margin-bottom:12px">Not viable</div>
+      <dl class="fact-grid" id="not-viable-list"></dl>
     </div>
   </div>
 
@@ -69,12 +77,20 @@ function render(combos) {
   `).join('');
 }
 
+function renderNotViable(items) {
+  const el = document.getElementById('not-viable-list');
+  el.innerHTML = items.map(item => `
+    <div><dt>${item.combo}</dt><dd>${item.test_positives} test positives — ${item.reason}</dd></div>
+  `).join('');
+}
+
 function init() {
-  if (!window.__DATA__ || !window.__DATA__.comparison) {
-    showError("Couldn't load comparison data — data/comparison.js didn't load. Run python scripts/precompute.py to (re)generate frontend/data/.");
+  if (!window.__DATA__ || !window.__DATA__.comparison || !window.__DATA__.not_viable) {
+    showError("Couldn't load comparison data — data/comparison.js or data/not_viable.js didn't load. Run python scripts/precompute.py to (re)generate frontend/data/.");
     return;
   }
   render(window.__DATA__.comparison);
+  renderNotViable(window.__DATA__.not_viable);
 }
 init();
 </script>

@@ -189,6 +189,20 @@ For comparison, the three combos that were **kept**:
 (grouped by `state`, `disease`, filtered by `year` into the three ranges
 above; `reported.sum()` over `len(group)`).
 
+**Note added 2026-10-05:** West Bengal/Acute Diarrhoeal Disease was
+re-screened under the split this project uses everywhere else now (train
+2009-2017 / validation 2018-2019 / test 2021-01-01–2022-06-29, 2020
+excluded — adopted for the reasons in F4's reporting-collapse finding and
+because EpiClim's source data ends in June 2022) and passes the ≥15-val
+AND ≥15-test viability bar applied to all combos screened under that split:
+25/104 validation positives and 30/78 test positives (vs. this finding's
+19/105 validation and 30/104 test under the earlier split above). It was
+built and evaluated in F17. Karnataka/Dengue and West Bengal/Dengue were
+not re-screened and remain excluded. **Source:** screening computed
+directly from `data/processed/state_weekly_extra.parquet` via
+`train_baseline.chronological_split`; full results in F17 and
+`results/metrics/extra_combos_results.json`.
+
 ---
 
 ## F7 — The seasonal baseline does not generalize out-of-sample
@@ -530,3 +544,94 @@ ablation from `1.sgb_with_climate.test.<combo>.pr_auc`. Compared against
 and `results/metrics/baseline_results.json` →
 `experiment_1_climate_ablation.{xgboost,logistic_regression}.*.test.overall.pr_auc`
 (for the F9 climate-gain comparison).
+
+---
+
+## F17 — Of 5 newly screened state-disease combos, 4 were viable to build and only 1 (Kerala/Dengue) actually works; the other 3 never clear chance for any model
+
+**Claim:** Five additional state-disease combos were screened against the
+same train 2009-2017 / validation 2018-2019 / test 2021-01-01–2022-06-29
+split (2020 excluded) used throughout this project, with a viability bar
+of ≥15 validation positives AND ≥15 test positives. Four passed screening
+and were built and evaluated with all four models (XGBoost, logistic
+regression, SARIMA, stochastic gradient boosting); one (Tamil Nadu/Dengue)
+failed screening and was not built. Of the four built, only Kerala/Dengue
+clears chance (bootstrap 95% CI lower bound on test PR-AUC above base
+rate) for any model — and does so for all four models at every horizon
+except logistic regression at h=4. West Bengal/ADD, Gujarat/ADD, and
+Odisha/ADD never clear chance, for any of the four models, at any horizon.
+
+**Screening (positive counts per split; viability bar: ≥15 val AND ≥15 test):**
+
+| State / Disease | Train 2009-2017 | Val 2018-2019 | Test 2021-01-01–2022-06-29 | Verdict |
+|---|---|---|---|---|
+| West Bengal / Acute Diarrhoeal Disease | 205/470 | 25/104 | 30/78 | VIABLE |
+| Gujarat / Acute Diarrhoeal Disease | 172/470 | 26/104 | 19/78 | VIABLE |
+| Odisha / Acute Diarrhoeal Disease | 149/470 | 32/104 | 19/78 | VIABLE |
+| Tamil Nadu / Dengue | 136/470 | 15/104 | 9/78 | **NOT VIABLE** (test positives = 9 < 15) |
+| Kerala / Dengue | 68/470 | 17/104 | 18/78 | VIABLE |
+
+**Supporting numbers — test PR-AUC [95% CI] vs. base rate, viable combos only (✓ = CI lower bound clears base rate):**
+
+| Combo | Model | h=1 | h=2 | h=3 | h=4 |
+|---|---|---|---|---|---|
+| West Bengal/ADD | XGBoost | 0.430 [0.312,0.601] ✗ | 0.364 [0.271,0.508] ✗ | 0.360 [0.253,0.517] ✗ | 0.354 [0.249,0.498] ✗ |
+| West Bengal/ADD | Logistic | 0.436 [0.318,0.611] ✗ | 0.387 [0.284,0.552] ✗ | 0.374 [0.261,0.555] ✗ | 0.378 [0.266,0.555] ✗ |
+| West Bengal/ADD | SGB | 0.387 [0.281,0.547] ✗ | 0.366 [0.271,0.511] ✗ | 0.336 [0.242,0.482] ✗ | 0.347 [0.245,0.498] ✗ |
+| West Bengal/ADD | SARIMA | 0.464 [0.337,0.650] ✗ | 0.411 [0.307,0.590] ✗ | 0.370 [0.266,0.542] ✗ | 0.365 [0.260,0.532] ✗ |
+| Gujarat/ADD | XGBoost | 0.325 [0.211,0.561] ✗ | 0.321 [0.195,0.540] ✗ | 0.355 [0.208,0.579] ✗ | 0.263 [0.160,0.429] ✗ |
+| Gujarat/ADD | Logistic | 0.285 [0.179,0.474] ✗ | 0.303 [0.191,0.499] ✗ | 0.299 [0.183,0.499] ✗ | 0.274 [0.170,0.451] ✗ |
+| Gujarat/ADD | SGB | 0.340 [0.203,0.540] ✗ | 0.300 [0.183,0.510] ✗ | 0.392 [0.210,0.581] ✗ | 0.273 [0.171,0.441] ✗ |
+| Gujarat/ADD | SARIMA | 0.299 [0.188,0.497] ✗ | 0.287 [0.179,0.478] ✗ | 0.286 [0.182,0.467] ✗ | 0.287 [0.174,0.471] ✗ |
+| Odisha/ADD | XGBoost | 0.298 [0.174,0.514] ✗ | 0.286 [0.171,0.488] ✗ | 0.326 [0.175,0.544] ✗ | 0.245 [0.144,0.406] ✗ |
+| Odisha/ADD | Logistic | 0.363 [0.207,0.606] ✗ | 0.308 [0.187,0.523] ✗ | 0.312 [0.179,0.538] ✗ | 0.288 [0.171,0.497] ✗ |
+| Odisha/ADD | SGB | 0.333 [0.179,0.541] ✗ | 0.297 [0.161,0.469] ✗ | 0.274 [0.141,0.465] ✗ | 0.218 [0.137,0.371] ✗ |
+| Odisha/ADD | SARIMA | 0.323 [0.183,0.559] ✗ | 0.310 [0.182,0.526] ✗ | 0.276 [0.169,0.459] ✗ | 0.264 [0.159,0.452] ✗ |
+| Kerala/Dengue | XGBoost | 0.484 [0.300,0.745] ✓ | 0.589 [0.392,0.824] ✓ | 0.507 [0.314,0.711] ✓ | 0.459 [0.286,0.662] ✓ |
+| Kerala/Dengue | Logistic | 0.536 [0.339,0.802] ✓ | 0.529 [0.337,0.758] ✓ | 0.423 [0.268,0.659] ✓ | 0.365 [0.230,0.579] ✗ |
+| Kerala/Dengue | SGB | 0.689 [0.467,0.868] ✓ | 0.633 [0.415,0.861] ✓ | 0.582 [0.371,0.806] ✓ | 0.591 [0.366,0.812] ✓ |
+| Kerala/Dengue | SARIMA | 0.588 [0.383,0.797] ✓ | 0.601 [0.413,0.832] ✓ | 0.547 [0.360,0.806] ✓ | 0.468 [0.304,0.714] ✓ |
+
+Base rates (test split, identical across models for a given combo/horizon):
+West Bengal/ADD 0.385 (h1-2) / 0.372 (h3-4); Gujarat/ADD 0.244 (all h);
+Odisha/ADD 0.244 (all h); Kerala/Dengue 0.231 (all h).
+
+**Kerala/Dengue has substantially less training data than Maharashtra/
+Dengue:** 68 train-split positives (out of 470 weeks) vs. Maharashtra/
+Dengue's 138 (out of 462 weeks, current split, reporting-only features)
+— exactly half as many. Kerala/Dengue's results above — while clearing
+chance at 15 of 16 (model, horizon) cells — are fit on half the positive
+examples Maharashtra/Dengue had, and should be read with that in mind.
+
+**How many of the 5 newly screened combos work:** 1 (Kerala/Dengue), out
+of 4 that were built and trained. West Bengal/ADD, Gujarat/ADD, and
+Odisha/ADD clear chance for no model at any horizon — 0 of 48 (combo,
+model, horizon) cells across those three. Tamil Nadu/Dengue was screened
+out before being built at all. Combined with the original 3-combo scope
+(Maharashtra/Dengue works, Karnataka/ADD marginal per F10, Maharashtra/ADD
+fails), the project now has 2 combos with a working model
+(Maharashtra/Dengue, Kerala/Dengue) out of 7 combos ever built and
+evaluated with a trained model.
+
+**Source:** Screening — computed directly from
+`data/processed/state_weekly_extra.parquet` via
+`train_baseline.chronological_split`. Build pipeline —
+`src/build_extra_combos.py` (reuses `build_state_weekly.py`,
+`fetch_climate.py`, `build_dataset.py`, `build_features.py` unmodified),
+writing `data/processed/{state_weekly,state_climate,model_dataset,features}_extra.parquet`.
+Training/evaluation — `src/train_extra_combos.py` (reuses
+`train_baseline.py`'s `fit_xgboost`/`fit_logistic`/`evaluate_model`/
+`bootstrap_pr_auc_ci`, `train_sgb.py`'s `fit_sgb`, and `train_sarima.py`'s
+`load_series`/`select_order`/`walk_forward_forecasts` unmodified), output
+at `results/metrics/extra_combos_results.json` — for each `h` in `"1".."4"`,
+`<h>.{xgboost_reporting_only,logistic_regression_reporting_only,
+sgb_reporting_only,sarima}.test.<combo>.pr_auc` / `.pr_auc_ci_lo` /
+`.pr_auc_ci_hi`, `<h>.base_rate.test.<combo>` (classifiers) and
+`<h>.base_rate_sarima.test.<combo>` (SARIMA, evaluated on a slightly
+different row set via walk-forward origins — matches the classifiers'
+base rate almost exactly, as already verified for the original 3 combos
+in F15). Kerala/Dengue train-positive count from
+`1.xgboost_reporting_only.train."Kerala / Dengue".n_positive` in
+`extra_combos_results.json`; Maharashtra/Dengue's from
+`results/metrics/baseline_results.json` →
+`experiment_1_climate_ablation.xgboost.reporting_only.train."Maharashtra / Dengue".n_positive`.

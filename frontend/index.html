@@ -19,13 +19,23 @@
     <nav class="navbar">
       <a href="index.html" class="active">Forecast</a>
       <a href="about.html">About</a>
+      <a href="models.html">Models</a>
       <a href="comparison.html">Comparison</a>
       <button id="theme-toggle" class="theme-toggle" aria-label="Toggle light/dark theme" title="Toggle theme"></button>
     </nav>
 
+    <div class="card" style="animation-delay:0.02s">
+      <div class="pill-group" id="state-group">
+        <span class="segment-highlight"></span>
+        <button class="pill" data-state="maharashtra">Maharashtra</button>
+        <button class="pill" data-state="kerala">Kerala</button>
+      </div>
+      <p class="panel-caption below" id="state-caveat" style="display:none">Kerala trained on fewer outbreak weeks (68 vs 138), so its results rest on less data.</p>
+    </div>
+
     <header class="card" style="animation-delay:0s">
-      <h1>Dengue Outbreak Forecast — Maharashtra</h1>
-      <p class="panel-caption below">Predicts whether a dengue outbreak will be reported in Maharashtra in the coming weeks, based on historical reporting patterns.</p>
+      <h1 id="page-title">Dengue Outbreak Forecast — Maharashtra</h1>
+      <p class="panel-caption below" id="page-subtitle">Predicts whether a dengue outbreak will be reported in Maharashtra in the coming weeks, based on historical reporting patterns.</p>
     </header>
 
     <div class="card" style="animation-delay:0.05s">
@@ -57,12 +67,13 @@
     <div class="panel-grid">
       <div class="card" id="hero-card" style="animation-delay:0.1s">
         <p class="panel-caption">The model's predicted chance that a dengue report will be filed for the selected horizon and model.</p>
-        <div class="hero-label">Predicted probability of a report</div>
+        <div class="hero-label" id="hero-label">Predicted probability of a report</div>
         <div class="hero-number count-up" id="hero-prob">—</div>
         <div class="ci-track" id="ci-track">
           <div class="ci-band" id="ci-band"></div>
           <div class="ci-marker" id="ci-marker" data-label="base rate"></div>
         </div>
+        <p class="panel-caption below" id="sarima-score-note" style="display:none">SARIMA forecasts the reporting series directly — this is a forecast score, not a calibrated probability.</p>
       </div>
 
       <div class="card" id="status-card" style="animation-delay:0.15s">
@@ -80,6 +91,7 @@
           <div><dt>Actual reporting status</dt><dd id="ctx-reported">—</dd></div>
           <div><dt>Seasonal position</dt><dd id="ctx-season">—</dd></div>
         </dl>
+        <p class="panel-caption below">Latest week with source data (EpiClim ends June 2022).</p>
       </div>
 
       <div class="card" id="reliability-card" style="animation-delay:0.19s">
@@ -100,7 +112,7 @@
     </div>
 
     <div class="card" id="context-card" style="animation-delay:0.18s">
-      <p class="panel-caption">Recent actual weekly reporting for Maharashtra/Dengue, with the current prediction shown alongside for context.</p>
+      <p class="panel-caption" id="context-chart-caption">Recent actual weekly reporting for Maharashtra/Dengue, with the current prediction shown alongside for context.</p>
       <div class="hero-label" style="margin-bottom:14px">Recent history vs. current prediction</div>
       <canvas id="context-canvas" height="140"></canvas>
       <p class="panel-caption below">🟢 reported that week &nbsp; · &nbsp; 🟪 current prediction</p>
@@ -113,17 +125,21 @@
 
 <script src="theme.js"></script>
 <script>
-let DATA = null;
-let HISTORY = null;
-let horizon = 1, model = 'xgboost';
+let ALL_PREDICTIONS = null;
+let ALL_HISTORY = null;
+let DATA = null;       // ALL_PREDICTIONS[state]
+let HISTORY = null;    // ALL_HISTORY[state], plus .boundaries from ALL_HISTORY.boundaries
+let horizon = 1, model = 'xgboost', state = 'maharashtra';
 
-// Historical seasonal peak for Maharashtra/Dengue reporting: the ISO week-of-year
-// with the highest historical reporting rate, from results/metrics/eda_summary.json's
-// peak_reporting_week.Dengue.Maharashtra (peak_week=20, reporting_rate=0.571).
-// Not in results/findings.md — findings.md has no week-of-year seasonality figures.
-const PEAK_WEEK = 20;
+const STATE_LABELS = { maharashtra: 'Maharashtra', kerala: 'Kerala' };
 const PEAK_WINDOW = 3; // +/- weeks counted as "near" the peak — a proximity band derived
-                        // from that single real peak-week value, not a separately measured window.
+                        // from each state's own single real peak-week value (history.json's
+                        // peak_week, computed per state — Kerala's is NOT Maharashtra's).
+
+function stateFromURL() {
+  const s = new URLSearchParams(location.search).get('state');
+  return s === 'kerala' ? 'kerala' : 'maharashtra';
+}
 
 function isoWeek(dateStr) {
   const d = new Date(dateStr + 'T00:00:00Z');
@@ -205,6 +221,10 @@ function render() {
   const d = DATA[String(horizon)][model];
   countUp(document.getElementById('hero-prob'), d.probability * 100);
 
+  const isSarima = model === 'sarima';
+  document.getElementById('hero-label').textContent = isSarima ? 'Forecast score' : 'Predicted probability of a report';
+  document.getElementById('sarima-score-note').style.display = isSarima ? '' : 'none';
+
   const lo = d.pr_auc_ci_lo * 100, hi = d.pr_auc_ci_hi * 100, base = d.base_rate * 100;
   const band = document.getElementById('ci-band');
   band.style.left = lo + '%';
@@ -231,33 +251,69 @@ function render() {
   document.getElementById('rel-positives').textContent =
     `Based on ${d.test_positives} confirmed outbreak weeks in the test period.`;
 
-  document.getElementById('shap-note').style.display = (model === 'sarima' || model === 'sgb') ? '' : 'none';
+  const shapNote = document.getElementById('shap-note');
+  if (state === 'kerala') {
+    shapNote.textContent = 'SHAP feature importance (on the About page) was only computed for Maharashtra/XGBoost — not available for Kerala.';
+    shapNote.style.display = '';
+  } else if (model === 'sarima' || model === 'sgb') {
+    shapNote.textContent = 'SHAP feature importance (on the About page) was computed for XGBoost only — not available for this model.';
+    shapNote.style.display = '';
+  } else {
+    shapNote.style.display = 'none';
+  }
 }
 
 function renderWeekContext() {
   if (!HISTORY) return;
-  const latest = HISTORY.series[HISTORY.series.length - 1];
+  // Weeks after coverage_cutoff are a structural gap in the source data (EpiClim
+  // stopped reporting), not observed zeros — use the last week with real coverage.
+  const cutoff = HISTORY.boundaries.coverage_cutoff;
+  const covered = HISTORY.series.filter(r => r.week_start_date <= cutoff);
+  const latest = covered[covered.length - 1];
   const date = new Date(latest.week_start_date + 'T00:00:00Z');
   document.getElementById('ctx-week-date').textContent =
     date.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric', timeZone: 'UTC' });
   document.getElementById('ctx-reported').textContent = latest.reported ? 'Reported' : 'Not reported';
 
   const w = isoWeek(latest.week_start_date);
-  const distance = Math.min(Math.abs(w - PEAK_WEEK), 52 - Math.abs(w - PEAK_WEEK));
+  const peakWeek = HISTORY.peak_week; // computed from this state's own data (precompute.py's compute_peak_week)
+  const distance = Math.min(Math.abs(w - peakWeek), 52 - Math.abs(w - peakWeek));
   const near = distance <= PEAK_WINDOW;
   document.getElementById('ctx-season').textContent =
-    `Week ${w} of the year — ${near ? 'within' : 'outside'} the historical peak window (peak: week ${PEAK_WEEK})`;
+    `Week ${w} of the year — ${near ? 'within' : 'outside'} the historical peak window (peak: week ${peakWeek})`;
+}
+
+function applyState() {
+  const label = STATE_LABELS[state];
+  document.title = `Forecast — Dengue Outbreak, ${label}`;
+  document.getElementById('page-title').textContent = `Dengue Outbreak Forecast — ${label}`;
+  document.getElementById('page-subtitle').textContent =
+    `Predicts whether a dengue outbreak will be reported in ${label} in the coming weeks, based on historical reporting patterns.`;
+  document.getElementById('context-chart-caption').textContent =
+    `Recent actual weekly reporting for ${label}/Dengue, with the current prediction shown alongside for context.`;
+  document.getElementById('state-caveat').style.display = state === 'kerala' ? '' : 'none';
+
+  DATA = ALL_PREDICTIONS[state];
+  HISTORY = { ...ALL_HISTORY[state], boundaries: ALL_HISTORY.boundaries };
+
+  const url = new URL(location.href);
+  url.searchParams.set('state', state);
+  history.replaceState(null, '', url);
+
+  renderWeekContext();
+  render();
 }
 
 function init() {
-  if (!window.__DATA__ || !window.__DATA__.predictions) {
-    showError("Couldn't load forecast data — data/predictions.js didn't load. Run python scripts/precompute.py to (re)generate frontend/data/.");
+  if (!window.__DATA__ || !window.__DATA__.predictions || !window.__DATA__.history) {
+    showError("Couldn't load forecast data — data/predictions.js or data/history.js didn't load. Run python scripts/precompute.py to (re)generate frontend/data/.");
     return;
   }
-  DATA = window.__DATA__.predictions;
-  HISTORY = window.__DATA__.history || null;
-  renderWeekContext();
-  render();
+  ALL_PREDICTIONS = window.__DATA__.predictions;
+  ALL_HISTORY = window.__DATA__.history;
+  state = stateFromURL();
+  setActive('state-group', 'state', state);
+  applyState();
 }
 
 document.getElementById('horizon-group').addEventListener('click', e => {
@@ -271,6 +327,12 @@ document.getElementById('model-group').addEventListener('click', e => {
   model = b.dataset.model;
   setActive('model-group', 'model', model);
   render();
+});
+document.getElementById('state-group').addEventListener('click', e => {
+  const b = e.target.closest('.pill'); if (!b) return;
+  state = b.dataset.state;
+  setActive('state-group', 'state', state);
+  applyState();
 });
 
 setActive('horizon-group', 'horizon', horizon);

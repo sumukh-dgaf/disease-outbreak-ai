@@ -20,6 +20,7 @@
     <nav class="navbar">
       <a href="index.html">Forecast</a>
       <a href="about.html" class="active">About</a>
+      <a href="models.html">Models</a>
       <a href="comparison.html">Comparison</a>
       <button id="theme-toggle" class="theme-toggle" aria-label="Toggle light/dark theme" title="Toggle theme"></button>
     </nav>
@@ -62,8 +63,19 @@
     </div>
 
     <div class="card" style="animation-delay:0.25s">
-      <div class="hero-label" style="margin-bottom:14px">Full metrics, all horizons</div>
+      <div class="hero-label" style="margin-bottom:14px">Full metrics, all horizons — Maharashtra / Dengue</div>
       <table class="metrics-table" id="metrics-table">
+        <thead>
+          <tr><th>Horizon</th><th>Model</th><th>PR-AUC</th><th>95% CI</th><th>Base rate</th><th>Test positives</th></tr>
+        </thead>
+        <tbody><tr><td colspan="6">Loading…</td></tr></tbody>
+      </table>
+    </div>
+
+    <div class="card" style="animation-delay:0.27s">
+      <p class="panel-caption">Kerala trained on fewer outbreak weeks (68 vs 138), so its results rest on less data (see F17 in findings.md).</p>
+      <div class="hero-label" style="margin-bottom:14px">Full metrics, all horizons — Kerala / Dengue</div>
+      <table class="metrics-table" id="metrics-table-kerala">
         <thead>
           <tr><th>Horizon</th><th>Model</th><th>PR-AUC</th><th>95% CI</th><th>Base rate</th><th>Test positives</th></tr>
         </thead>
@@ -166,8 +178,8 @@ function drawShap(rows) {
 
 const MODEL_LABELS = { xgboost: 'XGBoost', logistic: 'Logistic', sarima: 'SARIMA', sgb: 'Stochastic GB' };
 
-function renderMetricsTable(predictions) {
-  const tbody = document.querySelector('#metrics-table tbody');
+function renderMetricsTable(predictions, tbodySelector) {
+  const tbody = document.querySelector(tbodySelector);
   const rows = [];
   for (const horizon of ['1', '2', '3', '4']) {
     for (const model of ['xgboost', 'logistic', 'sarima', 'sgb']) {
@@ -191,9 +203,13 @@ function init() {
     showError("Couldn't load data — data/*.js didn't load. Run python scripts/precompute.py to (re)generate frontend/data/.");
     return;
   }
-  drawHistory(data.history.series, data.history.boundaries);
+  // history.json/predictions.json are now per-state (Forecast page's state
+  // selector); this page stays Maharashtra-only for the chart/SHAP panel,
+  // plus one additive Kerala metrics table below the Maharashtra one.
+  drawHistory(data.history.maharashtra.series, data.history.boundaries);
   drawShap(data.shap);
-  renderMetricsTable(data.predictions);
+  renderMetricsTable(data.predictions.maharashtra, '#metrics-table tbody');
+  renderMetricsTable(data.predictions.kerala, '#metrics-table-kerala tbody');
 }
 init();
 </script>

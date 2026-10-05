@@ -88,5 +88,125 @@
     },
     "outcome": "fails",
     "sentence": "XGBoost PR-AUC 0.131 [0.069, 0.246] vs base rate 0.141. Does not clear chance for either model \u2014 not usable for decision-making."
+  },
+  {
+    "combo": "West Bengal / Acute Diarrhoeal Disease",
+    "base_rate": 0.38461538461538464,
+    "xgboost": {
+      "pr_auc": 0.42952109616597944,
+      "pr_auc_ci_lo": 0.3118122657660412,
+      "pr_auc_ci_hi": 0.6006754032402523,
+      "cleared": false
+    },
+    "logistic": {
+      "pr_auc": 0.4359984315226369,
+      "pr_auc_ci_lo": 0.31825042183461977,
+      "pr_auc_ci_hi": 0.6111420688849492,
+      "cleared": false
+    },
+    "sarima": {
+      "pr_auc": 0.46444073813489267,
+      "pr_auc_ci_lo": 0.33650624062643464,
+      "pr_auc_ci_hi": 0.6499587121060163,
+      "cleared": false
+    },
+    "sgb": {
+      "pr_auc": 0.38723791078021813,
+      "pr_auc_ci_lo": 0.28103405353710154,
+      "pr_auc_ci_hi": 0.5471833488591089,
+      "cleared": false
+    },
+    "outcome": "fails",
+    "sentence": "XGBoost PR-AUC 0.430 [0.312, 0.601] vs base rate 0.385. Does not clear chance for any of the four models \u2014 not usable for decision-making."
+  },
+  {
+    "combo": "Gujarat / Acute Diarrhoeal Disease",
+    "base_rate": 0.24358974358974358,
+    "xgboost": {
+      "pr_auc": 0.3253841212768186,
+      "pr_auc_ci_lo": 0.21064464896124918,
+      "pr_auc_ci_hi": 0.5605472771612829,
+      "cleared": false
+    },
+    "logistic": {
+      "pr_auc": 0.28528286515301693,
+      "pr_auc_ci_lo": 0.1794331234968912,
+      "pr_auc_ci_hi": 0.4744050974873225,
+      "cleared": false
+    },
+    "sarima": {
+      "pr_auc": 0.29904614743155217,
+      "pr_auc_ci_lo": 0.18768242749104527,
+      "pr_auc_ci_hi": 0.4971238478619069,
+      "cleared": false
+    },
+    "sgb": {
+      "pr_auc": 0.34001138624412997,
+      "pr_auc_ci_lo": 0.20304621158711686,
+      "pr_auc_ci_hi": 0.539570301054727,
+      "cleared": false
+    },
+    "outcome": "fails",
+    "sentence": "XGBoost PR-AUC 0.325 [0.211, 0.561] vs base rate 0.244. Does not clear chance for any of the four models \u2014 not usable for decision-making."
+  },
+  {
+    "combo": "Odisha / Acute Diarrhoeal Disease",
+    "base_rate": 0.24358974358974358,
+    "xgboost": {
+      "pr_auc": 0.2975064162867465,
+      "pr_auc_ci_lo": 0.17438079568154044,
+      "pr_auc_ci_hi": 0.5144959369656164,
+      "cleared": false
+    },
+    "logistic": {
+      "pr_auc": 0.3626089961936871,
+      "pr_auc_ci_lo": 0.20728431279064108,
+      "pr_auc_ci_hi": 0.606396034209579,
+      "cleared": false
+    },
+    "sarima": {
+      "pr_auc": 0.32266170095537006,
+      "pr_auc_ci_lo": 0.18327111481316924,
+      "pr_auc_ci_hi": 0.5586675490328713,
+      "cleared": false
+    },
+    "sgb": {
+      "pr_auc": 0.33278637174285636,
+      "pr_auc_ci_lo": 0.17857732004498172,
+      "pr_auc_ci_hi": 0.5408648404520352,
+      "cleared": false
+    },
+    "outcome": "fails",
+    "sentence": "XGBoost PR-AUC 0.298 [0.174, 0.514] vs base rate 0.244. Does not clear chance for any of the four models \u2014 not usable for decision-making."
+  },
+  {
+    "combo": "Kerala / Dengue",
+    "base_rate": 0.23076923076923078,
+    "xgboost": {
+      "pr_auc": 0.48402450732087454,
+      "pr_auc_ci_lo": 0.2998616471238175,
+      "pr_auc_ci_hi": 0.7446179423317693,
+      "cleared": true
+    },
+    "logistic": {
+      "pr_auc": 0.53593379975689,
+      "pr_auc_ci_lo": 0.33919738355393503,
+      "pr_auc_ci_hi": 0.802204352333859,
+      "cleared": true
+    },
+    "sarima": {
+      "pr_auc": 0.5882422398634085,
+      "pr_auc_ci_lo": 0.38273166145183674,
+      "pr_auc_ci_hi": 0.7970216173059248,
+      "cleared": true
+    },
+    "sgb": {
+      "pr_auc": 0.6885510139988165,
+      "pr_auc_ci_lo": 0.46657098121278323,
+      "pr_auc_ci_hi": 0.8676736653449103,
+      "cleared": true
+    },
+    "outcome": "works",
+    "sentence": "XGBoost PR-AUC 0.484 [0.300, 0.745] vs base rate 0.231. Clears chance at horizon 1 for all four models."
   }
 ]

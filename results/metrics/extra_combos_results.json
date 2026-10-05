@@ -1,0 +1,2969 @@
+{
+  "1": {
+    "target_col": "target_reported_h1",
+    "base_rate": {
+      "train": {
+        "overall": 0.32196969696969696,
+        "Gujarat / Acute Diarrhoeal Disease": 0.3722943722943723,
+        "Kerala / Dengue": 0.1471861471861472,
+        "Odisha / Acute Diarrhoeal Disease": 0.3225108225108225,
+        "West Bengal / Acute Diarrhoeal Disease": 0.4458874458874459
+      },
+      "validation": {
+        "overall": 0.23798076923076922,
+        "Gujarat / Acute Diarrhoeal Disease": 0.25,
+        "Kerala / Dengue": 0.16346153846153846,
+        "Odisha / Acute Diarrhoeal Disease": 0.3076923076923077,
+        "West Bengal / Acute Diarrhoeal Disease": 0.23076923076923078
+      },
+      "test": {
+        "overall": 0.27564102564102566,
+        "Gujarat / Acute Diarrhoeal Disease": 0.24358974358974358,
+        "Kerala / Dengue": 0.23076923076923078,
+        "Odisha / Acute Diarrhoeal Disease": 0.24358974358974358,
+        "West Bengal / Acute Diarrhoeal Disease": 0.38461538461538464
+      }
+    },
+    "logistic_regression_reporting_only": {
+      "train": {
+        "overall": {
+          "accuracy": 0.7267316017316018,
+          "precision": 0.6125,
+          "recall": 0.4117647058823529,
+          "f1": 0.49246231155778897,
+          "n": 1848,
+          "n_positive": 595,
+          "roc_auc": 0.7670686151555595,
+          "pr_auc": 0.5862408904487695
+        },
+        "Gujarat / Acute Diarrhoeal Disease": {
+          "accuracy": 0.658008658008658,
+          "precision": 0.559322033898305,
+          "recall": 0.38372093023255816,
+          "f1": 0.45517241379310347,
+          "n": 462,
+          "n_positive": 172,
+          "roc_auc": 0.6705994386527667,
+          "pr_auc": 0.5300615689564531
+        },
+        "Kerala / Dengue": {
+          "accuracy": 0.854978354978355,
+          "precision": 0.5217391304347826,
+          "recall": 0.17647058823529413,
+          "f1": 0.26373626373626374,
+          "n": 462,
+          "n_positive": 68,
+          "roc_auc": 0.8208793669752165,
+          "pr_auc": 0.43069007998301406
+        },
+        "Odisha / Acute Diarrhoeal Disease": {
+          "accuracy": 0.6645021645021645,
+          "precision": 0.45588235294117646,
+          "recall": 0.2080536912751678,
+          "f1": 0.2857142857142857,
+          "n": 462,
+          "n_positive": 149,
+          "roc_auc": 0.664794047644574,
+          "pr_auc": 0.4511482409780827
+        },
+        "West Bengal / Acute Diarrhoeal Disease": {
+          "accuracy": 0.7294372294372294,
+          "precision": 0.7120418848167539,
+          "recall": 0.6601941747572816,
+          "f1": 0.6851385390428212,
+          "n": 462,
+          "n_positive": 206,
+          "roc_auc": 0.7925326152912622,
+          "pr_auc": 0.7052090850999171
+        }
+      },
+      "validation": {
+        "overall": {
+          "accuracy": 0.7259615384615384,
+          "precision": 0.3076923076923077,
+          "recall": 0.12121212121212122,
+          "f1": 0.17391304347826086,
+          "n": 416,
+          "n_positive": 99,
+          "roc_auc": 0.6546219290698787,
+          "pr_auc": 0.32554557372495163
+        },
+        "Gujarat / Acute Diarrhoeal Disease": {
+          "accuracy": 0.7211538461538461,
+          "precision": 0.36363636363636365,
+          "recall": 0.15384615384615385,
+          "f1": 0.21621621621621623,
+          "n": 104,
+          "n_positive": 26,
+          "roc_auc": 0.5936883629191322,
+          "pr_auc": 0.31870088057527574
+        },
+        "Kerala / Dengue": {
+          "accuracy": 0.8365384615384616,
+          "precision": 0.5,
+          "recall": 0.058823529411764705,
+          "f1": 0.10526315789473684,
+          "n": 104,
+          "n_positive": 17,
+          "roc_auc": 0.7170385395537525,
+          "pr_auc": 0.3941312122136303
+        },
+        "Odisha / Acute Diarrhoeal Disease": {
+          "accuracy": 0.6826923076923077,
+          "precision": 0.4444444444444444,
+          "recall": 0.125,
+          "f1": 0.1951219512195122,
+          "n": 104,
+          "n_positive": 32,
+          "roc_auc": 0.6512586805555557,
+          "pr_auc": 0.47193961742039076
+        },
+        "West Bengal / Acute Diarrhoeal Disease": {
+          "accuracy": 0.6634615384615384,
+          "precision": 0.17647058823529413,
+          "recall": 0.125,
+          "f1": 0.14634146341463414,
+          "n": 104,
+          "n_positive": 24,
+          "roc_auc": 0.5947916666666666,
+          "pr_auc": 0.26756813536116986
+        }
+      },
+      "test": {
+        "overall": {
+          "accuracy": 0.717948717948718,
+          "precision": 0.4827586206896552,
+          "recall": 0.32558139534883723,
+          "f1": 0.3888888888888889,
+          "n": 312,
+          "n_positive": 86,
+          "roc_auc": 0.6722576661864581,
+          "pr_auc": 0.38467108378862946
+        },
+        "Gujarat / Acute Diarrhoeal Disease": {
+          "accuracy": 0.6794871794871795,
+          "precision": 0.2,
+          "recall": 0.10526315789473684,
+          "f1": 0.13793103448275862,
+          "n": 78,
+          "n_positive": 19,
+          "roc_auc": 0.583407671721677,
+          "pr_auc": 0.28528286515301693,
+          "pr_auc_ci_lo": 0.1794331234968912,
+          "pr_auc_ci_hi": 0.4744050974873225,
+          "pr_auc_ci_n_valid_resamples": 1000
+        },
+        "Kerala / Dengue": {
+          "accuracy": 0.8076923076923077,
+          "precision": 0.7142857142857143,
+          "recall": 0.2777777777777778,
+          "f1": 0.4,
+          "n": 78,
+          "n_positive": 18,
+          "roc_auc": 0.8393518518518519,
+          "pr_auc": 0.53593379975689,
+          "pr_auc_ci_lo": 0.33919738355393503,
+          "pr_auc_ci_hi": 0.802204352333859,
+          "pr_auc_ci_n_valid_resamples": 1000
+        },
+        "Odisha / Acute Diarrhoeal Disease": {
+          "accuracy": 0.7307692307692307,
+          "precision": 0.4,
+          "recall": 0.21052631578947367,
+          "f1": 0.27586206896551724,
+          "n": 78,
+          "n_positive": 19,
+          "roc_auc": 0.6012488849241748,
+          "pr_auc": 0.3626089961936871,
+          "pr_auc_ci_lo": 0.20728431279064108,
+          "pr_auc_ci_hi": 0.606396034209579,
+          "pr_auc_ci_n_valid_resamples": 1000
+        },
+        "West Bengal / Acute Diarrhoeal Disease": {
+          "accuracy": 0.6538461538461539,
+          "precision": 0.5483870967741935,
+          "recall": 0.5666666666666667,
+          "f1": 0.5573770491803278,
+          "n": 78,
+          "n_positive": 30,
+          "roc_auc": 0.5885416666666666,
+          "pr_auc": 0.4359984315226369,
+          "pr_auc_ci_lo": 0.31825042183461977,
+          "pr_auc_ci_hi": 0.6111420688849492,
+          "pr_auc_ci_n_valid_resamples": 1000
+        }
+      }
+    },
+    "xgboost_reporting_only": {
+      "train": {
+        "overall": {
+          "accuracy": 0.6547619047619048,
+          "precision": 0.47881773399014776,
+          "recall": 0.8168067226890756,
+          "f1": 0.6037267080745342,
+          "n": 1848,
+          "n_positive": 595,
+          "roc_auc": 0.7768696305337777,
+          "pr_auc": 0.6105311108226772
+        },
+        "Gujarat / Acute Diarrhoeal Disease": {
+          "accuracy": 0.5562770562770563,
+          "precision": 0.4479495268138801,
+          "recall": 0.8255813953488372,
+          "f1": 0.5807770961145194,
+          "n": 462,
+          "n_positive": 172,
+          "roc_auc": 0.6909282277465919,
+          "pr_auc": 0.5545201365707967
+        },
+        "Kerala / Dengue": {
+          "accuracy": 0.803030303030303,
+          "precision": 0.3944954128440367,
+          "recall": 0.6323529411764706,
+          "f1": 0.4858757062146893,
+          "n": 462,
+          "n_positive": 68,
+          "roc_auc": 0.8322446999104209,
+          "pr_auc": 0.44945186534274106
+        },
+        "Odisha / Acute Diarrhoeal Disease": {
+          "accuracy": 0.5757575757575758,
+          "precision": 0.4181184668989547,
+          "recall": 0.8053691275167785,
+          "f1": 0.5504587155963303,
+          "n": 462,
+          "n_positive": 149,
+          "roc_auc": 0.6845423161867187,
+          "pr_auc": 0.47361547132331056
+        },
+        "West Bengal / Acute Diarrhoeal Disease": {
+          "accuracy": 0.683982683982684,
+          "precision": 0.5993377483443708,
+          "recall": 0.8786407766990292,
+          "f1": 0.7125984251968503,
+          "n": 462,
+          "n_positive": 206,
+          "roc_auc": 0.7970741049757282,
+          "pr_auc": 0.7335009374659478
+        }
+      },
+      "validation": {
+        "overall": {
+          "accuracy": 0.5889423076923077,
+          "precision": 0.32,
+          "recall": 0.6464646464646465,
+          "f1": 0.4280936454849498,
+          "n": 416,
+          "n_positive": 99,
+          "roc_auc": 0.6412388872956696,
+          "pr_auc": 0.36372069108954025
+        },
+        "Gujarat / Acute Diarrhoeal Disease": {
+          "accuracy": 0.5288461538461539,
+          "precision": 0.3050847457627119,
+          "recall": 0.6923076923076923,
+          "f1": 0.4235294117647059,
+          "n": 104,
+          "n_positive": 26,
+          "roc_auc": 0.6008382642998029,
+          "pr_auc": 0.37488298985091917
+        },
+        "Kerala / Dengue": {
+          "accuracy": 0.7403846153846154,
+          "precision": 0.3076923076923077,
+          "recall": 0.47058823529411764,
+          "f1": 0.37209302325581395,
+          "n": 104,
+          "n_positive": 17,
+          "roc_auc": 0.6223799864773496,
+          "pr_auc": 0.3534493011590595
+        },
+        "Odisha / Acute Diarrhoeal Disease": {
+          "accuracy": 0.5192307692307693,
+          "precision": 0.36363636363636365,
+          "recall": 0.75,
+          "f1": 0.4897959183673469,
+          "n": 104,
+          "n_positive": 32,
+          "roc_auc": 0.6647135416666666,
+          "pr_auc": 0.5224564236545849
+        },
+        "West Bengal / Acute Diarrhoeal Disease": {
+          "accuracy": 0.5673076923076923,
+          "precision": 0.2857142857142857,
+          "recall": 0.5833333333333334,
+          "f1": 0.3835616438356164,
+          "n": 104,
+          "n_positive": 24,
+          "roc_auc": 0.58984375,
+          "pr_auc": 0.2755488057820306
+        }
+      },
+      "test": {
+        "overall": {
+          "accuracy": 0.5993589743589743,
+          "precision": 0.3741935483870968,
+          "recall": 0.6744186046511628,
+          "f1": 0.48132780082987553,
+          "n": 312,
+          "n_positive": 86,
+          "roc_auc": 0.6723862934760239,
+          "pr_auc": 0.3809176719208873
+        },
+        "Gujarat / Acute Diarrhoeal Disease": {
+          "accuracy": 0.5256410256410257,
+          "precision": 0.2857142857142857,
+          "recall": 0.631578947368421,
+          "f1": 0.39344262295081966,
+          "n": 78,
+          "n_positive": 19,
+          "roc_auc": 0.6280107047279215,
+          "pr_auc": 0.3253841212768186,
+          "pr_auc_ci_lo": 0.21064464896124918,
+          "pr_auc_ci_hi": 0.5605472771612829,
+          "pr_auc_ci_n_valid_resamples": 1000
+        },
+        "Kerala / Dengue": {
+          "accuracy": 0.7564102564102564,
+          "precision": 0.4838709677419355,
+          "recall": 0.8333333333333334,
+          "f1": 0.6122448979591837,
+          "n": 78,
+          "n_positive": 18,
+          "roc_auc": 0.812037037037037,
+          "pr_auc": 0.48402450732087454,
+          "pr_auc_ci_lo": 0.2998616471238175,
+          "pr_auc_ci_hi": 0.7446179423317693,
+          "pr_auc_ci_n_valid_resamples": 1000
+        },
+        "Odisha / Acute Diarrhoeal Disease": {
+          "accuracy": 0.5256410256410257,
+          "precision": 0.25,
+          "recall": 0.47368421052631576,
+          "f1": 0.32727272727272727,
+          "n": 78,
+          "n_positive": 19,
+          "roc_auc": 0.5673505798394292,
+          "pr_auc": 0.2975064162867465,
+          "pr_auc_ci_lo": 0.17438079568154044,
+          "pr_auc_ci_hi": 0.5144959369656164,
+          "pr_auc_ci_n_valid_resamples": 1000
+        },
+        "West Bengal / Acute Diarrhoeal Disease": {
+          "accuracy": 0.5897435897435898,
+          "precision": 0.4782608695652174,
+          "recall": 0.7333333333333333,
+          "f1": 0.5789473684210527,
+          "n": 78,
+          "n_positive": 30,
+          "roc_auc": 0.5850694444444445,
+          "pr_auc": 0.42952109616597944,
+          "pr_auc_ci_lo": 0.3118122657660412,
+          "pr_auc_ci_hi": 0.6006754032402523,
+          "pr_auc_ci_n_valid_resamples": 1000
+        }
+      }
+    },
+    "sgb_reporting_only": {
+      "train": {
+        "overall": {
+          "accuracy": 0.7408008658008658,
+          "precision": 0.5700483091787439,
+          "recall": 0.7932773109243697,
+          "f1": 0.6633872101194659,
+          "n": 1848,
+          "n_positive": 595,
+          "roc_auc": 0.8457678043284352,
+          "pr_auc": 0.7296172268797271
+        },
+        "Gujarat / Acute Diarrhoeal Disease": {
+          "accuracy": 0.6774891774891775,
+          "precision": 0.5454545454545454,
+          "recall": 0.8023255813953488,
+          "f1": 0.6494117647058824,
+          "n": 462,
+          "n_positive": 172,
+          "roc_auc": 0.7955392943063352,
+          "pr_auc": 0.7260835811070645
+        },
+        "Kerala / Dengue": {
+          "accuracy": 0.8722943722943723,
+          "precision": 0.5616438356164384,
+          "recall": 0.6029411764705882,
+          "f1": 0.5815602836879432,
+          "n": 462,
+          "n_positive": 68,
+          "roc_auc": 0.896498954911914,
+          "pr_auc": 0.6381308997291179
+        },
+        "Odisha / Acute Diarrhoeal Disease": {
+          "accuracy": 0.683982683982684,
+          "precision": 0.5067264573991032,
+          "recall": 0.7583892617449665,
+          "f1": 0.6075268817204301,
+          "n": 462,
+          "n_positive": 149,
+          "roc_auc": 0.7876793104187662,
+          "pr_auc": 0.6283973481176128
+        },
+        "West Bengal / Acute Diarrhoeal Disease": {
+          "accuracy": 0.7294372294372294,
+          "precision": 0.6451612903225806,
+          "recall": 0.8737864077669902,
+          "f1": 0.7422680412371134,
+          "n": 462,
+          "n_positive": 206,
+          "roc_auc": 0.8524347694174758,
+          "pr_auc": 0.8290264809540171
+        }
+      },
+      "validation": {
+        "overall": {
+          "accuracy": 0.6418269230769231,
+          "precision": 0.3475609756097561,
+          "recall": 0.5757575757575758,
+          "f1": 0.43346007604562736,
+          "n": 416,
+          "n_positive": 99,
+          "roc_auc": 0.6604212471720359,
+          "pr_auc": 0.36102941439476943
+        },
+        "Gujarat / Acute Diarrhoeal Disease": {
+          "accuracy": 0.625,
+          "precision": 0.35555555555555557,
+          "recall": 0.6153846153846154,
+          "f1": 0.4507042253521127,
+          "n": 104,
+          "n_positive": 26,
+          "roc_auc": 0.6365877712031558,
+          "pr_auc": 0.4455298767519379
+        },
+        "Kerala / Dengue": {
+          "accuracy": 0.8365384615384616,
+          "precision": 0.5,
+          "recall": 0.4117647058823529,
+          "f1": 0.45161290322580644,
+          "n": 104,
+          "n_positive": 17,
+          "roc_auc": 0.6974306964164977,
+          "pr_auc": 0.4259965038104329
+        },
+        "Odisha / Acute Diarrhoeal Disease": {
+          "accuracy": 0.5480769230769231,
+          "precision": 0.3584905660377358,
+          "recall": 0.59375,
+          "f1": 0.4470588235294118,
+          "n": 104,
+          "n_positive": 32,
+          "roc_auc": 0.6260850694444444,
+          "pr_auc": 0.47510938297597005
+        },
+        "West Bengal / Acute Diarrhoeal Disease": {
+          "accuracy": 0.5576923076923077,
+          "precision": 0.28846153846153844,
+          "recall": 0.625,
+          "f1": 0.39473684210526316,
+          "n": 104,
+          "n_positive": 24,
+          "roc_auc": 0.5890625,
+          "pr_auc": 0.2742512431208458
+        }
+      },
+      "test": {
+        "overall": {
+          "accuracy": 0.6282051282051282,
+          "precision": 0.3828125,
+          "recall": 0.5697674418604651,
+          "f1": 0.45794392523364486,
+          "n": 312,
+          "n_positive": 86,
+          "roc_auc": 0.664900185223297,
+          "pr_auc": 0.3823664245926959
+        },
+        "Gujarat / Acute Diarrhoeal Disease": {
+          "accuracy": 0.5769230769230769,
+          "precision": 0.26666666666666666,
+          "recall": 0.42105263157894735,
+          "f1": 0.32653061224489793,
+          "n": 78,
+          "n_positive": 19,
+          "roc_auc": 0.5700267618198037,
+          "pr_auc": 0.34001138624412997,
+          "pr_auc_ci_lo": 0.20304621158711686,
+          "pr_auc_ci_hi": 0.539570301054727,
+          "pr_auc_ci_n_valid_resamples": 1000
+        },
+        "Kerala / Dengue": {
+          "accuracy": 0.7948717948717948,
+          "precision": 0.5384615384615384,
+          "recall": 0.7777777777777778,
+          "f1": 0.6363636363636364,
+          "n": 78,
+          "n_positive": 18,
+          "roc_auc": 0.8699074074074074,
+          "pr_auc": 0.6885510139988165,
+          "pr_auc_ci_lo": 0.46657098121278323,
+          "pr_auc_ci_hi": 0.8676736653449103,
+          "pr_auc_ci_n_valid_resamples": 1000
+        },
+        "Odisha / Acute Diarrhoeal Disease": {
+          "accuracy": 0.6666666666666666,
+          "precision": 0.34782608695652173,
+          "recall": 0.42105263157894735,
+          "f1": 0.38095238095238093,
+          "n": 78,
+          "n_positive": 19,
+          "roc_auc": 0.5343443354148082,
+          "pr_auc": 0.33278637174285636,
+          "pr_auc_ci_lo": 0.17857732004498172,
+          "pr_auc_ci_hi": 0.5408648404520352,
+          "pr_auc_ci_n_valid_resamples": 1000
+        },
+        "West Bengal / Acute Diarrhoeal Disease": {
+          "accuracy": 0.47435897435897434,
+          "precision": 0.3877551020408163,
+          "recall": 0.6333333333333333,
+          "f1": 0.4810126582278481,
+          "n": 78,
+          "n_positive": 30,
+          "roc_auc": 0.5350694444444445,
+          "pr_auc": 0.38723791078021813,
+          "pr_auc_ci_lo": 0.28103405353710154,
+          "pr_auc_ci_hi": 0.5471833488591089,
+          "pr_auc_ci_n_valid_resamples": 1000
+        }
+      }
+    },
+    "sarima": {
+      "train": {
+        "West Bengal / Acute Diarrhoeal Disease": {
+          "accuracy": 0.0,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "n": 1,
+          "n_positive": 1,
+          "roc_auc": null,
+          "pr_auc": null,
+          "note": "only one class present in y_true; AUC undefined"
+        },
+        "Gujarat / Acute Diarrhoeal Disease": {
+          "accuracy": 1.0,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "n": 1,
+          "n_positive": 0,
+          "roc_auc": null,
+          "pr_auc": null,
+          "note": "only one class present in y_true; AUC undefined"
+        },
+        "Odisha / Acute Diarrhoeal Disease": {
+          "accuracy": 1.0,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "n": 1,
+          "n_positive": 0,
+          "roc_auc": null,
+          "pr_auc": null,
+          "note": "only one class present in y_true; AUC undefined"
+        },
+        "Kerala / Dengue": {
+          "accuracy": 1.0,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "n": 1,
+          "n_positive": 0,
+          "roc_auc": null,
+          "pr_auc": null,
+          "note": "only one class present in y_true; AUC undefined"
+        },
+        "overall": {
+          "accuracy": 0.75,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "n": 4,
+          "n_positive": 1,
+          "roc_auc": 0.0,
+          "pr_auc": 0.25
+        }
+      },
+      "validation": {
+        "West Bengal / Acute Diarrhoeal Disease": {
+          "accuracy": 0.7142857142857143,
+          "precision": 0.25,
+          "recall": 0.125,
+          "f1": 0.16666666666666666,
+          "n": 105,
+          "n_positive": 24,
+          "roc_auc": 0.6664094650205761,
+          "pr_auc": 0.3177115415537473
+        },
+        "Gujarat / Acute Diarrhoeal Disease": {
+          "accuracy": 0.7523809523809524,
+          "precision": 0.5,
+          "recall": 0.07692307692307693,
+          "f1": 0.13333333333333333,
+          "n": 105,
+          "n_positive": 26,
+          "roc_auc": 0.6202531645569621,
+          "pr_auc": 0.3606240680876482
+        },
+        "Odisha / Acute Diarrhoeal Disease": {
+          "accuracy": 0.7333333333333333,
+          "precision": 0.5909090909090909,
+          "recall": 0.40625,
+          "f1": 0.48148148148148145,
+          "n": 105,
+          "n_positive": 32,
+          "roc_auc": 0.6451198630136987,
+          "pr_auc": 0.48414376011440136
+        },
+        "Kerala / Dengue": {
+          "accuracy": 0.8476190476190476,
+          "precision": 0.6666666666666666,
+          "recall": 0.11764705882352941,
+          "f1": 0.2,
+          "n": 105,
+          "n_positive": 17,
+          "roc_auc": 0.6457219251336899,
+          "pr_auc": 0.3443282728652911
+        },
+        "overall": {
+          "accuracy": 0.7619047619047619,
+          "precision": 0.4878048780487805,
+          "recall": 0.20202020202020202,
+          "f1": 0.2857142857142857,
+          "n": 420,
+          "n_positive": 99,
+          "roc_auc": 0.6719689102866673,
+          "pr_auc": 0.3869853484318903
+        }
+      },
+      "test": {
+        "West Bengal / Acute Diarrhoeal Disease": {
+          "accuracy": 0.5641025641025641,
+          "precision": 0.4411764705882353,
+          "recall": 0.5,
+          "f1": 0.46875,
+          "n": 78,
+          "n_positive": 30,
+          "roc_auc": 0.5878472222222222,
+          "pr_auc": 0.46444073813489267,
+          "pr_auc_ci_lo": 0.33650624062643464,
+          "pr_auc_ci_hi": 0.6499587121060163,
+          "pr_auc_ci_n_valid_resamples": 1000
+        },
+        "Gujarat / Acute Diarrhoeal Disease": {
+          "accuracy": 0.7435897435897436,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "n": 78,
+          "n_positive": 19,
+          "roc_auc": 0.6048171275646744,
+          "pr_auc": 0.29904614743155217,
+          "pr_auc_ci_lo": 0.18768242749104527,
+          "pr_auc_ci_hi": 0.4971238478619069,
+          "pr_auc_ci_n_valid_resamples": 1000
+        },
+        "Odisha / Acute Diarrhoeal Disease": {
+          "accuracy": 0.7307692307692307,
+          "precision": 0.3333333333333333,
+          "recall": 0.10526315789473684,
+          "f1": 0.16,
+          "n": 78,
+          "n_positive": 19,
+          "roc_auc": 0.5298840321141838,
+          "pr_auc": 0.32266170095537006,
+          "pr_auc_ci_lo": 0.18327111481316924,
+          "pr_auc_ci_hi": 0.5586675490328713,
+          "pr_auc_ci_n_valid_resamples": 1000
+        },
+        "Kerala / Dengue": {
+          "accuracy": 0.8076923076923077,
+          "precision": 0.6666666666666666,
+          "recall": 0.3333333333333333,
+          "f1": 0.4444444444444444,
+          "n": 78,
+          "n_positive": 18,
+          "roc_auc": 0.8407407407407408,
+          "pr_auc": 0.5882422398634085,
+          "pr_auc_ci_lo": 0.38273166145183674,
+          "pr_auc_ci_hi": 0.7970216173059248,
+          "pr_auc_ci_n_valid_resamples": 1000
+        },
+        "overall": {
+          "accuracy": 0.7115384615384616,
+          "precision": 0.46,
+          "recall": 0.26744186046511625,
+          "f1": 0.3382352941176471,
+          "n": 312,
+          "n_positive": 86,
+          "roc_auc": 0.6727721753447211,
+          "pr_auc": 0.42201672503342436,
+          "pr_auc_ci_lo": 0.3366737552360937,
+          "pr_auc_ci_hi": 0.5350865354605806,
+          "pr_auc_ci_n_valid_resamples": 1000
+        }
+      }
+    },
+    "base_rate_sarima": {
+      "train": {
+        "West Bengal / Acute Diarrhoeal Disease": 1.0,
+        "Gujarat / Acute Diarrhoeal Disease": 0.0,
+        "Odisha / Acute Diarrhoeal Disease": 0.0,
+        "Kerala / Dengue": 0.0,
+        "overall": 0.25
+      },
+      "validation": {
+        "West Bengal / Acute Diarrhoeal Disease": 0.22857142857142856,
+        "Gujarat / Acute Diarrhoeal Disease": 0.24761904761904763,
+        "Odisha / Acute Diarrhoeal Disease": 0.3047619047619048,
+        "Kerala / Dengue": 0.1619047619047619,
+        "overall": 0.2357142857142857
+      },
+      "test": {
+        "West Bengal / Acute Diarrhoeal Disease": 0.38461538461538464,
+        "Gujarat / Acute Diarrhoeal Disease": 0.24358974358974358,
+        "Odisha / Acute Diarrhoeal Disease": 0.24358974358974358,
+        "Kerala / Dengue": 0.23076923076923078,
+        "overall": 0.27564102564102566
+      }
+    }
+  },
+  "2": {
+    "target_col": "target_reported_h2",
+    "base_rate": {
+      "train": {
+        "overall": 0.32196969696969696,
+        "Gujarat / Acute Diarrhoeal Disease": 0.3722943722943723,
+        "Kerala / Dengue": 0.1471861471861472,
+        "Odisha / Acute Diarrhoeal Disease": 0.3225108225108225,
+        "West Bengal / Acute Diarrhoeal Disease": 0.4458874458874459
+      },
+      "validation": {
+        "overall": 0.23798076923076922,
+        "Gujarat / Acute Diarrhoeal Disease": 0.25,
+        "Kerala / Dengue": 0.16346153846153846,
+        "Odisha / Acute Diarrhoeal Disease": 0.3076923076923077,
+        "West Bengal / Acute Diarrhoeal Disease": 0.23076923076923078
+      },
+      "test": {
+        "overall": 0.27564102564102566,
+        "Gujarat / Acute Diarrhoeal Disease": 0.24358974358974358,
+        "Kerala / Dengue": 0.23076923076923078,
+        "Odisha / Acute Diarrhoeal Disease": 0.24358974358974358,
+        "West Bengal / Acute Diarrhoeal Disease": 0.38461538461538464
+      }
+    },
+    "logistic_regression_reporting_only": {
+      "train": {
+        "overall": {
+          "accuracy": 0.7261904761904762,
+          "precision": 0.6149870801033591,
+          "recall": 0.4,
+          "f1": 0.4847250509164969,
+          "n": 1848,
+          "n_positive": 595,
+          "roc_auc": 0.7561046765074744,
+          "pr_auc": 0.5887456340074699
+        },
+        "Gujarat / Acute Diarrhoeal Disease": {
+          "accuracy": 0.6298701298701299,
+          "precision": 0.5040650406504065,
+          "recall": 0.36046511627906974,
+          "f1": 0.42033898305084744,
+          "n": 462,
+          "n_positive": 172,
+          "roc_auc": 0.6536287089013633,
+          "pr_auc": 0.5287586159557398
+        },
+        "Kerala / Dengue": {
+          "accuracy": 0.8636363636363636,
+          "precision": 0.6470588235294118,
+          "recall": 0.16176470588235295,
+          "f1": 0.25882352941176473,
+          "n": 462,
+          "n_positive": 68,
+          "roc_auc": 0.8104658106897582,
+          "pr_auc": 0.4137390192347217
+        },
+        "Odisha / Acute Diarrhoeal Disease": {
+          "accuracy": 0.6688311688311688,
+          "precision": 0.46875,
+          "recall": 0.20134228187919462,
+          "f1": 0.28169014084507044,
+          "n": 462,
+          "n_positive": 149,
+          "roc_auc": 0.6505564251559921,
+          "pr_auc": 0.447162081967425
+        },
+        "West Bengal / Acute Diarrhoeal Disease": {
+          "accuracy": 0.7424242424242424,
+          "precision": 0.7377049180327869,
+          "recall": 0.6553398058252428,
+          "f1": 0.6940874035989717,
+          "n": 462,
+          "n_positive": 206,
+          "roc_auc": 0.7911199180825244,
+          "pr_auc": 0.7212510516474456
+        }
+      },
+      "validation": {
+        "overall": {
+          "accuracy": 0.7427884615384616,
+          "precision": 0.39473684210526316,
+          "recall": 0.15151515151515152,
+          "f1": 0.21897810218978103,
+          "n": 416,
+          "n_positive": 99,
+          "roc_auc": 0.6684988688143263,
+          "pr_auc": 0.35483872470537947
+        },
+        "Gujarat / Acute Diarrhoeal Disease": {
+          "accuracy": 0.7115384615384616,
+          "precision": 0.3,
+          "recall": 0.11538461538461539,
+          "f1": 0.16666666666666666,
+          "n": 104,
+          "n_positive": 26,
+          "roc_auc": 0.6506410256410255,
+          "pr_auc": 0.37923161167308156
+        },
+        "Kerala / Dengue": {
+          "accuracy": 0.8269230769230769,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "n": 104,
+          "n_positive": 17,
+          "roc_auc": 0.7116294793779581,
+          "pr_auc": 0.3231860545653733
+        },
+        "Odisha / Acute Diarrhoeal Disease": {
+          "accuracy": 0.7307692307692307,
+          "precision": 0.75,
+          "recall": 0.1875,
+          "f1": 0.3,
+          "n": 104,
+          "n_positive": 32,
+          "roc_auc": 0.689453125,
+          "pr_auc": 0.512859308461461
+        },
+        "West Bengal / Acute Diarrhoeal Disease": {
+          "accuracy": 0.7019230769230769,
+          "precision": 0.3157894736842105,
+          "recall": 0.25,
+          "f1": 0.27906976744186046,
+          "n": 104,
+          "n_positive": 24,
+          "roc_auc": 0.6171875,
+          "pr_auc": 0.2993499518197778
+        }
+      },
+      "test": {
+        "overall": {
+          "accuracy": 0.6858974358974359,
+          "precision": 0.4,
+          "recall": 0.27906976744186046,
+          "f1": 0.3287671232876712,
+          "n": 312,
+          "n_positive": 86,
+          "roc_auc": 0.6468923646840915,
+          "pr_auc": 0.35886574326546766
+        },
+        "Gujarat / Acute Diarrhoeal Disease": {
+          "accuracy": 0.6923076923076923,
+          "precision": 0.2222222222222222,
+          "recall": 0.10526315789473684,
+          "f1": 0.14285714285714285,
+          "n": 78,
+          "n_positive": 19,
+          "roc_auc": 0.6306868867082962,
+          "pr_auc": 0.30349199826534357,
+          "pr_auc_ci_lo": 0.1911764531265307,
+          "pr_auc_ci_hi": 0.4993216938172164,
+          "pr_auc_ci_n_valid_resamples": 1000
+        },
+        "Kerala / Dengue": {
+          "accuracy": 0.7692307692307693,
+          "precision": 0.5,
+          "recall": 0.16666666666666666,
+          "f1": 0.25,
+          "n": 78,
+          "n_positive": 18,
+          "roc_auc": 0.811574074074074,
+          "pr_auc": 0.5292447774216508,
+          "pr_auc_ci_lo": 0.3371981749936462,
+          "pr_auc_ci_hi": 0.757632298723577,
+          "pr_auc_ci_n_valid_resamples": 1000
+        },
+        "Odisha / Acute Diarrhoeal Disease": {
+          "accuracy": 0.717948717948718,
+          "precision": 0.36363636363636365,
+          "recall": 0.21052631578947367,
+          "f1": 0.26666666666666666,
+          "n": 78,
+          "n_positive": 19,
+          "roc_auc": 0.5789473684210527,
+          "pr_auc": 0.3084131361330517,
+          "pr_auc_ci_lo": 0.18696445867784836,
+          "pr_auc_ci_hi": 0.5227571225366329,
+          "pr_auc_ci_n_valid_resamples": 1000
+        },
+        "West Bengal / Acute Diarrhoeal Disease": {
+          "accuracy": 0.5641025641025641,
+          "precision": 0.4411764705882353,
+          "recall": 0.5,
+          "f1": 0.46875,
+          "n": 78,
+          "n_positive": 30,
+          "roc_auc": 0.5142361111111111,
+          "pr_auc": 0.3874605588141275,
+          "pr_auc_ci_lo": 0.28418984897931737,
+          "pr_auc_ci_hi": 0.5518015424299595,
+          "pr_auc_ci_n_valid_resamples": 1000
+        }
+      }
+    },
+    "xgboost_reporting_only": {
+      "train": {
+        "overall": {
+          "accuracy": 0.6834415584415584,
+          "precision": 0.5057603686635944,
+          "recall": 0.7378151260504202,
+          "f1": 0.6001367053998633,
+          "n": 1848,
+          "n_positive": 595,
+          "roc_auc": 0.7900601581414688,
+          "pr_auc": 0.6474901756641747
+        },
+        "Gujarat / Acute Diarrhoeal Disease": {
+          "accuracy": 0.5887445887445888,
+          "precision": 0.46715328467153283,
+          "recall": 0.7441860465116279,
+          "f1": 0.5739910313901345,
+          "n": 462,
+          "n_positive": 172,
+          "roc_auc": 0.697373696872494,
+          "pr_auc": 0.5845292090008742
+        },
+        "Kerala / Dengue": {
+          "accuracy": 0.8441558441558441,
+          "precision": 0.47368421052631576,
+          "recall": 0.5294117647058824,
+          "f1": 0.5,
+          "n": 462,
+          "n_positive": 68,
+          "roc_auc": 0.8500485219468498,
+          "pr_auc": 0.49267173755351035
+        },
+        "Odisha / Acute Diarrhoeal Disease": {
+          "accuracy": 0.6017316017316018,
+          "precision": 0.4291497975708502,
+          "recall": 0.7114093959731543,
+          "f1": 0.5353535353535354,
+          "n": 462,
+          "n_positive": 149,
+          "roc_auc": 0.6906533439114865,
+          "pr_auc": 0.5014096868033022
+        },
+        "West Bengal / Acute Diarrhoeal Disease": {
+          "accuracy": 0.6991341991341992,
+          "precision": 0.6236162361623616,
+          "recall": 0.8203883495145631,
+          "f1": 0.7085953878406709,
+          "n": 462,
+          "n_positive": 206,
+          "roc_auc": 0.8149271844660195,
+          "pr_auc": 0.7778267372734895
+        }
+      },
+      "validation": {
+        "overall": {
+          "accuracy": 0.6466346153846154,
+          "precision": 0.35542168674698793,
+          "recall": 0.5959595959595959,
+          "f1": 0.44528301886792454,
+          "n": 416,
+          "n_positive": 99,
+          "roc_auc": 0.6691680209030366,
+          "pr_auc": 0.3698183384457784
+        },
+        "Gujarat / Acute Diarrhoeal Disease": {
+          "accuracy": 0.6057692307692307,
+          "precision": 0.35294117647058826,
+          "recall": 0.6923076923076923,
+          "f1": 0.4675324675324675,
+          "n": 104,
+          "n_positive": 26,
+          "roc_auc": 0.6609960552268244,
+          "pr_auc": 0.501858813035891
+        },
+        "Kerala / Dengue": {
+          "accuracy": 0.8076923076923077,
+          "precision": 0.4,
+          "recall": 0.35294117647058826,
+          "f1": 0.375,
+          "n": 104,
+          "n_positive": 17,
+          "roc_auc": 0.700473292765382,
+          "pr_auc": 0.3989950398744496
+        },
+        "Odisha / Acute Diarrhoeal Disease": {
+          "accuracy": 0.6153846153846154,
+          "precision": 0.42592592592592593,
+          "recall": 0.71875,
+          "f1": 0.5348837209302325,
+          "n": 104,
+          "n_positive": 32,
+          "roc_auc": 0.6846788194444444,
+          "pr_auc": 0.5342995787223634
+        },
+        "West Bengal / Acute Diarrhoeal Disease": {
+          "accuracy": 0.5576923076923077,
+          "precision": 0.2608695652173913,
+          "recall": 0.5,
+          "f1": 0.34285714285714286,
+          "n": 104,
+          "n_positive": 24,
+          "roc_auc": 0.6085937499999999,
+          "pr_auc": 0.30462559534642153
+        }
+      },
+      "test": {
+        "overall": {
+          "accuracy": 0.6057692307692307,
+          "precision": 0.362962962962963,
+          "recall": 0.5697674418604651,
+          "f1": 0.4434389140271493,
+          "n": 312,
+          "n_positive": 86,
+          "roc_auc": 0.6500308705494958,
+          "pr_auc": 0.3562003138231281
+        },
+        "Gujarat / Acute Diarrhoeal Disease": {
+          "accuracy": 0.5512820512820513,
+          "precision": 0.25,
+          "recall": 0.42105263157894735,
+          "f1": 0.3137254901960784,
+          "n": 78,
+          "n_positive": 19,
+          "roc_auc": 0.6173059768064229,
+          "pr_auc": 0.3214786762172279,
+          "pr_auc_ci_lo": 0.19508301561592514,
+          "pr_auc_ci_hi": 0.5396522118755576,
+          "pr_auc_ci_n_valid_resamples": 1000
+        },
+        "Kerala / Dengue": {
+          "accuracy": 0.7692307692307693,
+          "precision": 0.5,
+          "recall": 0.6666666666666666,
+          "f1": 0.5714285714285714,
+          "n": 78,
+          "n_positive": 18,
+          "roc_auc": 0.8537037037037037,
+          "pr_auc": 0.5894062650312651,
+          "pr_auc_ci_lo": 0.3918875262674545,
+          "pr_auc_ci_hi": 0.8240948072990593,
+          "pr_auc_ci_n_valid_resamples": 1000
+        },
+        "Odisha / Acute Diarrhoeal Disease": {
+          "accuracy": 0.5769230769230769,
+          "precision": 0.28125,
+          "recall": 0.47368421052631576,
+          "f1": 0.35294117647058826,
+          "n": 78,
+          "n_positive": 19,
+          "roc_auc": 0.5504014272970562,
+          "pr_auc": 0.2861367016751977,
+          "pr_auc_ci_lo": 0.17149975362829245,
+          "pr_auc_ci_hi": 0.48764005225480367,
+          "pr_auc_ci_n_valid_resamples": 1000
+        },
+        "West Bengal / Acute Diarrhoeal Disease": {
+          "accuracy": 0.5256410256410257,
+          "precision": 0.425531914893617,
+          "recall": 0.6666666666666666,
+          "f1": 0.5194805194805194,
+          "n": 78,
+          "n_positive": 30,
+          "roc_auc": 0.4881944444444445,
+          "pr_auc": 0.36437181006284636,
+          "pr_auc_ci_lo": 0.27078662430259526,
+          "pr_auc_ci_hi": 0.5079829677313711,
+          "pr_auc_ci_n_valid_resamples": 1000
+        }
+      }
+    },
+    "sgb_reporting_only": {
+      "train": {
+        "overall": {
+          "accuracy": 0.7516233766233766,
+          "precision": 0.5831295843520783,
+          "recall": 0.8016806722689076,
+          "f1": 0.6751592356687898,
+          "n": 1848,
+          "n_positive": 595,
+          "roc_auc": 0.8416593453023669,
+          "pr_auc": 0.7169909825878467
+        },
+        "Gujarat / Acute Diarrhoeal Disease": {
+          "accuracy": 0.683982683982684,
+          "precision": 0.55078125,
+          "recall": 0.8197674418604651,
+          "f1": 0.6588785046728972,
+          "n": 462,
+          "n_positive": 172,
+          "roc_auc": 0.7867080994386528,
+          "pr_auc": 0.6899304793175948
+        },
+        "Kerala / Dengue": {
+          "accuracy": 0.8701298701298701,
+          "precision": 0.5526315789473685,
+          "recall": 0.6176470588235294,
+          "f1": 0.5833333333333334,
+          "n": 462,
+          "n_positive": 68,
+          "roc_auc": 0.8888474171394446,
+          "pr_auc": 0.6132837047377921
+        },
+        "Odisha / Acute Diarrhoeal Disease": {
+          "accuracy": 0.70995670995671,
+          "precision": 0.5339366515837104,
+          "recall": 0.7919463087248322,
+          "f1": 0.6378378378378379,
+          "n": 462,
+          "n_positive": 149,
+          "roc_auc": 0.7839698093788194,
+          "pr_auc": 0.615486878041274
+        },
+        "West Bengal / Acute Diarrhoeal Disease": {
+          "accuracy": 0.7424242424242424,
+          "precision": 0.6641509433962264,
+          "recall": 0.8543689320388349,
+          "f1": 0.7473460721868365,
+          "n": 462,
+          "n_positive": 206,
+          "roc_auc": 0.8492206462378641,
+          "pr_auc": 0.8200748601138599
+        }
+      },
+      "validation": {
+        "overall": {
+          "accuracy": 0.65625,
+          "precision": 0.35333333333333333,
+          "recall": 0.5353535353535354,
+          "f1": 0.42570281124497994,
+          "n": 416,
+          "n_positive": 99,
+          "roc_auc": 0.6791097090781635,
+          "pr_auc": 0.37426159722274416
+        },
+        "Gujarat / Acute Diarrhoeal Disease": {
+          "accuracy": 0.6442307692307693,
+          "precision": 0.36585365853658536,
+          "recall": 0.5769230769230769,
+          "f1": 0.44776119402985076,
+          "n": 104,
+          "n_positive": 26,
+          "roc_auc": 0.6821992110453649,
+          "pr_auc": 0.48776616723141475
+        },
+        "Kerala / Dengue": {
+          "accuracy": 0.8173076923076923,
+          "precision": 0.42857142857142855,
+          "recall": 0.35294117647058826,
+          "f1": 0.3870967741935484,
+          "n": 104,
+          "n_positive": 17,
+          "roc_auc": 0.7312373225152129,
+          "pr_auc": 0.3794693526931994
+        },
+        "Odisha / Acute Diarrhoeal Disease": {
+          "accuracy": 0.5673076923076923,
+          "precision": 0.3673469387755102,
+          "recall": 0.5625,
+          "f1": 0.4444444444444444,
+          "n": 104,
+          "n_positive": 32,
+          "roc_auc": 0.6421440972222222,
+          "pr_auc": 0.5029370526196841
+        },
+        "West Bengal / Acute Diarrhoeal Disease": {
+          "accuracy": 0.5961538461538461,
+          "precision": 0.30434782608695654,
+          "recall": 0.5833333333333334,
+          "f1": 0.4,
+          "n": 104,
+          "n_positive": 24,
+          "roc_auc": 0.6296875,
+          "pr_auc": 0.29916867438818984
+        }
+      },
+      "test": {
+        "overall": {
+          "accuracy": 0.5865384615384616,
+          "precision": 0.3383458646616541,
+          "recall": 0.5232558139534884,
+          "f1": 0.410958904109589,
+          "n": 312,
+          "n_positive": 86,
+          "roc_auc": 0.6422617822597242,
+          "pr_auc": 0.3536536868447819
+        },
+        "Gujarat / Acute Diarrhoeal Disease": {
+          "accuracy": 0.5641025641025641,
+          "precision": 0.2413793103448276,
+          "recall": 0.3684210526315789,
+          "f1": 0.2916666666666667,
+          "n": 78,
+          "n_positive": 19,
+          "roc_auc": 0.5896520963425513,
+          "pr_auc": 0.3000997959962546,
+          "pr_auc_ci_lo": 0.1832580524282822,
+          "pr_auc_ci_hi": 0.5099836577225166,
+          "pr_auc_ci_n_valid_resamples": 1000
+        },
+        "Kerala / Dengue": {
+          "accuracy": 0.7564102564102564,
+          "precision": 0.48,
+          "recall": 0.6666666666666666,
+          "f1": 0.5581395348837209,
+          "n": 78,
+          "n_positive": 18,
+          "roc_auc": 0.8708333333333332,
+          "pr_auc": 0.6333853095757859,
+          "pr_auc_ci_lo": 0.41531469221332656,
+          "pr_auc_ci_hi": 0.861261061413813,
+          "pr_auc_ci_n_valid_resamples": 1000
+        },
+        "Odisha / Acute Diarrhoeal Disease": {
+          "accuracy": 0.5384615384615384,
+          "precision": 0.20689655172413793,
+          "recall": 0.3157894736842105,
+          "f1": 0.25,
+          "n": 78,
+          "n_positive": 19,
+          "roc_auc": 0.4852809991079393,
+          "pr_auc": 0.29731755370501584,
+          "pr_auc_ci_lo": 0.16085386182137873,
+          "pr_auc_ci_hi": 0.46881553124619907,
+          "pr_auc_ci_n_valid_resamples": 1000
+        },
+        "West Bengal / Acute Diarrhoeal Disease": {
+          "accuracy": 0.48717948717948717,
+          "precision": 0.4,
+          "recall": 0.6666666666666666,
+          "f1": 0.5,
+          "n": 78,
+          "n_positive": 30,
+          "roc_auc": 0.48993055555555565,
+          "pr_auc": 0.3658791742146398,
+          "pr_auc_ci_lo": 0.2714293072497003,
+          "pr_auc_ci_hi": 0.5111093349003598,
+          "pr_auc_ci_n_valid_resamples": 1000
+        }
+      }
+    },
+    "sarima": {
+      "train": {
+        "West Bengal / Acute Diarrhoeal Disease": {
+          "accuracy": 1.0,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "n": 1,
+          "n_positive": 0,
+          "roc_auc": null,
+          "pr_auc": null,
+          "note": "only one class present in y_true; AUC undefined"
+        },
+        "Gujarat / Acute Diarrhoeal Disease": {
+          "accuracy": 1.0,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "n": 1,
+          "n_positive": 0,
+          "roc_auc": null,
+          "pr_auc": null,
+          "note": "only one class present in y_true; AUC undefined"
+        },
+        "Odisha / Acute Diarrhoeal Disease": {
+          "accuracy": 1.0,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "n": 1,
+          "n_positive": 0,
+          "roc_auc": null,
+          "pr_auc": null,
+          "note": "only one class present in y_true; AUC undefined"
+        },
+        "Kerala / Dengue": {
+          "accuracy": 1.0,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "n": 1,
+          "n_positive": 0,
+          "roc_auc": null,
+          "pr_auc": null,
+          "note": "only one class present in y_true; AUC undefined"
+        },
+        "overall": {
+          "accuracy": 1.0,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "n": 4,
+          "n_positive": 0,
+          "roc_auc": null,
+          "pr_auc": null,
+          "note": "only one class present in y_true; AUC undefined"
+        }
+      },
+      "validation": {
+        "West Bengal / Acute Diarrhoeal Disease": {
+          "accuracy": 0.6952380952380952,
+          "precision": 0.21428571428571427,
+          "recall": 0.125,
+          "f1": 0.15789473684210525,
+          "n": 105,
+          "n_positive": 24,
+          "roc_auc": 0.6358024691358024,
+          "pr_auc": 0.286277907572263
+        },
+        "Gujarat / Acute Diarrhoeal Disease": {
+          "accuracy": 0.7333333333333333,
+          "precision": 0.25,
+          "recall": 0.038461538461538464,
+          "f1": 0.06666666666666667,
+          "n": 105,
+          "n_positive": 26,
+          "roc_auc": 0.6212268743914313,
+          "pr_auc": 0.3542842715933715
+        },
+        "Odisha / Acute Diarrhoeal Disease": {
+          "accuracy": 0.7238095238095238,
+          "precision": 0.5714285714285714,
+          "recall": 0.375,
+          "f1": 0.4528301886792453,
+          "n": 105,
+          "n_positive": 32,
+          "roc_auc": 0.6481164383561645,
+          "pr_auc": 0.47134587945469775
+        },
+        "Kerala / Dengue": {
+          "accuracy": 0.8380952380952381,
+          "precision": 0.5,
+          "recall": 0.058823529411764705,
+          "f1": 0.10526315789473684,
+          "n": 105,
+          "n_positive": 17,
+          "roc_auc": 0.6677807486631016,
+          "pr_auc": 0.4321381076404859
+        },
+        "overall": {
+          "accuracy": 0.7476190476190476,
+          "precision": 0.4146341463414634,
+          "recall": 0.1717171717171717,
+          "f1": 0.24285714285714285,
+          "n": 420,
+          "n_positive": 99,
+          "roc_auc": 0.6606878756411466,
+          "pr_auc": 0.3659960730803006
+        }
+      },
+      "test": {
+        "West Bengal / Acute Diarrhoeal Disease": {
+          "accuracy": 0.6153846153846154,
+          "precision": 0.5,
+          "recall": 0.5666666666666667,
+          "f1": 0.53125,
+          "n": 78,
+          "n_positive": 30,
+          "roc_auc": 0.5621527777777777,
+          "pr_auc": 0.4114294578586192,
+          "pr_auc_ci_lo": 0.30650471857109673,
+          "pr_auc_ci_hi": 0.5901176678243613,
+          "pr_auc_ci_n_valid_resamples": 1000
+        },
+        "Gujarat / Acute Diarrhoeal Disease": {
+          "accuracy": 0.7435897435897436,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "n": 78,
+          "n_positive": 19,
+          "roc_auc": 0.5896520963425513,
+          "pr_auc": 0.2870506842646973,
+          "pr_auc_ci_lo": 0.1790808747128414,
+          "pr_auc_ci_hi": 0.4780694616363585,
+          "pr_auc_ci_n_valid_resamples": 1000
+        },
+        "Odisha / Acute Diarrhoeal Disease": {
+          "accuracy": 0.7307692307692307,
+          "precision": 0.3333333333333333,
+          "recall": 0.10526315789473684,
+          "f1": 0.16,
+          "n": 78,
+          "n_positive": 19,
+          "roc_auc": 0.5405887600356823,
+          "pr_auc": 0.3100613356560674,
+          "pr_auc_ci_lo": 0.18156204134785883,
+          "pr_auc_ci_hi": 0.5263370182041215,
+          "pr_auc_ci_n_valid_resamples": 1000
+        },
+        "Kerala / Dengue": {
+          "accuracy": 0.8076923076923077,
+          "precision": 0.7142857142857143,
+          "recall": 0.2777777777777778,
+          "f1": 0.4,
+          "n": 78,
+          "n_positive": 18,
+          "roc_auc": 0.8666666666666666,
+          "pr_auc": 0.6009629594497463,
+          "pr_auc_ci_lo": 0.4132601397349159,
+          "pr_auc_ci_hi": 0.8320108848839549,
+          "pr_auc_ci_n_valid_resamples": 1000
+        },
+        "overall": {
+          "accuracy": 0.7243589743589743,
+          "precision": 0.5,
+          "recall": 0.27906976744186046,
+          "f1": 0.3582089552238806,
+          "n": 312,
+          "n_positive": 86,
+          "roc_auc": 0.661324346573369,
+          "pr_auc": 0.390127647791443,
+          "pr_auc_ci_lo": 0.31275200429252553,
+          "pr_auc_ci_hi": 0.49740260986374973,
+          "pr_auc_ci_n_valid_resamples": 1000
+        }
+      }
+    },
+    "base_rate_sarima": {
+      "train": {
+        "West Bengal / Acute Diarrhoeal Disease": 0.0,
+        "Gujarat / Acute Diarrhoeal Disease": 0.0,
+        "Odisha / Acute Diarrhoeal Disease": 0.0,
+        "Kerala / Dengue": 0.0,
+        "overall": 0.0
+      },
+      "validation": {
+        "West Bengal / Acute Diarrhoeal Disease": 0.22857142857142856,
+        "Gujarat / Acute Diarrhoeal Disease": 0.24761904761904763,
+        "Odisha / Acute Diarrhoeal Disease": 0.3047619047619048,
+        "Kerala / Dengue": 0.1619047619047619,
+        "overall": 0.2357142857142857
+      },
+      "test": {
+        "West Bengal / Acute Diarrhoeal Disease": 0.38461538461538464,
+        "Gujarat / Acute Diarrhoeal Disease": 0.24358974358974358,
+        "Odisha / Acute Diarrhoeal Disease": 0.24358974358974358,
+        "Kerala / Dengue": 0.23076923076923078,
+        "overall": 0.27564102564102566
+      }
+    }
+  },
+  "3": {
+    "target_col": "target_reported_h3",
+    "base_rate": {
+      "train": {
+        "overall": 0.3225108225108225,
+        "Gujarat / Acute Diarrhoeal Disease": 0.37445887445887444,
+        "Kerala / Dengue": 0.1471861471861472,
+        "Odisha / Acute Diarrhoeal Disease": 0.3225108225108225,
+        "West Bengal / Acute Diarrhoeal Disease": 0.4458874458874459
+      },
+      "validation": {
+        "overall": 0.23557692307692307,
+        "Gujarat / Acute Diarrhoeal Disease": 0.2403846153846154,
+        "Kerala / Dengue": 0.16346153846153846,
+        "Odisha / Acute Diarrhoeal Disease": 0.3076923076923077,
+        "West Bengal / Acute Diarrhoeal Disease": 0.23076923076923078
+      },
+      "test": {
+        "overall": 0.2724358974358974,
+        "Gujarat / Acute Diarrhoeal Disease": 0.24358974358974358,
+        "Kerala / Dengue": 0.23076923076923078,
+        "Odisha / Acute Diarrhoeal Disease": 0.24358974358974358,
+        "West Bengal / Acute Diarrhoeal Disease": 0.3717948717948718
+      }
+    },
+    "logistic_regression_reporting_only": {
+      "train": {
+        "overall": {
+          "accuracy": 0.7283549783549783,
+          "precision": 0.6305555555555555,
+          "recall": 0.3808724832214765,
+          "f1": 0.47489539748953974,
+          "n": 1848,
+          "n_positive": 596,
+          "roc_auc": 0.7458288215365483,
+          "pr_auc": 0.5850537521905712
+        },
+        "Gujarat / Acute Diarrhoeal Disease": {
+          "accuracy": 0.658008658008658,
+          "precision": 0.5641025641025641,
+          "recall": 0.3815028901734104,
+          "f1": 0.45517241379310347,
+          "n": 462,
+          "n_positive": 173,
+          "roc_auc": 0.6499989999399963,
+          "pr_auc": 0.5436127947956912
+        },
+        "Kerala / Dengue": {
+          "accuracy": 0.8506493506493507,
+          "precision": 0.45454545454545453,
+          "recall": 0.07352941176470588,
+          "f1": 0.12658227848101267,
+          "n": 462,
+          "n_positive": 68,
+          "roc_auc": 0.7957412660495671,
+          "pr_auc": 0.3788286126739211
+        },
+        "Odisha / Acute Diarrhoeal Disease": {
+          "accuracy": 0.6774891774891775,
+          "precision": 0.5,
+          "recall": 0.18791946308724833,
+          "f1": 0.2731707317073171,
+          "n": 462,
+          "n_positive": 149,
+          "roc_auc": 0.638227158693741,
+          "pr_auc": 0.43444976005407365
+        },
+        "West Bengal / Acute Diarrhoeal Disease": {
+          "accuracy": 0.7272727272727273,
+          "precision": 0.7272727272727273,
+          "recall": 0.6213592233009708,
+          "f1": 0.6701570680628273,
+          "n": 462,
+          "n_positive": 206,
+          "roc_auc": 0.7789934769417476,
+          "pr_auc": 0.7228751685322743
+        }
+      },
+      "validation": {
+        "overall": {
+          "accuracy": 0.7548076923076923,
+          "precision": 0.4411764705882353,
+          "recall": 0.15306122448979592,
+          "f1": 0.22727272727272727,
+          "n": 416,
+          "n_positive": 98,
+          "roc_auc": 0.6782184571941985,
+          "pr_auc": 0.3694427307447369
+        },
+        "Gujarat / Acute Diarrhoeal Disease": {
+          "accuracy": 0.7596153846153846,
+          "precision": 0.5,
+          "recall": 0.2,
+          "f1": 0.2857142857142857,
+          "n": 104,
+          "n_positive": 25,
+          "roc_auc": 0.6767088607594937,
+          "pr_auc": 0.46914399284783737
+        },
+        "Kerala / Dengue": {
+          "accuracy": 0.8365384615384616,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "n": 104,
+          "n_positive": 17,
+          "roc_auc": 0.7011494252873562,
+          "pr_auc": 0.2882646971512037
+        },
+        "Odisha / Acute Diarrhoeal Disease": {
+          "accuracy": 0.7211538461538461,
+          "precision": 0.8,
+          "recall": 0.125,
+          "f1": 0.21621621621621623,
+          "n": 104,
+          "n_positive": 32,
+          "roc_auc": 0.6783854166666665,
+          "pr_auc": 0.4961451069342277
+        },
+        "West Bengal / Acute Diarrhoeal Disease": {
+          "accuracy": 0.7019230769230769,
+          "precision": 0.3157894736842105,
+          "recall": 0.25,
+          "f1": 0.27906976744186046,
+          "n": 104,
+          "n_positive": 24,
+          "roc_auc": 0.6742187500000001,
+          "pr_auc": 0.34878764309633636
+        }
+      },
+      "test": {
+        "overall": {
+          "accuracy": 0.6794871794871795,
+          "precision": 0.38095238095238093,
+          "recall": 0.2823529411764706,
+          "f1": 0.32432432432432434,
+          "n": 312,
+          "n_positive": 85,
+          "roc_auc": 0.6195128271572947,
+          "pr_auc": 0.34164366214216413
+        },
+        "Gujarat / Acute Diarrhoeal Disease": {
+          "accuracy": 0.6923076923076923,
+          "precision": 0.2222222222222222,
+          "recall": 0.10526315789473684,
+          "f1": 0.14285714285714285,
+          "n": 78,
+          "n_positive": 19,
+          "roc_auc": 0.5869759143621767,
+          "pr_auc": 0.29918980952273283,
+          "pr_auc_ci_lo": 0.1834886403738939,
+          "pr_auc_ci_hi": 0.499001750559047,
+          "pr_auc_ci_n_valid_resamples": 1000
+        },
+        "Kerala / Dengue": {
+          "accuracy": 0.7564102564102564,
+          "precision": 0.4,
+          "recall": 0.1111111111111111,
+          "f1": 0.17391304347826086,
+          "n": 78,
+          "n_positive": 18,
+          "roc_auc": 0.7694444444444444,
+          "pr_auc": 0.4231688210629754,
+          "pr_auc_ci_lo": 0.267906306930618,
+          "pr_auc_ci_hi": 0.658828183712295,
+          "pr_auc_ci_n_valid_resamples": 1000
+        },
+        "Odisha / Acute Diarrhoeal Disease": {
+          "accuracy": 0.6923076923076923,
+          "precision": 0.3076923076923077,
+          "recall": 0.21052631578947367,
+          "f1": 0.25,
+          "n": 78,
+          "n_positive": 19,
+          "roc_auc": 0.5370205173951829,
+          "pr_auc": 0.3119407886676607,
+          "pr_auc_ci_lo": 0.17861913467006624,
+          "pr_auc_ci_hi": 0.5384617057307483,
+          "pr_auc_ci_n_valid_resamples": 1000
+        },
+        "West Bengal / Acute Diarrhoeal Disease": {
+          "accuracy": 0.5769230769230769,
+          "precision": 0.4444444444444444,
+          "recall": 0.5517241379310345,
+          "f1": 0.49230769230769234,
+          "n": 78,
+          "n_positive": 29,
+          "roc_auc": 0.5140745953553836,
+          "pr_auc": 0.373635151279077,
+          "pr_auc_ci_lo": 0.26131210043991565,
+          "pr_auc_ci_hi": 0.5545617446490018,
+          "pr_auc_ci_n_valid_resamples": 1000
+        }
+      }
+    },
+    "xgboost_reporting_only": {
+      "train": {
+        "overall": {
+          "accuracy": 0.6823593073593074,
+          "precision": 0.5056179775280899,
+          "recall": 0.6795302013422819,
+          "f1": 0.5798138869005011,
+          "n": 1848,
+          "n_positive": 596,
+          "roc_auc": 0.7585762109483886,
+          "pr_auc": 0.5905878549439498
+        },
+        "Gujarat / Acute Diarrhoeal Disease": {
+          "accuracy": 0.5800865800865801,
+          "precision": 0.4574898785425101,
+          "recall": 0.653179190751445,
+          "f1": 0.5380952380952381,
+          "n": 462,
+          "n_positive": 173,
+          "roc_auc": 0.652739164349861,
+          "pr_auc": 0.5206592923635969
+        },
+        "Kerala / Dengue": {
+          "accuracy": 0.8463203463203464,
+          "precision": 0.4782608695652174,
+          "recall": 0.4852941176470588,
+          "f1": 0.48175182481751827,
+          "n": 462,
+          "n_positive": 68,
+          "roc_auc": 0.828232308151687,
+          "pr_auc": 0.45755106264231515
+        },
+        "Odisha / Acute Diarrhoeal Disease": {
+          "accuracy": 0.5952380952380952,
+          "precision": 0.4166666666666667,
+          "recall": 0.6375838926174496,
+          "f1": 0.5039787798408488,
+          "n": 462,
+          "n_positive": 149,
+          "roc_auc": 0.6530437206509853,
+          "pr_auc": 0.4591130209724268
+        },
+        "West Bengal / Acute Diarrhoeal Disease": {
+          "accuracy": 0.7077922077922078,
+          "precision": 0.6381322957198443,
+          "recall": 0.7961165048543689,
+          "f1": 0.7084233261339092,
+          "n": 462,
+          "n_positive": 206,
+          "roc_auc": 0.786426729368932,
+          "pr_auc": 0.7333143646220213
+        }
+      },
+      "validation": {
+        "overall": {
+          "accuracy": 0.6586538461538461,
+          "precision": 0.34285714285714286,
+          "recall": 0.4897959183673469,
+          "f1": 0.40336134453781514,
+          "n": 416,
+          "n_positive": 98,
+          "roc_auc": 0.6642921319471183,
+          "pr_auc": 0.3898501420060149
+        },
+        "Gujarat / Acute Diarrhoeal Disease": {
+          "accuracy": 0.6538461538461539,
+          "precision": 0.36585365853658536,
+          "recall": 0.6,
+          "f1": 0.45454545454545453,
+          "n": 104,
+          "n_positive": 25,
+          "roc_auc": 0.6445569620253164,
+          "pr_auc": 0.4204651652179782
+        },
+        "Kerala / Dengue": {
+          "accuracy": 0.7788461538461539,
+          "precision": 0.2857142857142857,
+          "recall": 0.23529411764705882,
+          "f1": 0.25806451612903225,
+          "n": 104,
+          "n_positive": 17,
+          "roc_auc": 0.68289384719405,
+          "pr_auc": 0.39428014017577095
+        },
+        "Odisha / Acute Diarrhoeal Disease": {
+          "accuracy": 0.5865384615384616,
+          "precision": 0.39215686274509803,
+          "recall": 0.625,
+          "f1": 0.4819277108433735,
+          "n": 104,
+          "n_positive": 32,
+          "roc_auc": 0.6514756944444444,
+          "pr_auc": 0.48971691281922847
+        },
+        "West Bengal / Acute Diarrhoeal Disease": {
+          "accuracy": 0.6153846153846154,
+          "precision": 0.2647058823529412,
+          "recall": 0.375,
+          "f1": 0.3103448275862069,
+          "n": 104,
+          "n_positive": 24,
+          "roc_auc": 0.62734375,
+          "pr_auc": 0.317245707013903
+        }
+      },
+      "test": {
+        "overall": {
+          "accuracy": 0.6121794871794872,
+          "precision": 0.359375,
+          "recall": 0.5411764705882353,
+          "f1": 0.431924882629108,
+          "n": 312,
+          "n_positive": 85,
+          "roc_auc": 0.6036537963202901,
+          "pr_auc": 0.3389917138936625
+        },
+        "Gujarat / Acute Diarrhoeal Disease": {
+          "accuracy": 0.6025641025641025,
+          "precision": 0.2857142857142857,
+          "recall": 0.42105263157894735,
+          "f1": 0.3404255319148936,
+          "n": 78,
+          "n_positive": 19,
+          "roc_auc": 0.5909901873327386,
+          "pr_auc": 0.3551475169937683,
+          "pr_auc_ci_lo": 0.20809760352352613,
+          "pr_auc_ci_hi": 0.5792607835465038,
+          "pr_auc_ci_n_valid_resamples": 1000
+        },
+        "Kerala / Dengue": {
+          "accuracy": 0.7692307692307693,
+          "precision": 0.5,
+          "recall": 0.6666666666666666,
+          "f1": 0.5714285714285714,
+          "n": 78,
+          "n_positive": 18,
+          "roc_auc": 0.8023148148148147,
+          "pr_auc": 0.5074118365294835,
+          "pr_auc_ci_lo": 0.31400453491696173,
+          "pr_auc_ci_hi": 0.7111683225612426,
+          "pr_auc_ci_n_valid_resamples": 1000
+        },
+        "Odisha / Acute Diarrhoeal Disease": {
+          "accuracy": 0.5769230769230769,
+          "precision": 0.28125,
+          "recall": 0.47368421052631576,
+          "f1": 0.35294117647058826,
+          "n": 78,
+          "n_positive": 19,
+          "roc_auc": 0.4652096342551293,
+          "pr_auc": 0.32568743613366036,
+          "pr_auc_ci_lo": 0.17486339761717695,
+          "pr_auc_ci_hi": 0.5439613658024159,
+          "pr_auc_ci_n_valid_resamples": 1000
+        },
+        "West Bengal / Acute Diarrhoeal Disease": {
+          "accuracy": 0.5,
+          "precision": 0.38636363636363635,
+          "recall": 0.5862068965517241,
+          "f1": 0.4657534246575342,
+          "n": 78,
+          "n_positive": 29,
+          "roc_auc": 0.46586910626319494,
+          "pr_auc": 0.35981436416429546,
+          "pr_auc_ci_lo": 0.2533857604960663,
+          "pr_auc_ci_hi": 0.5166969973181079,
+          "pr_auc_ci_n_valid_resamples": 1000
+        }
+      }
+    },
+    "sgb_reporting_only": {
+      "train": {
+        "overall": {
+          "accuracy": 0.7353896103896104,
+          "precision": 0.5658056580565806,
+          "recall": 0.7718120805369127,
+          "f1": 0.6529453513129879,
+          "n": 1848,
+          "n_positive": 596,
+          "roc_auc": 0.8308578757209941,
+          "pr_auc": 0.700798517912809
+        },
+        "Gujarat / Acute Diarrhoeal Disease": {
+          "accuracy": 0.6666666666666666,
+          "precision": 0.5369649805447471,
+          "recall": 0.7976878612716763,
+          "f1": 0.641860465116279,
+          "n": 462,
+          "n_positive": 173,
+          "roc_auc": 0.7798867932075926,
+          "pr_auc": 0.6686281165677926
+        },
+        "Kerala / Dengue": {
+          "accuracy": 0.8766233766233766,
+          "precision": 0.5846153846153846,
+          "recall": 0.5588235294117647,
+          "f1": 0.5714285714285714,
+          "n": 462,
+          "n_positive": 68,
+          "roc_auc": 0.8833793669752166,
+          "pr_auc": 0.6060221407215549
+        },
+        "Odisha / Acute Diarrhoeal Disease": {
+          "accuracy": 0.6753246753246753,
+          "precision": 0.4976303317535545,
+          "recall": 0.7046979865771812,
+          "f1": 0.5833333333333334,
+          "n": 462,
+          "n_positive": 149,
+          "roc_auc": 0.7584535883525956,
+          "pr_auc": 0.5854918765969194
+        },
+        "West Bengal / Acute Diarrhoeal Disease": {
+          "accuracy": 0.7229437229437229,
+          "precision": 0.6392857142857142,
+          "recall": 0.8689320388349514,
+          "f1": 0.7366255144032922,
+          "n": 462,
+          "n_positive": 206,
+          "roc_auc": 0.8385353458737864,
+          "pr_auc": 0.8076685918937179
+        }
+      },
+      "validation": {
+        "overall": {
+          "accuracy": 0.6730769230769231,
+          "precision": 0.37662337662337664,
+          "recall": 0.5918367346938775,
+          "f1": 0.4603174603174603,
+          "n": 416,
+          "n_positive": 98,
+          "roc_auc": 0.6967013220382493,
+          "pr_auc": 0.3831288221404952
+        },
+        "Gujarat / Acute Diarrhoeal Disease": {
+          "accuracy": 0.6442307692307693,
+          "precision": 0.36363636363636365,
+          "recall": 0.64,
+          "f1": 0.463768115942029,
+          "n": 104,
+          "n_positive": 25,
+          "roc_auc": 0.6929113924050633,
+          "pr_auc": 0.5228186230805891
+        },
+        "Kerala / Dengue": {
+          "accuracy": 0.8076923076923077,
+          "precision": 0.4,
+          "recall": 0.35294117647058826,
+          "f1": 0.375,
+          "n": 104,
+          "n_positive": 17,
+          "roc_auc": 0.7369844489519947,
+          "pr_auc": 0.35842392409643903
+        },
+        "Odisha / Acute Diarrhoeal Disease": {
+          "accuracy": 0.625,
+          "precision": 0.4222222222222222,
+          "recall": 0.59375,
+          "f1": 0.4935064935064935,
+          "n": 104,
+          "n_positive": 32,
+          "roc_auc": 0.6788194444444444,
+          "pr_auc": 0.5200677371963457
+        },
+        "West Bengal / Acute Diarrhoeal Disease": {
+          "accuracy": 0.6153846153846154,
+          "precision": 0.34,
+          "recall": 0.7083333333333334,
+          "f1": 0.4594594594594595,
+          "n": 104,
+          "n_positive": 24,
+          "roc_auc": 0.6622395833333333,
+          "pr_auc": 0.30488373052889567
+        }
+      },
+      "test": {
+        "overall": {
+          "accuracy": 0.5993589743589743,
+          "precision": 0.3484848484848485,
+          "recall": 0.5411764705882353,
+          "f1": 0.423963133640553,
+          "n": 312,
+          "n_positive": 85,
+          "roc_auc": 0.6203938844260171,
+          "pr_auc": 0.3290958070624951
+        },
+        "Gujarat / Acute Diarrhoeal Disease": {
+          "accuracy": 0.6282051282051282,
+          "precision": 0.35294117647058826,
+          "recall": 0.631578947368421,
+          "f1": 0.4528301886792453,
+          "n": 78,
+          "n_positive": 19,
+          "roc_auc": 0.639607493309545,
+          "pr_auc": 0.3918241688173763,
+          "pr_auc_ci_lo": 0.20958718443680902,
+          "pr_auc_ci_hi": 0.581016662339772,
+          "pr_auc_ci_n_valid_resamples": 1000
+        },
+        "Kerala / Dengue": {
+          "accuracy": 0.7564102564102564,
+          "precision": 0.48,
+          "recall": 0.6666666666666666,
+          "f1": 0.5581395348837209,
+          "n": 78,
+          "n_positive": 18,
+          "roc_auc": 0.8481481481481482,
+          "pr_auc": 0.5815222650706522,
+          "pr_auc_ci_lo": 0.3709387231673968,
+          "pr_auc_ci_hi": 0.8062281648874063,
+          "pr_auc_ci_n_valid_resamples": 1000
+        },
+        "Odisha / Acute Diarrhoeal Disease": {
+          "accuracy": 0.5641025641025641,
+          "precision": 0.2222222222222222,
+          "recall": 0.3157894736842105,
+          "f1": 0.2608695652173913,
+          "n": 78,
+          "n_positive": 19,
+          "roc_auc": 0.41391614629794826,
+          "pr_auc": 0.2741200824644068,
+          "pr_auc_ci_lo": 0.14064572667919673,
+          "pr_auc_ci_hi": 0.4651812783022745,
+          "pr_auc_ci_n_valid_resamples": 1000
+        },
+        "West Bengal / Acute Diarrhoeal Disease": {
+          "accuracy": 0.44871794871794873,
+          "precision": 0.34782608695652173,
+          "recall": 0.5517241379310345,
+          "f1": 0.4266666666666667,
+          "n": 78,
+          "n_positive": 29,
+          "roc_auc": 0.47255453905700207,
+          "pr_auc": 0.33575168524778176,
+          "pr_auc_ci_lo": 0.24157001899696157,
+          "pr_auc_ci_hi": 0.48228335991586596,
+          "pr_auc_ci_n_valid_resamples": 1000
+        }
+      }
+    },
+    "sarima": {
+      "train": {
+        "West Bengal / Acute Diarrhoeal Disease": {
+          "accuracy": 1.0,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "n": 1,
+          "n_positive": 0,
+          "roc_auc": null,
+          "pr_auc": null,
+          "note": "only one class present in y_true; AUC undefined"
+        },
+        "Gujarat / Acute Diarrhoeal Disease": {
+          "accuracy": 0.0,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "n": 1,
+          "n_positive": 1,
+          "roc_auc": null,
+          "pr_auc": null,
+          "note": "only one class present in y_true; AUC undefined"
+        },
+        "Odisha / Acute Diarrhoeal Disease": {
+          "accuracy": 1.0,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "n": 1,
+          "n_positive": 0,
+          "roc_auc": null,
+          "pr_auc": null,
+          "note": "only one class present in y_true; AUC undefined"
+        },
+        "Kerala / Dengue": {
+          "accuracy": 1.0,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "n": 1,
+          "n_positive": 0,
+          "roc_auc": null,
+          "pr_auc": null,
+          "note": "only one class present in y_true; AUC undefined"
+        },
+        "overall": {
+          "accuracy": 0.75,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "n": 4,
+          "n_positive": 1,
+          "roc_auc": 1.0,
+          "pr_auc": 1.0
+        }
+      },
+      "validation": {
+        "West Bengal / Acute Diarrhoeal Disease": {
+          "accuracy": 0.6571428571428571,
+          "precision": 0.125,
+          "recall": 0.08333333333333333,
+          "f1": 0.1,
+          "n": 105,
+          "n_positive": 24,
+          "roc_auc": 0.654320987654321,
+          "pr_auc": 0.3225273910188579
+        },
+        "Gujarat / Acute Diarrhoeal Disease": {
+          "accuracy": 0.7238095238095238,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "n": 105,
+          "n_positive": 26,
+          "roc_auc": 0.6431353456669913,
+          "pr_auc": 0.375701410849178
+        },
+        "Odisha / Acute Diarrhoeal Disease": {
+          "accuracy": 0.7238095238095238,
+          "precision": 0.5714285714285714,
+          "recall": 0.375,
+          "f1": 0.4528301886792453,
+          "n": 105,
+          "n_positive": 32,
+          "roc_auc": 0.6652397260273972,
+          "pr_auc": 0.5105799214877303
+        },
+        "Kerala / Dengue": {
+          "accuracy": 0.8380952380952381,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "n": 105,
+          "n_positive": 17,
+          "roc_auc": 0.6677807486631016,
+          "pr_auc": 0.35386996585264285
+        },
+        "overall": {
+          "accuracy": 0.7357142857142858,
+          "precision": 0.35,
+          "recall": 0.1414141414141414,
+          "f1": 0.2014388489208633,
+          "n": 420,
+          "n_positive": 99,
+          "roc_auc": 0.6659743856005538,
+          "pr_auc": 0.3802306331334224
+        }
+      },
+      "test": {
+        "West Bengal / Acute Diarrhoeal Disease": {
+          "accuracy": 0.5512820512820513,
+          "precision": 0.4117647058823529,
+          "recall": 0.4827586206896552,
+          "f1": 0.4444444444444444,
+          "n": 78,
+          "n_positive": 29,
+          "roc_auc": 0.5263898662913441,
+          "pr_auc": 0.3703082831060402,
+          "pr_auc_ci_lo": 0.2656525512817049,
+          "pr_auc_ci_hi": 0.5418508526475402,
+          "pr_auc_ci_n_valid_resamples": 1000
+        },
+        "Gujarat / Acute Diarrhoeal Disease": {
+          "accuracy": 0.7435897435897436,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "n": 78,
+          "n_positive": 19,
+          "roc_auc": 0.5887600356824264,
+          "pr_auc": 0.2856346269135322,
+          "pr_auc_ci_lo": 0.1815895938653829,
+          "pr_auc_ci_hi": 0.4674241913834241,
+          "pr_auc_ci_n_valid_resamples": 1000
+        },
+        "Odisha / Acute Diarrhoeal Disease": {
+          "accuracy": 0.6923076923076923,
+          "precision": 0.14285714285714285,
+          "recall": 0.05263157894736842,
+          "f1": 0.07692307692307693,
+          "n": 78,
+          "n_positive": 19,
+          "roc_auc": 0.5325602140945584,
+          "pr_auc": 0.2764643332757891,
+          "pr_auc_ci_lo": 0.16933987513065352,
+          "pr_auc_ci_hi": 0.4594037298584314,
+          "pr_auc_ci_n_valid_resamples": 1000
+        },
+        "Kerala / Dengue": {
+          "accuracy": 0.782051282051282,
+          "precision": 0.6,
+          "recall": 0.16666666666666666,
+          "f1": 0.2608695652173913,
+          "n": 78,
+          "n_positive": 18,
+          "roc_auc": 0.8490740740740741,
+          "pr_auc": 0.5467642222744904,
+          "pr_auc_ci_lo": 0.3599125625901521,
+          "pr_auc_ci_hi": 0.8062545610544222,
+          "pr_auc_ci_n_valid_resamples": 1000
+        },
+        "overall": {
+          "accuracy": 0.6923076923076923,
+          "precision": 0.3829787234042553,
+          "recall": 0.21176470588235294,
+          "f1": 0.2727272727272727,
+          "n": 312,
+          "n_positive": 85,
+          "roc_auc": 0.6407359419538741,
+          "pr_auc": 0.3582821789092283,
+          "pr_auc_ci_lo": 0.28755985864492706,
+          "pr_auc_ci_hi": 0.4538060777704254,
+          "pr_auc_ci_n_valid_resamples": 1000
+        }
+      }
+    },
+    "base_rate_sarima": {
+      "train": {
+        "West Bengal / Acute Diarrhoeal Disease": 0.0,
+        "Gujarat / Acute Diarrhoeal Disease": 1.0,
+        "Odisha / Acute Diarrhoeal Disease": 0.0,
+        "Kerala / Dengue": 0.0,
+        "overall": 0.25
+      },
+      "validation": {
+        "West Bengal / Acute Diarrhoeal Disease": 0.22857142857142856,
+        "Gujarat / Acute Diarrhoeal Disease": 0.24761904761904763,
+        "Odisha / Acute Diarrhoeal Disease": 0.3047619047619048,
+        "Kerala / Dengue": 0.1619047619047619,
+        "overall": 0.2357142857142857
+      },
+      "test": {
+        "West Bengal / Acute Diarrhoeal Disease": 0.3717948717948718,
+        "Gujarat / Acute Diarrhoeal Disease": 0.24358974358974358,
+        "Odisha / Acute Diarrhoeal Disease": 0.24358974358974358,
+        "Kerala / Dengue": 0.23076923076923078,
+        "overall": 0.2724358974358974
+      }
+    }
+  },
+  "4": {
+    "target_col": "target_reported_h4",
+    "base_rate": {
+      "train": {
+        "overall": 0.32305194805194803,
+        "Gujarat / Acute Diarrhoeal Disease": 0.37662337662337664,
+        "Kerala / Dengue": 0.1471861471861472,
+        "Odisha / Acute Diarrhoeal Disease": 0.3225108225108225,
+        "West Bengal / Acute Diarrhoeal Disease": 0.4458874458874459
+      },
+      "validation": {
+        "overall": 0.23557692307692307,
+        "Gujarat / Acute Diarrhoeal Disease": 0.2403846153846154,
+        "Kerala / Dengue": 0.16346153846153846,
+        "Odisha / Acute Diarrhoeal Disease": 0.3076923076923077,
+        "West Bengal / Acute Diarrhoeal Disease": 0.23076923076923078
+      },
+      "test": {
+        "overall": 0.2724358974358974,
+        "Gujarat / Acute Diarrhoeal Disease": 0.24358974358974358,
+        "Kerala / Dengue": 0.23076923076923078,
+        "Odisha / Acute Diarrhoeal Disease": 0.24358974358974358,
+        "West Bengal / Acute Diarrhoeal Disease": 0.3717948717948718
+      }
+    },
+    "logistic_regression_reporting_only": {
+      "train": {
+        "overall": {
+          "accuracy": 0.7224025974025974,
+          "precision": 0.6160220994475138,
+          "recall": 0.37353433835845895,
+          "f1": 0.46506777893639206,
+          "n": 1848,
+          "n_positive": 597,
+          "roc_auc": 0.7425476704063885,
+          "pr_auc": 0.5829299660589867
+        },
+        "Gujarat / Acute Diarrhoeal Disease": {
+          "accuracy": 0.6471861471861472,
+          "precision": 0.5462184873949579,
+          "recall": 0.3735632183908046,
+          "f1": 0.44368600682593856,
+          "n": 462,
+          "n_positive": 174,
+          "roc_auc": 0.66253591954023,
+          "pr_auc": 0.5507506993300164
+        },
+        "Kerala / Dengue": {
+          "accuracy": 0.8484848484848485,
+          "precision": 0.375,
+          "recall": 0.04411764705882353,
+          "f1": 0.07894736842105263,
+          "n": 462,
+          "n_positive": 68,
+          "roc_auc": 0.7897320095550912,
+          "pr_auc": 0.35038904523573355
+        },
+        "Odisha / Acute Diarrhoeal Disease": {
+          "accuracy": 0.6666666666666666,
+          "precision": 0.45614035087719296,
+          "recall": 0.174496644295302,
+          "f1": 0.2524271844660194,
+          "n": 462,
+          "n_positive": 149,
+          "roc_auc": 0.6337671805647878,
+          "pr_auc": 0.42486895794212587
+        },
+        "West Bengal / Acute Diarrhoeal Disease": {
+          "accuracy": 0.7272727272727273,
+          "precision": 0.7247191011235955,
+          "recall": 0.6262135922330098,
+          "f1": 0.671875,
+          "n": 462,
+          "n_positive": 206,
+          "roc_auc": 0.7696450242718447,
+          "pr_auc": 0.7239549306715856
+        }
+      },
+      "validation": {
+        "overall": {
+          "accuracy": 0.7620192307692307,
+          "precision": 0.48484848484848486,
+          "recall": 0.16326530612244897,
+          "f1": 0.24427480916030533,
+          "n": 416,
+          "n_positive": 98,
+          "roc_auc": 0.6708381465793865,
+          "pr_auc": 0.3809785921720524
+        },
+        "Gujarat / Acute Diarrhoeal Disease": {
+          "accuracy": 0.7884615384615384,
+          "precision": 0.7142857142857143,
+          "recall": 0.2,
+          "f1": 0.3125,
+          "n": 104,
+          "n_positive": 25,
+          "roc_auc": 0.6526582278481012,
+          "pr_auc": 0.4565018167434832
+        },
+        "Kerala / Dengue": {
+          "accuracy": 0.8365384615384616,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "n": 104,
+          "n_positive": 17,
+          "roc_auc": 0.6812035158891143,
+          "pr_auc": 0.27330561081195504
+        },
+        "Odisha / Acute Diarrhoeal Disease": {
+          "accuracy": 0.7211538461538461,
+          "precision": 0.8,
+          "recall": 0.125,
+          "f1": 0.21621621621621623,
+          "n": 104,
+          "n_positive": 32,
+          "roc_auc": 0.6955295138888888,
+          "pr_auc": 0.5671113703602411
+        },
+        "West Bengal / Acute Diarrhoeal Disease": {
+          "accuracy": 0.7019230769230769,
+          "precision": 0.3333333333333333,
+          "recall": 0.2916666666666667,
+          "f1": 0.3111111111111111,
+          "n": 104,
+          "n_positive": 24,
+          "roc_auc": 0.6958333333333333,
+          "pr_auc": 0.4142923695630563
+        }
+      },
+      "test": {
+        "overall": {
+          "accuracy": 0.6602564102564102,
+          "precision": 0.3384615384615385,
+          "recall": 0.25882352941176473,
+          "f1": 0.29333333333333333,
+          "n": 312,
+          "n_positive": 85,
+          "roc_auc": 0.6040165846074113,
+          "pr_auc": 0.3295067582731914
+        },
+        "Gujarat / Acute Diarrhoeal Disease": {
+          "accuracy": 0.6666666666666666,
+          "precision": 0.23076923076923078,
+          "recall": 0.15789473684210525,
+          "f1": 0.1875,
+          "n": 78,
+          "n_positive": 19,
+          "roc_auc": 0.5691347011596788,
+          "pr_auc": 0.27384729921720824,
+          "pr_auc_ci_lo": 0.1696455836979258,
+          "pr_auc_ci_hi": 0.4505210446834787,
+          "pr_auc_ci_n_valid_resamples": 1000
+        },
+        "Kerala / Dengue": {
+          "accuracy": 0.7435897435897436,
+          "precision": 0.25,
+          "recall": 0.05555555555555555,
+          "f1": 0.09090909090909091,
+          "n": 78,
+          "n_positive": 18,
+          "roc_auc": 0.7439814814814815,
+          "pr_auc": 0.36469891386974773,
+          "pr_auc_ci_lo": 0.23008999361916635,
+          "pr_auc_ci_hi": 0.5792984620978604,
+          "pr_auc_ci_n_valid_resamples": 1000
+        },
+        "Odisha / Acute Diarrhoeal Disease": {
+          "accuracy": 0.6666666666666666,
+          "precision": 0.23076923076923078,
+          "recall": 0.15789473684210525,
+          "f1": 0.1875,
+          "n": 78,
+          "n_positive": 19,
+          "roc_auc": 0.5392506690454951,
+          "pr_auc": 0.28794318210371045,
+          "pr_auc_ci_lo": 0.17130076756871443,
+          "pr_auc_ci_hi": 0.4968956023857659,
+          "pr_auc_ci_n_valid_resamples": 1000
+        },
+        "West Bengal / Acute Diarrhoeal Disease": {
+          "accuracy": 0.5641025641025641,
+          "precision": 0.42857142857142855,
+          "recall": 0.5172413793103449,
+          "f1": 0.46875,
+          "n": 78,
+          "n_positive": 29,
+          "roc_auc": 0.5091484869809992,
+          "pr_auc": 0.37778318024480606,
+          "pr_auc_ci_lo": 0.26552006222226393,
+          "pr_auc_ci_hi": 0.5548787537902089,
+          "pr_auc_ci_n_valid_resamples": 1000
+        }
+      }
+    },
+    "xgboost_reporting_only": {
+      "train": {
+        "overall": {
+          "accuracy": 0.6352813852813853,
+          "precision": 0.462729912875121,
+          "recall": 0.8006700167504187,
+          "f1": 0.5865030674846625,
+          "n": 1848,
+          "n_positive": 597,
+          "roc_auc": 0.752171462160255,
+          "pr_auc": 0.5771762500147164
+        },
+        "Gujarat / Acute Diarrhoeal Disease": {
+          "accuracy": 0.5735930735930735,
+          "precision": 0.46179401993355484,
+          "recall": 0.7988505747126436,
+          "f1": 0.5852631578947368,
+          "n": 462,
+          "n_positive": 174,
+          "roc_auc": 0.675706417624521,
+          "pr_auc": 0.5365115458214784
+        },
+        "Kerala / Dengue": {
+          "accuracy": 0.7597402597402597,
+          "precision": 0.3475177304964539,
+          "recall": 0.7205882352941176,
+          "f1": 0.4688995215311005,
+          "n": 462,
+          "n_positive": 68,
+          "roc_auc": 0.8056882651537772,
+          "pr_auc": 0.3978333848494606
+        },
+        "Odisha / Acute Diarrhoeal Disease": {
+          "accuracy": 0.564935064935065,
+          "precision": 0.4090909090909091,
+          "recall": 0.785234899328859,
+          "f1": 0.5379310344827586,
+          "n": 462,
+          "n_positive": 149,
+          "roc_auc": 0.6583399446791176,
+          "pr_auc": 0.4706446186047883
+        },
+        "West Bengal / Acute Diarrhoeal Disease": {
+          "accuracy": 0.6428571428571429,
+          "precision": 0.5672131147540984,
+          "recall": 0.8398058252427184,
+          "f1": 0.6771037181996086,
+          "n": 462,
+          "n_positive": 206,
+          "roc_auc": 0.758959723907767,
+          "pr_auc": 0.6990694542077118
+        }
+      },
+      "validation": {
+        "overall": {
+          "accuracy": 0.6225961538461539,
+          "precision": 0.3487179487179487,
+          "recall": 0.6938775510204082,
+          "f1": 0.4641638225255973,
+          "n": 416,
+          "n_positive": 98,
+          "roc_auc": 0.6822134514183031,
+          "pr_auc": 0.3973115282171475
+        },
+        "Gujarat / Acute Diarrhoeal Disease": {
+          "accuracy": 0.5480769230769231,
+          "precision": 0.2962962962962963,
+          "recall": 0.64,
+          "f1": 0.4050632911392405,
+          "n": 104,
+          "n_positive": 25,
+          "roc_auc": 0.6258227848101267,
+          "pr_auc": 0.4532012401664092
+        },
+        "Kerala / Dengue": {
+          "accuracy": 0.7307692307692307,
+          "precision": 0.34285714285714286,
+          "recall": 0.7058823529411765,
+          "f1": 0.46153846153846156,
+          "n": 104,
+          "n_positive": 17,
+          "roc_auc": 0.6981068289384719,
+          "pr_auc": 0.2888033705636866
+        },
+        "Odisha / Acute Diarrhoeal Disease": {
+          "accuracy": 0.6057692307692307,
+          "precision": 0.4262295081967213,
+          "recall": 0.8125,
+          "f1": 0.5591397849462365,
+          "n": 104,
+          "n_positive": 32,
+          "roc_auc": 0.66796875,
+          "pr_auc": 0.5021294643126503
+        },
+        "West Bengal / Acute Diarrhoeal Disease": {
+          "accuracy": 0.6057692307692307,
+          "precision": 0.3111111111111111,
+          "recall": 0.5833333333333334,
+          "f1": 0.4057971014492754,
+          "n": 104,
+          "n_positive": 24,
+          "roc_auc": 0.6817708333333334,
+          "pr_auc": 0.3451189032885218
+        }
+      },
+      "test": {
+        "overall": {
+          "accuracy": 0.5544871794871795,
+          "precision": 0.32,
+          "recall": 0.5647058823529412,
+          "f1": 0.4085106382978723,
+          "n": 312,
+          "n_positive": 85,
+          "roc_auc": 0.5672713138118683,
+          "pr_auc": 0.3054028450504004
+        },
+        "Gujarat / Acute Diarrhoeal Disease": {
+          "accuracy": 0.5128205128205128,
+          "precision": 0.2682926829268293,
+          "recall": 0.5789473684210527,
+          "f1": 0.36666666666666664,
+          "n": 78,
+          "n_positive": 19,
+          "roc_auc": 0.5062444246208742,
+          "pr_auc": 0.2629441579848938,
+          "pr_auc_ci_lo": 0.16029493439334647,
+          "pr_auc_ci_hi": 0.42929204409348287,
+          "pr_auc_ci_n_valid_resamples": 1000
+        },
+        "Kerala / Dengue": {
+          "accuracy": 0.7564102564102564,
+          "precision": 0.4838709677419355,
+          "recall": 0.8333333333333334,
+          "f1": 0.6122448979591837,
+          "n": 78,
+          "n_positive": 18,
+          "roc_auc": 0.8041666666666667,
+          "pr_auc": 0.4586811345211471,
+          "pr_auc_ci_lo": 0.28592935512173223,
+          "pr_auc_ci_hi": 0.6615931724625487,
+          "pr_auc_ci_n_valid_resamples": 1000
+        },
+        "Odisha / Acute Diarrhoeal Disease": {
+          "accuracy": 0.5,
+          "precision": 0.16666666666666666,
+          "recall": 0.2631578947368421,
+          "f1": 0.20408163265306123,
+          "n": 78,
+          "n_positive": 19,
+          "roc_auc": 0.46520963425512935,
+          "pr_auc": 0.24542971631787425,
+          "pr_auc_ci_lo": 0.14431263708733222,
+          "pr_auc_ci_hi": 0.40611111338009026,
+          "pr_auc_ci_n_valid_resamples": 1000
+        },
+        "West Bengal / Acute Diarrhoeal Disease": {
+          "accuracy": 0.44871794871794873,
+          "precision": 0.3541666666666667,
+          "recall": 0.5862068965517241,
+          "f1": 0.44155844155844154,
+          "n": 78,
+          "n_positive": 29,
+          "roc_auc": 0.428219563687544,
+          "pr_auc": 0.3535412204707876,
+          "pr_auc_ci_lo": 0.2492686345778205,
+          "pr_auc_ci_hi": 0.49792102967164975,
+          "pr_auc_ci_n_valid_resamples": 1000
+        }
+      }
+    },
+    "sgb_reporting_only": {
+      "train": {
+        "overall": {
+          "accuracy": 0.7505411255411255,
+          "precision": 0.5856423173803527,
+          "recall": 0.7788944723618091,
+          "f1": 0.6685837526959022,
+          "n": 1848,
+          "n_positive": 597,
+          "roc_auc": 0.8360380372418983,
+          "pr_auc": 0.7040517859543455
+        },
+        "Gujarat / Acute Diarrhoeal Disease": {
+          "accuracy": 0.6991341991341992,
+          "precision": 0.5675675675675675,
+          "recall": 0.8448275862068966,
+          "f1": 0.6789838337182448,
+          "n": 462,
+          "n_positive": 174,
+          "roc_auc": 0.7936222860791826,
+          "pr_auc": 0.6956950823341695
+        },
+        "Kerala / Dengue": {
+          "accuracy": 0.8874458874458875,
+          "precision": 0.6481481481481481,
+          "recall": 0.5147058823529411,
+          "f1": 0.5737704918032787,
+          "n": 462,
+          "n_positive": 68,
+          "roc_auc": 0.8881942370856972,
+          "pr_auc": 0.6255694736947055
+        },
+        "Odisha / Acute Diarrhoeal Disease": {
+          "accuracy": 0.7121212121212122,
+          "precision": 0.54,
+          "recall": 0.7248322147651006,
+          "f1": 0.6189111747851003,
+          "n": 462,
+          "n_positive": 149,
+          "roc_auc": 0.7849990351008855,
+          "pr_auc": 0.6315704726793921
+        },
+        "West Bengal / Acute Diarrhoeal Disease": {
+          "accuracy": 0.7034632034632035,
+          "precision": 0.6227758007117438,
+          "recall": 0.8495145631067961,
+          "f1": 0.7186858316221766,
+          "n": 462,
+          "n_positive": 206,
+          "roc_auc": 0.8260960254854369,
+          "pr_auc": 0.7875616865721676
+        }
+      },
+      "validation": {
+        "overall": {
+          "accuracy": 0.6850961538461539,
+          "precision": 0.38461538461538464,
+          "recall": 0.5612244897959183,
+          "f1": 0.45643153526970953,
+          "n": 416,
+          "n_positive": 98,
+          "roc_auc": 0.6925940187395714,
+          "pr_auc": 0.38363242223223315
+        },
+        "Gujarat / Acute Diarrhoeal Disease": {
+          "accuracy": 0.6153846153846154,
+          "precision": 0.3333333333333333,
+          "recall": 0.6,
+          "f1": 0.42857142857142855,
+          "n": 104,
+          "n_positive": 25,
+          "roc_auc": 0.6734177215189874,
+          "pr_auc": 0.5560451710750605
+        },
+        "Kerala / Dengue": {
+          "accuracy": 0.8173076923076923,
+          "precision": 0.375,
+          "recall": 0.17647058823529413,
+          "f1": 0.24,
+          "n": 104,
+          "n_positive": 17,
+          "roc_auc": 0.7190669371196755,
+          "pr_auc": 0.33730766719167316
+        },
+        "Odisha / Acute Diarrhoeal Disease": {
+          "accuracy": 0.6634615384615384,
+          "precision": 0.4634146341463415,
+          "recall": 0.59375,
+          "f1": 0.5205479452054794,
+          "n": 104,
+          "n_positive": 32,
+          "roc_auc": 0.7003038194444445,
+          "pr_auc": 0.5141752526752957
+        },
+        "West Bengal / Acute Diarrhoeal Disease": {
+          "accuracy": 0.6442307692307693,
+          "precision": 0.3673469387755102,
+          "recall": 0.75,
+          "f1": 0.4931506849315068,
+          "n": 104,
+          "n_positive": 24,
+          "roc_auc": 0.6546875,
+          "pr_auc": 0.3082839810267138
+        }
+      },
+      "test": {
+        "overall": {
+          "accuracy": 0.5737179487179487,
+          "precision": 0.3208955223880597,
+          "recall": 0.5058823529411764,
+          "f1": 0.3926940639269406,
+          "n": 312,
+          "n_positive": 85,
+          "roc_auc": 0.6004923555325213,
+          "pr_auc": 0.3180426039400124
+        },
+        "Gujarat / Acute Diarrhoeal Disease": {
+          "accuracy": 0.5512820512820513,
+          "precision": 0.2777777777777778,
+          "recall": 0.5263157894736842,
+          "f1": 0.36363636363636365,
+          "n": 78,
+          "n_positive": 19,
+          "roc_auc": 0.5753791257805531,
+          "pr_auc": 0.27281837635724226,
+          "pr_auc_ci_lo": 0.1713574711051044,
+          "pr_auc_ci_hi": 0.44072418949071485,
+          "pr_auc_ci_n_valid_resamples": 1000
+        },
+        "Kerala / Dengue": {
+          "accuracy": 0.7435897435897436,
+          "precision": 0.4583333333333333,
+          "recall": 0.6111111111111112,
+          "f1": 0.5238095238095238,
+          "n": 78,
+          "n_positive": 18,
+          "roc_auc": 0.8430555555555556,
+          "pr_auc": 0.5905467273228332,
+          "pr_auc_ci_lo": 0.36621733335923556,
+          "pr_auc_ci_hi": 0.8119356307590659,
+          "pr_auc_ci_n_valid_resamples": 1000
+        },
+        "Odisha / Acute Diarrhoeal Disease": {
+          "accuracy": 0.5512820512820513,
+          "precision": 0.16666666666666666,
+          "recall": 0.21052631578947367,
+          "f1": 0.18604651162790697,
+          "n": 78,
+          "n_positive": 19,
+          "roc_auc": 0.4072256913470116,
+          "pr_auc": 0.21759145300274957,
+          "pr_auc_ci_lo": 0.13715528268705543,
+          "pr_auc_ci_hi": 0.37068591786397953,
+          "pr_auc_ci_n_valid_resamples": 1000
+        },
+        "West Bengal / Acute Diarrhoeal Disease": {
+          "accuracy": 0.44871794871794873,
+          "precision": 0.36,
+          "recall": 0.6206896551724138,
+          "f1": 0.45569620253164556,
+          "n": 78,
+          "n_positive": 29,
+          "roc_auc": 0.46410978184377205,
+          "pr_auc": 0.34697422902736474,
+          "pr_auc_ci_lo": 0.2454918433810053,
+          "pr_auc_ci_hi": 0.49802770453473133,
+          "pr_auc_ci_n_valid_resamples": 1000
+        }
+      }
+    },
+    "sarima": {
+      "train": {
+        "West Bengal / Acute Diarrhoeal Disease": {
+          "accuracy": 1.0,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "n": 1,
+          "n_positive": 0,
+          "roc_auc": null,
+          "pr_auc": null,
+          "note": "only one class present in y_true; AUC undefined"
+        },
+        "Gujarat / Acute Diarrhoeal Disease": {
+          "accuracy": 0.0,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "n": 1,
+          "n_positive": 1,
+          "roc_auc": null,
+          "pr_auc": null,
+          "note": "only one class present in y_true; AUC undefined"
+        },
+        "Odisha / Acute Diarrhoeal Disease": {
+          "accuracy": 1.0,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "n": 1,
+          "n_positive": 0,
+          "roc_auc": null,
+          "pr_auc": null,
+          "note": "only one class present in y_true; AUC undefined"
+        },
+        "Kerala / Dengue": {
+          "accuracy": 1.0,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "n": 1,
+          "n_positive": 0,
+          "roc_auc": null,
+          "pr_auc": null,
+          "note": "only one class present in y_true; AUC undefined"
+        },
+        "overall": {
+          "accuracy": 0.75,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "n": 4,
+          "n_positive": 1,
+          "roc_auc": 1.0,
+          "pr_auc": 1.0
+        }
+      },
+      "validation": {
+        "West Bengal / Acute Diarrhoeal Disease": {
+          "accuracy": 0.7047619047619048,
+          "precision": 0.3157894736842105,
+          "recall": 0.25,
+          "f1": 0.27906976744186046,
+          "n": 105,
+          "n_positive": 24,
+          "roc_auc": 0.6983024691358025,
+          "pr_auc": 0.33733866786307865
+        },
+        "Gujarat / Acute Diarrhoeal Disease": {
+          "accuracy": 0.7333333333333333,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "n": 105,
+          "n_positive": 25,
+          "roc_auc": 0.6685,
+          "pr_auc": 0.3978221548361321
+        },
+        "Odisha / Acute Diarrhoeal Disease": {
+          "accuracy": 0.7428571428571429,
+          "precision": 0.6190476190476191,
+          "recall": 0.40625,
+          "f1": 0.49056603773584906,
+          "n": 105,
+          "n_positive": 32,
+          "roc_auc": 0.6511130136986302,
+          "pr_auc": 0.48365816515707616
+        },
+        "Kerala / Dengue": {
+          "accuracy": 0.8380952380952381,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "n": 105,
+          "n_positive": 17,
+          "roc_auc": 0.6644385026737968,
+          "pr_auc": 0.29551906410930273
+        },
+        "overall": {
+          "accuracy": 0.7547619047619047,
+          "precision": 0.4418604651162791,
+          "recall": 0.19387755102040816,
+          "f1": 0.2695035460992908,
+          "n": 420,
+          "n_positive": 98,
+          "roc_auc": 0.6743250095069083,
+          "pr_auc": 0.37946467339114714
+        }
+      },
+      "test": {
+        "West Bengal / Acute Diarrhoeal Disease": {
+          "accuracy": 0.5512820512820513,
+          "precision": 0.4166666666666667,
+          "recall": 0.5172413793103449,
+          "f1": 0.46153846153846156,
+          "n": 78,
+          "n_positive": 29,
+          "roc_auc": 0.5098522167487686,
+          "pr_auc": 0.3653351312180094,
+          "pr_auc_ci_lo": 0.259887897251967,
+          "pr_auc_ci_hi": 0.5317148929310578,
+          "pr_auc_ci_n_valid_resamples": 1000
+        },
+        "Gujarat / Acute Diarrhoeal Disease": {
+          "accuracy": 0.7435897435897436,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "n": 78,
+          "n_positive": 19,
+          "roc_auc": 0.5887600356824264,
+          "pr_auc": 0.28671957746488624,
+          "pr_auc_ci_lo": 0.1738455514378296,
+          "pr_auc_ci_hi": 0.4712477334568892,
+          "pr_auc_ci_n_valid_resamples": 1000
+        },
+        "Odisha / Acute Diarrhoeal Disease": {
+          "accuracy": 0.717948717948718,
+          "precision": 0.2857142857142857,
+          "recall": 0.10526315789473684,
+          "f1": 0.15384615384615385,
+          "n": 78,
+          "n_positive": 19,
+          "roc_auc": 0.48617305976806424,
+          "pr_auc": 0.26445715768039113,
+          "pr_auc_ci_lo": 0.159208809717987,
+          "pr_auc_ci_hi": 0.4516188127834895,
+          "pr_auc_ci_n_valid_resamples": 1000
+        },
+        "Kerala / Dengue": {
+          "accuracy": 0.7692307692307693,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "n": 78,
+          "n_positive": 18,
+          "roc_auc": 0.8148148148148148,
+          "pr_auc": 0.46790347420292383,
+          "pr_auc_ci_lo": 0.30446638745523125,
+          "pr_auc_ci_hi": 0.7143498659393333,
+          "pr_auc_ci_n_valid_resamples": 1000
+        },
+        "overall": {
+          "accuracy": 0.6955128205128205,
+          "precision": 0.38636363636363635,
+          "recall": 0.2,
+          "f1": 0.26356589147286824,
+          "n": 312,
+          "n_positive": 85,
+          "roc_auc": 0.6102876392847888,
+          "pr_auc": 0.33939852867507214,
+          "pr_auc_ci_lo": 0.27153957065315487,
+          "pr_auc_ci_hi": 0.4346126322520839,
+          "pr_auc_ci_n_valid_resamples": 1000
+        }
+      }
+    },
+    "base_rate_sarima": {
+      "train": {
+        "West Bengal / Acute Diarrhoeal Disease": 0.0,
+        "Gujarat / Acute Diarrhoeal Disease": 1.0,
+        "Odisha / Acute Diarrhoeal Disease": 0.0,
+        "Kerala / Dengue": 0.0,
+        "overall": 0.25
+      },
+      "validation": {
+        "West Bengal / Acute Diarrhoeal Disease": 0.22857142857142856,
+        "Gujarat / Acute Diarrhoeal Disease": 0.23809523809523808,
+        "Odisha / Acute Diarrhoeal Disease": 0.3047619047619048,
+        "Kerala / Dengue": 0.1619047619047619,
+        "overall": 0.23333333333333334
+      },
+      "test": {
+        "West Bengal / Acute Diarrhoeal Disease": 0.3717948717948718,
+        "Gujarat / Acute Diarrhoeal Disease": 0.24358974358974358,
+        "Odisha / Acute Diarrhoeal Disease": 0.24358974358974358,
+        "Kerala / Dengue": 0.23076923076923078,
+        "overall": 0.2724358974358974
+      }
+    }
+  },
+  "sarima_order_selected": {
+    "West Bengal / Acute Diarrhoeal Disease": [
+      0,
+      1,
+      1
+    ],
+    "Gujarat / Acute Diarrhoeal Disease": [
+      0,
+      1,
+      1
+    ],
+    "Odisha / Acute Diarrhoeal Disease": [
+      0,
+      1,
+      1
+    ],
+    "Kerala / Dengue": [
+      1,
+      1,
+      2
+    ]
+  }
+}

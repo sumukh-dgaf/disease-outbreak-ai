@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<script>(function(){try{document.documentElement.dataset.theme=localStorage.getItem('theme')||'dark';}catch(e){}})();</script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" href="data:,">
+<link rel="stylesheet" href="styles.css">
+<title>Model Comparison — Dengue Outbreak Forecast</title>
+<script src="data/models.js"></script>
+</head>
+<body>
+  <div class="blob b1"></div>
+  <div class="blob b2"></div>
+  <div class="blob b3"></div>
+
+  <div class="wrap" id="app">
+    <nav class="navbar">
+      <a href="index.html">Forecast</a>
+      <a href="about.html">About</a>
+      <a href="models.html" class="active">Models</a>
+      <a href="comparison.html">Comparison</a>
+      <button id="theme-toggle" class="theme-toggle" aria-label="Toggle light/dark theme" title="Toggle theme"></button>
+    </nav>
+
+    <header class="card" style="animation-delay:0s">
+      <h1>Model Comparison</h1>
+      <p class="panel-caption below">Four models trained on identical data and splits, evaluated the same way.</p>
+    </header>
+
+    <div class="card" style="animation-delay:0.05s">
+      <div class="section-title">Combination</div>
+      <div class="selector-desc">Everything below updates for the selected state-disease pair</div>
+      <div class="pill-group" id="combo-group">
+        <span class="segment-highlight"></span>
+        <button class="pill" data-combo="Maharashtra / Dengue">MH/Dengue</button>
+        <button class="pill" data-combo="Karnataka / Acute Diarrhoeal Disease">KA/ADD</button>
+        <button class="pill" data-combo="Maharashtra / Acute Diarrhoeal Disease">MH/ADD</button>
+        <button class="pill" data-combo="West Bengal / Acute Diarrhoeal Disease">WB/ADD</button>
+        <button class="pill" data-combo="Gujarat / Acute Diarrhoeal Disease">GJ/ADD</button>
+        <button class="pill" data-combo="Odisha / Acute Diarrhoeal Disease">OD/ADD</button>
+        <button class="pill" data-combo="Kerala / Dengue">KL/Dengue</button>
+      </div>
+    </div>
+
+    <div class="card" style="animation-delay:0.08s">
+      <p class="panel-caption">What each model is and what it uses — same data and splits for all four.</p>
+      <div class="section-title" style="margin-bottom:12px">Meet the models</div>
+      <div class="model-mini-grid">
+        <div class="model-mini">
+          <h4><span class="swatch" style="background:var(--teal)"></span>XGBoost</h4>
+          <p>Gradient-boosted trees on reporting history and seasonal features.</p>
+        </div>
+        <div class="model-mini">
+          <h4><span class="swatch" style="background:var(--violet)"></span>Logistic regression</h4>
+          <p>A linear classifier on the same features.</p>
+        </div>
+        <div class="model-mini">
+          <h4><span class="swatch" style="background:var(--status-warn)"></span>SARIMA</h4>
+          <p>Classical time-series model forecasting the reporting series directly — the standard baseline in this field.</p>
+        </div>
+        <div class="model-mini">
+          <h4><span class="swatch" style="background:var(--sgb-color)"></span>Stochastic GB</h4>
+          <p>Gradient boosting where each tree trains on a random 80% subsample of the data.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="card" style="animation-delay:0.11s">
+      <p class="panel-caption">Dots are PR-AUC; lines are 95% confidence intervals. Where lines overlap, the models cannot be told apart statistically.</p>
+      <div class="hero-label" style="margin-bottom:14px">PR-AUC by horizon, all four models</div>
+      <div id="ci-chart-wrap"><svg id="ci-chart" viewBox="0 0 860 320" width="100%" height="320"></svg></div>
+      <div class="chart-legend" id="chart-legend"></div>
+    </div>
+
+    <div class="card" style="animation-delay:0.14s">
+      <p class="panel-caption">Every horizon for the selected combination, read straight from the same results files as the chart above.</p>
+      <div class="hero-label" style="margin-bottom:14px">Full results</div>
+      <table class="metrics-table" id="results-table">
+        <thead>
+          <tr><th>Horizon</th><th>Model</th><th>PR-AUC</th><th>95% CI</th><th>Base rate</th><th>Above chance</th></tr>
+        </thead>
+        <tbody><tr><td colspan="6">Loading…</td></tr></tbody>
+      </table>
+    </div>
+
+    <div class="card prose" style="animation-delay:0.17s">
+      <h2>What this shows</h2>
+      <p>Quoted directly from <code>results/findings.md</code>:</p>
+
+      <div class="finding">
+        <p class="claim">F14 — For every (combo, horizon) cell tested — 3 combos × 4 horizons = 12 cells — the test-split bootstrap 95% CI on PR-AUC for XGBoost (reporting-only) overlaps the CI for logistic regression (reporting-only). No combo/horizon shows one model's CI fully separated from the other's, so neither model can be called better than the other with the confidence this bootstrap provides.</p>
+        <p class="cite">F15 and F16 found the same for SARIMA and SGB against both of them, at every combo and horizon (12/12 cells each) — across all four models, none is shown statistically better than another.</p>
+      </div>
+
+      <div class="finding">
+        <p class="claim">F15 — SARIMA's test PR-AUC CI overlaps both XGBoost's and logistic's CI for every combo at every horizon — the same "not statistically distinguishable" pattern F14 found between XGBoost and logistic themselves. SARIMA is not shown to be worse or better than either learned model by this bootstrap.</p>
+        <p class="cite">SARIMA forecasts only the reporting series itself, with no engineered lag/rolling features and no climate data. That it lands in the same statistical tier as the feature-rich ML models suggests much of their apparent skill may come from the same seasonal/autocorrelation signal a classical time-series model captures directly — consistent with F11's interpretation that Maharashtra/Dengue's performance tracks a seasonal regime rather than short-term outbreak dynamics.</p>
+      </div>
+
+      <div class="finding">
+        <p class="claim">F10 / F15 / F16 — Maharashtra/Dengue's lower CI bound clears its base rate for all four models at every horizon tested. Maharashtra/ADD never clears for any model, at any horizon. Karnataka/ADD clears only once across all four models and four horizons: XGBoost at h=1, and only marginally.</p>
+        <p class="cite">One combination works regardless of which model you pick; one combination fails regardless of which model you pick; the third is a single marginal exception, not a reliable result.</p>
+      </div>
+    </div>
+  </div>
+
+<script src="theme.js"></script>
+<script>
+const MODELS_ORDER = ['xgboost', 'logistic', 'sarima', 'sgb'];
+const MODEL_LABELS = { xgboost: 'XGBoost', logistic: 'Logistic', sarima: 'SARIMA', sgb: 'Stochastic GB' };
+const MODEL_COLORS = { xgboost: 'var(--teal)', logistic: 'var(--violet)', sarima: 'var(--status-warn)', sgb: 'var(--sgb-color)' };
+const HORIZONS = ['1', '2', '3', '4'];
+
+let combo = 'Maharashtra / Dengue';
+
+function showError(msg) {
+  const el = document.getElementById('app');
+  const div = document.createElement('div');
+  div.className = 'card error-card';
+  div.textContent = msg;
+  el.prepend(div);
+}
+
+function positionHighlight() {
+  const group = document.getElementById('combo-group');
+  const active = group.querySelector('.pill.active');
+  const highlight = group.querySelector('.segment-highlight');
+  if (!active || !highlight) return;
+  highlight.style.left = active.offsetLeft + 'px';
+  highlight.style.width = active.offsetWidth + 'px';
+}
+
+function setActiveCombo() {
+  document.querySelectorAll('#combo-group .pill').forEach(b => {
+    b.classList.toggle('active', b.dataset.combo === combo);
+  });
+  positionHighlight();
+}
+
+const CHART_W = 860, CHART_H = 320;
+const MARGIN = { top: 20, right: 20, bottom: 36, left: 40 };
+const PLOT_W = CHART_W - MARGIN.left - MARGIN.right;
+const PLOT_H = CHART_H - MARGIN.top - MARGIN.bottom;
+
+function yPos(v) { return MARGIN.top + (1 - v) * PLOT_H; }
+
+function drawChart(data) {
+  const groupW = PLOT_W / HORIZONS.length;
+  const modelW = groupW / (MODELS_ORDER.length + 1);
+  let svg = '';
+
+  [0, 0.25, 0.5, 0.75, 1].forEach(tick => {
+    const y = yPos(tick);
+    svg += `<line x1="${MARGIN.left}" y1="${y}" x2="${CHART_W - MARGIN.right}" y2="${y}" stroke="var(--border)" stroke-width="1" />`;
+    svg += `<text x="${MARGIN.left - 8}" y="${y + 4}" text-anchor="end" font-size="11" fill="var(--muted)">${tick.toFixed(2)}</text>`;
+  });
+
+  HORIZONS.forEach((h, i) => {
+    const groupX = MARGIN.left + i * groupW;
+    const baseRate = data[h]['xgboost'].base_rate; // identical across models for a given combo+horizon
+    const by = yPos(baseRate);
+    svg += `<line x1="${groupX}" y1="${by}" x2="${groupX + groupW}" y2="${by}" stroke="var(--muted)" stroke-width="1.5" stroke-dasharray="4,3" />`;
+    svg += `<text x="${groupX + groupW / 2}" y="${CHART_H - 12}" text-anchor="middle" font-size="12" fill="var(--muted)">h=${h}</text>`;
+
+    MODELS_ORDER.forEach((model, j) => {
+      const m = data[h][model];
+      const x = groupX + modelW * (j + 1);
+      const yLo = yPos(m.pr_auc_ci_lo), yHi = yPos(m.pr_auc_ci_hi), yMid = yPos(m.pr_auc);
+      const color = MODEL_COLORS[model];
+      svg += `<line x1="${x}" y1="${yLo}" x2="${x}" y2="${yHi}" stroke="${color}" stroke-width="2.5" />`;
+      svg += `<circle cx="${x}" cy="${yMid}" r="4.5" fill="${color}" />`;
+    });
+  });
+
+  document.getElementById('ci-chart').innerHTML = svg;
+
+  const legend = document.getElementById('chart-legend');
+  legend.innerHTML = MODELS_ORDER.map(m =>
+    `<span><span class="swatch" style="background:${MODEL_COLORS[m]}"></span>${MODEL_LABELS[m]}</span>`
+  ).join('') + '<span><span class="swatch" style="background:var(--muted)"></span>base rate (dashed)</span>';
+}
+
+function renderTable(data) {
+  const tbody = document.querySelector('#results-table tbody');
+  const rows = [];
+  for (const h of HORIZONS) {
+    for (const model of MODELS_ORDER) {
+      const m = data[h][model];
+      rows.push(`<tr>
+        <td>${h} wk</td>
+        <td>${MODEL_LABELS[model]}</td>
+        <td>${m.pr_auc.toFixed(3)}</td>
+        <td>[${m.pr_auc_ci_lo.toFixed(3)}, ${m.pr_auc_ci_hi.toFixed(3)}]</td>
+        <td>${m.base_rate.toFixed(3)}</td>
+        <td><span class="above-badge ${m.lower_ci_above_base ? 'yes' : 'no'}">${m.lower_ci_above_base ? 'Yes' : 'No'}</span></td>
+      </tr>`);
+    }
+  }
+  tbody.innerHTML = rows.join('');
+}
+
+function render() {
+  const data = window.__DATA__.models.data[combo];
+  drawChart(data);
+  renderTable(data);
+}
+
+document.getElementById('combo-group').addEventListener('click', e => {
+  const b = e.target.closest('.pill'); if (!b) return;
+  combo = b.dataset.combo;
+  setActiveCombo();
+  render();
+});
+
+function init() {
+  if (!window.__DATA__ || !window.__DATA__.models) {
+    showError("Couldn't load model comparison data — data/models.js didn't load. Run python scripts/precompute.py to (re)generate frontend/data/.");
+    return;
+  }
+  setActiveCombo();
+  render();
+}
+
+setActiveCombo();
+init();
+</script>
+</body>
+</html>

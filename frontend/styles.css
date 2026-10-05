@@ -7,6 +7,7 @@
   --muted: #9aa3b8;
   --teal: #2dd4bf;
   --violet: #a78bfa;
+  --sgb-color: #f472b6;
   --status-ok: #2dd4bf;
   --status-warn: #f59e0b;
   --status-bad: #f87171;
@@ -247,3 +248,22 @@ canvas { width: 100%; display: block; border-radius: 14px; }
 .combo-card dd { margin: 2px 0 0; font-variant-numeric: tabular-nums; }
 .combo-card .sentence { color: var(--muted); font-size: 0.85rem; line-height: 1.5; margin-top: 14px; }
 .combo-card .panel-caption { margin: 0 0 12px; }
+
+/* Model Comparison page (Page 4) */
+.model-mini-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 14px; }
+.model-mini { border: 1px solid var(--border); border-radius: 14px; padding: 14px 16px; background: var(--control-bg); }
+.model-mini h4 { margin: 0 0 6px; font-size: 0.92rem; display: flex; align-items: center; gap: 8px; }
+.model-mini .swatch { width: 10px; height: 10px; border-radius: 50%; flex: none; }
+.model-mini p { margin: 0; color: var(--muted); font-size: 0.82rem; line-height: 1.5; }
+
+.chart-legend { display: flex; flex-wrap: wrap; gap: 16px; margin-top: 10px; font-size: 0.8rem; color: var(--muted); }
+.chart-legend .swatch { display: inline-block; width: 10px; height: 10px; border-radius: 50%; margin-right: 6px; vertical-align: middle; }
+
+.above-badge { display: inline-block; font-size: 0.72rem; font-weight: 600; padding: 2px 8px; border-radius: 999px; }
+.above-badge.yes { background: var(--status-ok-tint); color: var(--status-ok); }
+.above-badge.no { background: var(--status-bad-tint); color: var(--status-bad); }
+
+/* 7-option combo selector on the Models page needs tighter spacing than the
+   2-4-option selectors elsewhere, which keep their original padding/size. */
+#combo-group.pill-group { padding: 3px; }
+#combo-group .pill { padding: 8px 6px; font-size: 0.78rem; }
