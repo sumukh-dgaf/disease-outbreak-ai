@@ -12,6 +12,11 @@ __pycache__/
 data/*
 !data/**/.gitkeep
 
+# Submission dataset: splits + the original source CSV ARE tracked.
+# data/raw/, data/processed/, data/external/ stay ignored via the data/* rule above.
+!data/splits/
+!data/epiclim_Final_data.csv
+
 # Model binaries
 *.h5
 *.pkl

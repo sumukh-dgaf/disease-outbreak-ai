@@ -12,6 +12,7 @@ geopandas
 folium
 streamlit
 requests
+beautifulsoup4
 pyarrow
 jupyter
 pdfplumber

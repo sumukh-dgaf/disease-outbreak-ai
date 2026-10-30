@@ -46,3 +46,28 @@ precomputed JSON:
 ```
 uvicorn backend.app:app --reload
 ```
+
+## Submission contents
+
+For the CSET225 submission:
+
+- **Code**: [`src/`](src/) (data pipeline, feature engineering, model
+  training — XGBoost, logistic regression, SARIMA, stochastic gradient
+  boosting), [`scripts/`](scripts/) (precompute/export utilities),
+  [`frontend/`](frontend/) (the static results site).
+- **Dataset with train/validation/test splits**:
+  [`data/epiclim_Final_data.csv`](data/epiclim_Final_data.csv) (the
+  original EpiClim source data) and [`data/splits/`](data/splits/) (21
+  CSVs — train/validation/test per state-disease combination; see
+  [`data/splits/README.md`](data/splits/README.md) for the split
+  boundaries and column documentation).
+- **Papers**: [`papers/`](papers/) — TODO: directory does not exist yet;
+  none of the 4 expected files (`base_paper_ElMorr2024_scoping_review.pdf`,
+  `base_paper_Kaur2025_EpiClim.pdf`, `our_paper_IEEE.pdf`,
+  `presentation_slides.pdf`) have been added.
+- **Slides**: `papers/presentation_slides.pdf` — TODO: not yet added (see
+  Papers above).
+- **Live demo**: TODO — no deployment URL has been confirmed yet.
+
+**Team**: Sumukh Gupta (S24CSEU0570), Aaditya Goel (S24CSEU0614), Kushika
+Mishra (S24CSEU0652), Neya Tripathi (S24CSEU0609).

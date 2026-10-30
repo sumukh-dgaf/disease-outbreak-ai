@@ -20,6 +20,9 @@
       "WebFetch(domain:power.larc.nasa.gov)",
       "WebFetch(domain:archive-api.open-meteo.com)",
       "WebFetch(domain:dhs.kerala.gov.in)",
+      "WebFetch(domain:idsp.mohfw.gov.in)",
+      "WebFetch(domain:ncdc.mohfw.gov.in)",
+      "WebFetch(domain:ncvbdc.mohfw.gov.in)",
       "WebSearch"
     ],
     "deny": [
