@@ -27,3 +27,5 @@ data/*
 models/
 
 .vercel
+idsp_download_log.txt
+scratch_weekly_outbreaks.html
