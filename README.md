@@ -62,12 +62,12 @@ For the CSET225 submission:
   [`data/splits/README.md`](data/splits/README.md) for the split
   boundaries and column documentation).
 - **Papers**: [`papers/`](papers/) —
-  [`el-morr-et-al-2024-ai-based-epidemic-and-pandemic-early-warning-systems-a-systematic-scoping-review.pdf`](papers/el-morr-et-al-2024-ai-based-epidemic-and-pandemic-early-warning-systems-a-systematic-scoping-review.pdf),
-  [`EpiClim_compressed.pdf`](papers/EpiClim_compressed.pdf),
-  [`IEEE_Conference_Template (3).pdf`](papers/IEEE_Conference_Template%20%283%29.pdf).
-- **Slides**: [`papers/Disease Outbreak Forecasting.pptx`](papers/Disease%20Outbreak%20Forecasting.pptx)
+  [`base_paper_ElMorr2024_scoping_review.pdf`](papers/base_paper_ElMorr2024_scoping_review.pdf),
+  [`base_paper_Kaur2025_EpiClim.pdf`](papers/base_paper_Kaur2025_EpiClim.pdf),
+  [`our_paper_IEEE.pdf`](papers/our_paper_IEEE.pdf).
+- **Slides**: [`papers/presentation_slides.pptx`](papers/presentation_slides.pptx)
   (.pptx, not .pdf).
-- **Live demo**: TODO — no deployment URL has been confirmed yet.
+- **Live demo**: [https://disease-outbreak-ai-nine.vercel.app](https://disease-outbreak-ai-nine.vercel.app)
 
 **Team**: Sumukh Gupta (S24CSEU0570), Aaditya Goel (S24CSEU0614), Kushika
 Mishra (S24CSEU0652), Neya Tripathi (S24CSEU0609).
